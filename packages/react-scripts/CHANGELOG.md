@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
--
+- [BREAKING] `@babel/plugin-syntax-export-namespace-from` -> `export * as`
 
 ### Fixed
 
