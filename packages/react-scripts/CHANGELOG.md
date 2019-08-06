@@ -1,0 +1,230 @@
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [@ackee/react-scripts@1.0.0-alpha.0] - Unreleased
+
+### Removed
+
+-
+
+### Fixed
+
+-
+
+### Updated
+
+- Upgraded to `react-scripts@3.0.1`.
+- Change internal structure to simplify react-scripts upgrades and maintainability.
+
+### Added
+
+-
+
+## [@ackee/react-scripts@0.11.6] - 2019-07-18
+
+### Fixed
+
+- Add back `@babel/plugin-syntax-export-namespace-from` (it'll be removed in next major version).
+
+## [@ackee/react-scripts@0.11.4] - 2019-07-15
+
+### Added
+
+- `babel-plugin-custom-import-path-transform` for converting `antd/lib/*` to `antd/es/*` to remove duplicit modules and support tree-shaking.
+
+### Updated
+
+- `@ackee/petrus@4.0.0-beta.4`
+- `@ackee/antonio@3.0.0-beta.3`
+
+## [@ackee/react-scripts@0.11.3] - 2019-07-14
+
+### Added
+
+- `webpack-ant-icon-loader` webpack plugin for excluding antd icons into separate bundle resulting in significant main bundle size reduction (about 28% down of gzipped size).
+
+## [@ackee/react-scripts@0.11.1] - 2019-07-14
+
+### Fixed
+
+- sentry - URL to project dns
+
+## Updated
+
+- `@ackee/redux-utils`: `2.0.0-beta.2` -> `2.0.0-beta.3`
+- `connected-react-router` to `6.5.x`,
+
+## [@ackee/react-scripts@0.11.0] - 2019-06-28
+
+### Added
+
+- use `loglevel` instead of `console` object directly
+- check if window object is avail. in current env.
+- Sentry feeback dialog
+
+### Updated
+
+- upgraded dependencies (including `redux-saga` to version `1.x`)
+- move Sentry `dsn` to global config
+
+## [@ackee/react-scripts@0.10.2] - 2019-05-27
+
+### Updated
+
+- Change source directory for antd imports from `antd/lib` to `antd/es`.
+
+## [@ackee/react-scripts@0.10.1] - 2019-05-02
+
+### Removed
+
+- Remove unneeded `localforage` package.
+
+### Add
+
+- Add `babel-plugin-transform-imports` for improving tree-shaking.
+
+## [@ackee/react-scripts@0.10.0] - 2019-04-13
+
+### Removed
+
+- `components/FormFields` (in a favor of components from `@ackee/mateus`)
+- `routingHistory` (reason: rarely used)
+- code-splitting for `application` module ([reason](https://github.com/AckeeCZ/create-react-app/pull/33#discussion_r271175139))
+
+### Fixed
+
+- import of the `loadable` HOC
+
+### Added
+
+- initialize Sentry in `requestIdleCallback`
+
+### Updated
+
+- READMEs to match with the new core structure
+- The `core` module - divide global configuration between core sub-modules.
+- Move global `localization` to `core/modules/localization`, but leave `translation` at the global level.
+
+For more details see this [MR](https://github.com/AckeeCZ/create-react-app/pull/33).
+
+## [@ackee/react-scripts@0.9.6] - 2019-03-30
+
+### Fixed
+
+- analyze-dependencies: fix path to webpack config (resolves #18)
+- issue #24, #25 resolves itself (react-router-dom@5.0.0 has been released)
+
+### Added
+
+add 'how to use' section to readme - resolves #20, #28
+
+### Updated
+
+- upgrade template depenencies (`@ackee/redux-utils`, `react-router-dom`)
+- upgrade dev dependencies (`react-hot-loader`, etc.)
+- rebase to the latest CRA version (`v2.1.8`)
+
+## [@ackee/react-scripts@0.9.2] - 2019-03-07
+
+### Added
+
+- Allow `testPathIgnorePatterns` Jest option
+
+## [@ackee/react-scripts@0.9.1] - 2019-02-26
+
+### Added
+
+- Enable `exportOnlyLocal` option - see [Sharing variable between CSS & JS](https://frontend-cookbook.ack.ee/pages/SharingVariables.html) to understand why it's useful.
+
+## [@ackee/react-scripts@0.9.0] - 2019-02-05
+
+### Added
+
+- `@ackee/redux-utils` - `createType`
+- `less-loader` into webpack config which enables us to import Ant design styles as a `less` files and override its variables.
+
+### Updated
+
+- `react-scripts` dependencies
+
+### Removed
+
+- `redirectSaga` - It's redundant. The `react-route-dom` includes `<Redirect>` component that fulfills this purpose.
+- routing saga - Global route handlers were removed and replaced with local [`routeDependencies`](https://github.com/AckeeCZ/chris#routedependenciesconfig-config--component--componentwithroutedependencies) HOC from `@ackee/chris` package.
+- `ackee-frontend-toolkit` - single features/modules were moved to special packages (e.g. `@ackee/chris`, `@ackee/jerome`, etc.), so there is now no need to preserve this package. It became redundant.
+
+### Fixed
+
+- path to the webpack config in package.json
+- [scripts/use-auth-module]: path to antonio config file in use-auth-module dependencies -> activate those `@use-auth-module-(begin|end)` comments
+- [Fela]: syntax error in `applyFonts` method
+
+## [@ackee/react-scripts@0.8.1] - 2019-01-17
+
+### Added
+
+- `webpack-bundle-analyzer` package with `bundle-analyzer` script that builds app in production mode with `--stats` flag enabled and then starts local server with the stats result.
+
+### Updated
+
+- env. configurations are now imported dynamically based on current `NODE_ENV`
+
+## [@ackee/react-scripts@0.8.0] - 2019-01-17
+
+### Added
+
+- new env. variable `REACT_WATCH_NODE_MODULES`. This will force to watching for any changes in node_modules.
+- add [`worker-plugin`](https://github.com/GoogleChromeLabs/worker-plugin) to the Webpack config
+
+### Updated
+
+- rebase to the latest version - `create-react-app@2.1.3`
+- set `CHOKIDAR_USEPOLLING` to `false` by default to make rebuilds faster (`.env` file)
+- set "no-restricted-globals": "off" to disable error when using the self global object in web worker context
+
+## [@ackee/react-scripts@0.7.0] - 2019-01-15
+
+### Added
+
+- Add Fela plugins:
+  - `fela-plugin-friendly-pseudo-class`
+  - `fela-plugin-named-keys`
+  - `fela-plugin-unit`
+- Try to eliminate dependecy on `ackee-frontend-toolkit` by adding:
+  - [`@ackee/mateus`](https://github.com/AckeeCZ/mateus) package for handling forms
+  - [`@ackee/chris`](https://github.com/AckeeCZ/chris) package for handling routing
+- Add `redux-sentry-middleware` package for taking snapshot of Redux state for Sentry
+
+### Updated
+
+- Fela - rename `*.rule.js` or `*.rules.js` to `*.styles.js`
+
+### Fixed
+
+- finish migration to Fela@10
+- move Fela `createRenderer` out of render method
+
+## [@ackee/react-scripts@0.6.9] - 2018-12-20
+
+- nothing new - test deploy
+
+## [0.6.8] - 2018-12-19
+
+### Added
+
+- this.CHANGELOG
+
+## [0.6.7] - 2018-12-19
+
+### Added
+
+- first version automatically deployed by travis and tagged commit
+
+[unreleased]: https://github.com/AckeeCZ/create-react-app/compare/@ackee/react-scripts@0.7.9...HEAD
+[0.6.9]: https://github.com/AckeeCZ/create-react-app/compare/@ackee/react-scripts@0.6.9...v0.6.8
+[0.6.8]: https://github.com/AckeeCZ/create-react-app/compare/v0.6.7...v0.6.8
+[0.6.7]: https://github.com/AckeeCZ/create-react-app/compare/003d9e7...v0.6.7
