@@ -1,7 +1,7 @@
 'use strict';
 
 const fs = require('fs-extra');
-const paths = require('./paths');
+const paths = require('../config/paths');
 
 module.exports = async function transformPackageJson() {
   // transform react-scripts/package.json
@@ -25,5 +25,5 @@ module.exports = async function transformPackageJson() {
 
   const formattedFileContent = JSON.stringify(finalPackageJson, null, 2);
 
-  await fs.writeFile(paths.packageJson, formattedFileContent);
+  return fs.writeFile(paths.packageJson, formattedFileContent);
 };

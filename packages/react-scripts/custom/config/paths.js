@@ -11,4 +11,6 @@ const paths = {
   customPackgeJson: resolveRoot('custom/package.json'),
 };
 
+exports.resolveRoot = resolveRoot;
+
 module.exports = paths;
