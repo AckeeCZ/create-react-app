@@ -1,0 +1,27 @@
+menu.title: 'Skeleton'
+menu.user.logout: 'Odhlásit'
+
+languages.cs: 'Čeština'
+languages.en: 'Angličtina'
+
+loader.title: 'Načítám'
+loader.title.creating: 'Vytvářím'
+loader.title.updating: 'Ukládám'
+
+login.title: 'Skeleton'
+login.subtitle: 'Přihlašte se do systému'
+login.email: 'Přihlašovací jméno'
+login.password: 'Heslo'
+login.button: 'Přihlásit se'
+login.tip: 'Přihlašuji'
+login.error: 'Zadané jméno nebo heslo neexistuje'
+login.submit: 'Potvrdit'
+logout: 'Odhlásit'
+
+page.home.title: 'Home'
+page.home.content: 'Hello world'
+page.auth.title: 'Auth'
+page.noMatch.title: 'No match'
+page.noMatch.content: 'Stránka nenalezena'
+
+error.general: 'Something went wrong.'
