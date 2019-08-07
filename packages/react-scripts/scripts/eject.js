@@ -23,6 +23,7 @@ const createJestConfig = require('./utils/createJestConfig');
 const inquirer = require('react-dev-utils/inquirer');
 const spawnSync = require('react-dev-utils/crossSpawn').sync;
 const os = require('os');
+const { modifyPackageJson } = require('../custom/scripts/eject');
 
 const green = chalk.green;
 const cyan = chalk.cyan;
@@ -204,6 +205,9 @@ inquirer
       .forEach(key => {
         appPackage.dependencies[key] = unsortedDependencies[key];
       });
+    // @ackee/react-scripts - beginning
+    modifyPackageJson(appPackage);
+    // @ackee/react-scripts - end
     console.log();
 
     console.log(cyan('Updating the scripts'));
