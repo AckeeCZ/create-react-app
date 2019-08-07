@@ -1,0 +1,99 @@
+{
+    "dependencies": {
+        "@ackee/antonio": "3.0.0-beta.5",
+        "@ackee/chris": "1.x",
+        "@ackee/jerome": "1.x",
+        "@ackee/lucas": "0.x",
+        "@ackee/mateus": "1.x",
+        "@ackee/petrus": "4.0.0-beta.11",
+        "@ackee/redux-utils": "2.0.0-beta.3",
+        "@sentry/browser": "5.x",
+        "antd": "3.x",
+        "connected-react-router": "6.5.x",
+        "fela": "10.x",
+        "fela-monolithic": "10.x",
+        "fela-plugin-friendly-pseudo-class": "10.x",
+        "fela-plugin-named-keys": "10.x",
+        "fela-plugin-unit": "10.x",
+        "history": "4.x",
+        "lodash": "4.17.x",
+        "loglevel": "1.x",
+        "react-fela": "10.x",
+        "react-intl": "2.x",
+        "react-redux": "7.x",
+        "react-router-dom": "5.x",
+        "redux": "4.x",
+        "redux-form": "8.x",
+        "redux-saga": "1.x",
+        "redux-sentry-middleware": "0.x",
+        "reselect": "4.x"
+    },
+    "devDependencies": {
+        "fela-plugin-validator": "10.x",
+        "husky": "3.x",
+        "hygen": "1.x",
+        "imagemin-lint-staged": "0.x",
+        "lint-staged": "9.x"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "yarn build:dev",
+        "build:dev": "react-scripts build --target=development",
+        "build:stage": "react-scripts build --target=stage",
+        "build:prod": "react-scripts build --target=production",
+        "test:watch": "react-scripts test",
+        "test": "cross-env CI=true react-scripts test --env=jsdom",
+        "eject": "react-scripts eject",
+        "circular-dependencies": "react-scripts circular-dependencies --circular",
+        "create-module": "hygen module new --name $1",
+        "cypress:open": "cypress open",
+        "analyze-bundle": "yarn build:prod --stats && webpack-bundle-analyzer build/bundle-stats.json"
+    },
+    "eslintConfig": {
+        "extends": [
+            "react-app",
+            "ackee",
+            "prettier"
+        ],
+        "rules": {
+            "no-restricted-globals": "off"
+        },
+        "settings": {
+            "import/resolver": {
+                "webpack": {
+                    "config": "./node_modules/@ackee/react-scripts/config/webpack.config.js"
+                }
+            }
+        },
+        "env": {
+            "browser": true,
+            "jest": true,
+            "cypress/globals": true
+        },
+        "plugins": [
+            "cypress"
+        ]
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged",
+            "pre-push": "yarn circular-dependencies && yarn test"
+        }
+    },
+    "lint-staged": {
+        "*.{js,jsx,json,scss,less,css,md}": [
+            "prettier --config ./prettier.config.js --write",
+            "git add"
+        ],
+        "**/*.{png,jpeg,jpg,gif,svg}": [
+            "imagemin-lint-staged",
+            "git add"
+        ]
+    },
+    "jest": {
+        "testPathIgnorePatterns": [
+            "<rootDir>/node_modules",
+            "<rootDir>/src/config/config.test.js"
+        ]
+    }
+}
