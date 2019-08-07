@@ -11,6 +11,10 @@ const fs = require('fs');
 const chalk = require('react-dev-utils/chalk');
 const paths = require('../../config/paths');
 const modules = require('../../config/modules');
+const {
+  transformConfig,
+  transformSupportedKeys,
+} = require('../../custom/scripts/utils/createJestConfig');
 
 module.exports = (resolve, rootDir, isEjecting) => {
   // Use this instead of `paths.testsSetup` to avoid putting
@@ -22,9 +26,8 @@ module.exports = (resolve, rootDir, isEjecting) => {
     ? `<rootDir>/src/setupTests.${setupTestsFileExtension}`
     : undefined;
 
-  const config = {
+  const config = transformConfig({
     roots: ['<rootDir>/src'],
-
     collectCoverageFrom: ['src/**/*.{js,jsx,ts,tsx}', '!src/**/*.d.ts'],
 
     setupFiles: [
@@ -65,12 +68,12 @@ module.exports = (resolve, rootDir, isEjecting) => {
       'jest-watch-typeahead/filename',
       'jest-watch-typeahead/testname',
     ],
-  };
+  });
   if (rootDir) {
     config.rootDir = rootDir;
   }
   const overrides = Object.assign({}, require(paths.appPackageJson).jest);
-  const supportedKeys = [
+  const supportedKeys = transformSupportedKeys([
     'clearMocks',
     'collectCoverageFrom',
     'coveragePathIgnorePatterns',
@@ -88,7 +91,7 @@ module.exports = (resolve, rootDir, isEjecting) => {
     'transform',
     'transformIgnorePatterns',
     'watchPathIgnorePatterns',
-  ];
+  ]);
   if (overrides) {
     supportedKeys.forEach(key => {
       if (Object.prototype.hasOwnProperty.call(overrides, key)) {
