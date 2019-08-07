@@ -1,6 +1,6 @@
 'use strict';
 
-const sortByKey = require('./sortByKey');
+const sortByKey = require('../utils/sortByKey');
 
 const mergeDependencies = (currentDependencies = {}, newDependencies = {}) =>
   sortByKey({

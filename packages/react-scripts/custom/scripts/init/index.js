@@ -3,11 +3,10 @@
 const { execSync } = require('child_process');
 const { defaultBrowsers } = require('react-dev-utils/browsersHelper');
 
+const deleteObjectKeys = require('./utils/deleteObjectKeys');
 const { authModulePrompt } = require('./useAuthModule');
-
-const installDependencies = require('./utils/installDependencies');
+const installDependencies = require('./installDependencies');
 const mergeDependencies = require('./mergeDependencies');
-const deleteObjectKeys = require('./deleteObjectKeys');
 const getPackage = require('./getPackage');
 
 exports.gitCommitAmend = () => {
