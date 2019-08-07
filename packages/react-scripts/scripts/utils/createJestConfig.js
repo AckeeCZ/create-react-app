@@ -11,6 +11,10 @@ const fs = require('fs');
 const chalk = require('react-dev-utils/chalk');
 const paths = require('../../config/paths');
 const modules = require('../../config/modules');
+const {
+  transformConfig,
+  transformSupportedKeys
+} = require('../../custom/scripts/utils/createJestConfig');
 
 module.exports = (resolve, rootDir, isEjecting) => {
   // Use this instead of `paths.testsSetup` to avoid putting
@@ -22,21 +26,20 @@ module.exports = (resolve, rootDir, isEjecting) => {
     ? `<rootDir>/src/setupTests.${setupTestsFileExtension}`
     : undefined;
 
-  const config = {
+  const config = transformConfig({
     roots: ['<rootDir>/src'],
-
     collectCoverageFrom: ['src/**/*.{js,jsx,ts,tsx}', '!src/**/*.d.ts'],
 
     setupFiles: [
       isEjecting
         ? 'react-app-polyfill/jsdom'
-        : require.resolve('react-app-polyfill/jsdom'),
+        : require.resolve('react-app-polyfill/jsdom')
     ],
 
     setupFilesAfterEnv: setupTestsFile ? [setupTestsFile] : [],
     testMatch: [
       '<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}',
-      '<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}',
+      '<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}'
     ],
     testEnvironment: 'jsdom',
     testRunner: require.resolve('jest-circus/runner'),
@@ -47,32 +50,32 @@ module.exports = (resolve, rootDir, isEjecting) => {
       '^.+\\.css$': resolve('config/jest/cssTransform.js'),
       '^(?!.*\\.(js|jsx|mjs|cjs|ts|tsx|css|json)$)': resolve(
         'config/jest/fileTransform.js'
-      ),
+      )
     },
     transformIgnorePatterns: [
       '[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs|cjs|ts|tsx)$',
-      '^.+\\.module\\.(css|sass|scss)$',
+      '^.+\\.module\\.(css|sass|scss)$'
     ],
     modulePaths: modules.additionalModulePaths || [],
     moduleNameMapper: {
       '^react-native$': 'react-native-web',
       '^.+\\.module\\.(css|sass|scss)$': 'identity-obj-proxy',
-      ...(modules.jestAliases || {}),
+      ...(modules.jestAliases || {})
     },
     moduleFileExtensions: [...paths.moduleFileExtensions, 'node'].filter(
       ext => !ext.includes('mjs')
     ),
     watchPlugins: [
       'jest-watch-typeahead/filename',
-      'jest-watch-typeahead/testname',
+      'jest-watch-typeahead/testname'
     ],
-    resetMocks: true,
-  };
+    resetMocks: true
+  });
   if (rootDir) {
     config.rootDir = rootDir;
   }
   const overrides = Object.assign({}, require(paths.appPackageJson).jest);
-  const supportedKeys = [
+  const supportedKeys = transformSupportedKeys([
     'clearMocks',
     'collectCoverageFrom',
     'coveragePathIgnorePatterns',
@@ -90,8 +93,8 @@ module.exports = (resolve, rootDir, isEjecting) => {
     'testMatch',
     'transform',
     'transformIgnorePatterns',
-    'watchPathIgnorePatterns',
-  ];
+    'watchPathIgnorePatterns'
+  ]);
   if (overrides) {
     supportedKeys.forEach(key => {
       if (Object.prototype.hasOwnProperty.call(overrides, key)) {
