@@ -22,6 +22,13 @@ const spawn = require('react-dev-utils/crossSpawn');
 const { defaultBrowsers } = require('react-dev-utils/browsersHelper');
 const os = require('os');
 const verifyTypeScriptSetup = require('./utils/verifyTypeScriptSetup');
+// @ackee/react-scripts - beginning
+const {
+  gitCommitAmend,
+  modifyTemplatePackageJson,
+  installDependencies,
+} = require('../custom/scripts/init');
+// @ackee/react-scripts - end
 
 function isInGitRepository() {
   try {
@@ -81,7 +88,7 @@ function tryGitCommit(appPath) {
   }
 }
 
-module.exports = function(
+module.exports = async function(
   appPath,
   appName,
   verbose,
@@ -205,6 +212,10 @@ module.exports = function(
   templatePackageToReplace.forEach(key => {
     appPackage[key] = templatePackage[key];
   });
+  
+  // @ackee/react-scripts - beginning
+  await modifyTemplatePackageJson(ownPath, appPackage);
+  // @ackee/react-scripts - end
 
   fs.writeFileSync(
     path.join(appPath, 'package.json'),
@@ -331,10 +342,22 @@ module.exports = function(
   }
 
   // Create git commit if git repo was initialized
-  if (initializedGit && tryGitCommit(appPath)) {
+  // @ackee/react-scripts - beginning
+  const didGitInit = tryGitInit(appPath);
+  if (initializedGit && didGitInit) {
     console.log();
     console.log('Created git commit.');
   }
+
+  await installDependencies(appPackage, {
+    useYarn,
+    verbose,
+  });
+  if (didGitInit) {
+    // append changes to the last commit (the init commit) caused by installing postponed devDependencies
+    gitCommitAmend();
+  }
+  // @ackee/react-scripts - end
 
   // Display the most elegant way to cd.
   // This needs to handle an undefined originalDirectory for
