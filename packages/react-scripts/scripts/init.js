@@ -28,6 +28,7 @@ const {
   modifyTemplatePackageJson,
   installDependencies
 } = require('../custom/scripts/init');
+const setAliases = require('../custom/scripts/aliases');
 // @ackee/react-scripts - end
 
 function isInGitRepository() {
@@ -367,10 +368,15 @@ module.exports = async function(
     console.log('Created git commit.');
   }
 
-  await installDependencies(appPackage, {
+  const installTask = installDependencies(appPackage, {
     useYarn,
     verbose
   });
+
+  const setAliasesTask = setAliases();
+
+  await Promise.all([installTask, setAliasesTask]);
+
   if (didGitInit) {
     // append changes to the last commit (the init commit) caused by installing postponed devDependencies
     gitCommitAmend();
