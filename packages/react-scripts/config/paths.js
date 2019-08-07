@@ -73,9 +73,14 @@ module.exports = {
   proxySetup: resolveApp('src/setupProxy.js'),
   appNodeModules: resolveApp('node_modules'),
   publicUrlOrPath,
+  // @ackee/react-scripts - beginning
+  prettierConfig: resolveApp('prettier.config.js'),
+  appConfig: resolveApp('config/custom'),
+  webpackConfig: resolveApp('config/webpack.config.js'),
+  // @ackee/react-scripts - end
 };
 
-// @remove-on-eject-begin
+// @remove-on-eject-beginning
 const resolveOwn = relativePath => path.resolve(__dirname, '..', relativePath);
 
 // config before eject: we're in ./node_modules/react-scripts/config/
@@ -95,11 +100,20 @@ module.exports = {
   proxySetup: resolveApp('src/setupProxy.js'),
   appNodeModules: resolveApp('node_modules'),
   publicUrlOrPath,
+  // @ackee/react-scripts - beginning
+  prettierConfig: resolveApp('prettier.config.js'),
+  appConfig: resolveApp('config'),
+  // @ackee/react-scripts - end
+
   // These properties only exist before ejecting:
   ownPath: resolveOwn('.'),
   ownNodeModules: resolveOwn('node_modules'), // This is empty on npm 3
   appTypeDeclarations: resolveApp('src/react-app-env.d.ts'),
   ownTypeDeclarations: resolveOwn('lib/react-app.d.ts'),
+
+  // @ackee/react-scripts - beginning
+  webpackConfig: resolveOwn('config/webpack.config.js'),
+  // @ackee/react-scripts - end
 };
 
 const ownPackageJson = require('../package.json');
@@ -130,11 +144,20 @@ if (
     proxySetup: resolveOwn(`${templatePath}/src/setupProxy.js`),
     appNodeModules: resolveOwn('node_modules'),
     publicUrlOrPath,
+    // @ackee/react-scripts - beginning
+    prettierConfig: resolveOwn('template/prettier.config.js'),
+    appConfig: resolveOwn('template/config'),
+    // @ackee/react-scripts - end
+
     // These properties only exist before ejecting:
     ownPath: resolveOwn('.'),
     ownNodeModules: resolveOwn('node_modules'),
     appTypeDeclarations: resolveOwn(`${templatePath}/src/react-app-env.d.ts`),
     ownTypeDeclarations: resolveOwn('lib/react-app.d.ts'),
+
+    // @ackee/react-scripts - beginning
+    webpackConfig: resolveOwn('config/webpack.config.js'),
+    // @ackee/react-scripts - end
   };
 }
 // @remove-on-eject-end
