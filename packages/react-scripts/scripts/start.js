@@ -47,6 +47,9 @@ const openBrowser = require('react-dev-utils/openBrowser');
 const paths = require('../config/paths');
 const configFactory = require('../config/webpack.config');
 const createDevServerConfig = require('../config/webpackDevServer.config');
+// @ackee/react-scripts - beginning
+const setAliases = require('../custom/scripts/aliases');
+// @ackee/react-scripts - end
 
 const useYarn = fs.existsSync(paths.yarnLockFile);
 const isInteractive = process.stdout.isTTY;
@@ -81,6 +84,9 @@ if (process.env.HOST) {
 // browserslist defaults.
 const { checkBrowsers } = require('react-dev-utils/browsersHelper');
 checkBrowsers(paths.appPath, isInteractive)
+  // @ackee/react-scripts - beginning
+  .then(setAliases)
+  // @ackee/react-scripts - end
   .then(() => {
     // We attempt to use the default port but if it is busy, we offer the user to
     // run on a different port. `choosePort()` Promise resolves to the next free port.

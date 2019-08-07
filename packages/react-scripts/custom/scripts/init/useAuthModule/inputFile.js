@@ -2,11 +2,9 @@
 
 const path = require('path');
 const chalk = require('chalk');
-const templateSrcPath = path.resolve(
-  path.join(__dirname, '../../../../template/src')
-);
+const paths = require('../../../../config/paths');
 
-const resolveTemplateSrc = file => path.resolve(templateSrcPath, file);
+const resolveTemplateSrc = file => path.resolve(paths.appSrc, file);
 
 module.exports = {
   useAuthModule: prompt(

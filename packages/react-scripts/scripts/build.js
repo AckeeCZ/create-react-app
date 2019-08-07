@@ -56,6 +56,7 @@ const FileSizeReporter = require('react-dev-utils/FileSizeReporter');
 const printBuildError = require('react-dev-utils/printBuildError');
 // @ackee/react-scripts - beginning
 const bfj = require('bfj');
+const setAliases = require('../custom/scripts/aliases');
 // @ackee/react-scripts - end
 
 const measureFileSizesBeforeBuild =
@@ -85,6 +86,9 @@ const config = configFactory('production');
 // browserslist defaults.
 const { checkBrowsers } = require('react-dev-utils/browsersHelper');
 checkBrowsers(paths.appPath, isInteractive)
+  // @ackee/react-scripts - beginning
+  .then(setAliases)
+  // @ackee/react-scripts - end
   .then(() => {
     // First, read the current file sizes in build directory.
     // This lets us display how much they changed later.
