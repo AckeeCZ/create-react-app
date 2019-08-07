@@ -23,6 +23,7 @@ const paths = require('../config/paths');
 const createJestConfig = require('./utils/createJestConfig');
 const spawnSync = require('react-dev-utils/crossSpawn').sync;
 const os = require('os');
+const { modifyPackageJson } = require('../custom/scripts/eject');
 
 const green = chalk.green;
 const cyan = chalk.cyan;
@@ -275,7 +276,29 @@ prompts({
       // It's not essential that this succeeds, the TypeScript user should
       // be able to re-create these types with ease.
     }
-  }
+    Object.keys(ownPackage.dependencies).forEach(key => {
+      // For some reason optionalDependencies end up in dependencies after install
+      if (
+        ownPackage.optionalDependencies &&
+        ownPackage.optionalDependencies[key]
+      ) {
+        return;
+      }
+      console.log(`  Adding ${cyan(key)} to dependencies`);
+      appPackage.dependencies[key] = ownPackage.dependencies[key];
+    });
+    // Sort the deps
+    const unsortedDependencies = appPackage.dependencies;
+    appPackage.dependencies = {};
+    Object.keys(unsortedDependencies)
+      .sort()
+      .forEach(key => {
+        appPackage.dependencies[key] = unsortedDependencies[key];
+      });
+    // @ackee/react-scripts - beginning
+    modifyPackageJson(appPackage);
+    // @ackee/react-scripts - end
+    console.log();
 
   // "Don't destroy what isn't ours"
   if (ownPath.indexOf(appPath) === 0) {
