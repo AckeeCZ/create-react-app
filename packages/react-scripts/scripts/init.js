@@ -22,6 +22,13 @@ const spawn = require('react-dev-utils/crossSpawn');
 const { defaultBrowsers } = require('react-dev-utils/browsersHelper');
 const os = require('os');
 const verifyTypeScriptSetup = require('./utils/verifyTypeScriptSetup');
+// @ackee/react-scripts - beginning
+const {
+  gitCommitAmend,
+  modifyTemplatePackageJson,
+  installDependencies
+} = require('../custom/scripts/init');
+// @ackee/react-scripts - end
 
 function isInGitRepository() {
   try {
@@ -60,7 +67,7 @@ function tryGitCommit(appPath) {
   try {
     execSync('git add -A', { stdio: 'ignore' });
     execSync('git commit -m "Initialize project using Create React App"', {
-      stdio: 'ignore',
+      stdio: 'ignore'
     });
     return true;
   } catch (e) {
@@ -81,7 +88,7 @@ function tryGitCommit(appPath) {
   }
 }
 
-module.exports = function (
+module.exports = async function(
   appPath,
   appName,
   verbose,
@@ -169,7 +176,7 @@ module.exports = function (
     'cpu',
     'preferGlobal',
     'private',
-    'publishConfig',
+    'publishConfig'
   ];
 
   // Keys from templatePackage that will be merged with appPackage
@@ -194,7 +201,7 @@ module.exports = function (
       start: 'react-scripts start',
       build: 'react-scripts build',
       test: 'react-scripts test',
-      eject: 'react-scripts eject',
+      eject: 'react-scripts eject'
     },
     templateScripts
   );
@@ -204,7 +211,7 @@ module.exports = function (
     appPackage.scripts = Object.entries(appPackage.scripts).reduce(
       (acc, [key, value]) => ({
         ...acc,
-        [key]: value.replace(/(npm run |npm )/, 'yarn '),
+        [key]: value.replace(/(npm run |npm )/, 'yarn ')
       }),
       {}
     );
@@ -212,7 +219,7 @@ module.exports = function (
 
   // Setup the eslint config
   appPackage.eslintConfig = {
-    extends: 'react-app',
+    extends: 'react-app'
   };
 
   // Setup the browsers list
@@ -222,6 +229,10 @@ module.exports = function (
   templatePackageToReplace.forEach(key => {
     appPackage[key] = templatePackage[key];
   });
+
+  // @ackee/react-scripts - beginning
+  await modifyTemplatePackageJson(ownPath, appPackage);
+  // @ackee/react-scripts - end
 
   fs.writeFileSync(
     path.join(appPath, 'package.json'),
@@ -303,7 +314,7 @@ module.exports = function (
   // Install additional template dependencies, if present.
   const dependenciesToInstall = Object.entries({
     ...templatePackage.dependencies,
-    ...templatePackage.devDependencies,
+    ...templatePackage.devDependencies
   });
   if (dependenciesToInstall.length) {
     args = args.concat(
@@ -341,7 +352,7 @@ module.exports = function (
   console.log();
 
   const proc = spawn.sync(command, [remove, templateName], {
-    stdio: 'inherit',
+    stdio: 'inherit'
   });
   if (proc.status !== 0) {
     console.error(`\`${command} ${args.join(' ')}\` failed`);
@@ -349,10 +360,22 @@ module.exports = function (
   }
 
   // Create git commit if git repo was initialized
-  if (initializedGit && tryGitCommit(appPath)) {
+  // @ackee/react-scripts - beginning
+  const didGitInit = tryGitInit(appPath);
+  if (initializedGit && didGitInit) {
     console.log();
     console.log('Created git commit.');
   }
+
+  await installDependencies(appPackage, {
+    useYarn,
+    verbose
+  });
+  if (didGitInit) {
+    // append changes to the last commit (the init commit) caused by installing postponed devDependencies
+    gitCommitAmend();
+  }
+  // @ackee/react-scripts - end
 
   // Display the most elegant way to cd.
   // This needs to handle an undefined originalDirectory for
