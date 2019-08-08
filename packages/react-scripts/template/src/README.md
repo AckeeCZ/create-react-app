@@ -3,7 +3,6 @@
 ## Table of contents
 
 -   [A local storage](#local-storage)
--   [Aliases](#aliases)
 -   [The skeleton modules and code-splitting](#code-splitting)
 -   [Static media imports](#media-imports)
 -   [Circular & orphan dependencies](#circular-dependencies)
@@ -19,54 +18,6 @@
 ### Use localForage instead with IndexedDB
 
 localForage is a fast and simple storage library for JavaScript. localForage` improves the offline experience of your web app by using asynchronous storage (IndexedDB or WebSQL) with a simple, localStorage-like API.
-
----
-
-## <a name="aliases"></a> Aliases
-
-Each directory in `src/` has its own alias. The alias is same as the directory name but with capitalized 1st letter.
-
-```js
-// So instead of importing a global component as:
-const Foo from '../../../components/Foo';
-
-// it can be written as:
-const Foo from 'Components/Foo';
-```
-
-#### Available aliases
-
-```js
-{
-  Src: '',
-
-  Components: 'components',
-  Config: 'config',
-  Containers: 'containers',
-  Consts: 'constants',
-  Constants: 'constants',
-  HOC: 'HOC',
-  Localization: 'localization',
-  Modules: 'modules',
-
-  Services: 'services',
-  Actions: 'services/actions',
-  ActionTypes: 'services/actionTypes',
-  Reducers: 'services/reducers',
-  Sagas: 'services/sagas',
-  Selectors: 'services/selectors',
-  Utils: 'services/utilities',
-  Utilities: 'services/utilities',
-}
-```
-
-### Adding new alias
-
-Add new alias is possible only after ejecting.
-
-1. `yarn run eject`
-2. Open `config/aliases.js` and add your new alias to the existing `aliases` object.
-3. Then also added it to `jsconfig.json` file in the `compilerOptions.paths` object.
 
 ---
 
@@ -93,7 +44,7 @@ const Application = React.lazy(() =>
     import('Modules/application').then(module => ({
         // Named export must be converted to default export.
         default: module.App,
-    })),
+    }))
 );
 ```
 
