@@ -2,7 +2,7 @@
 
 const paths = require('../../../config/paths');
 
-const transformWebpackConfig = require('../../config/transformWebpackConfigckConfig');
+const transformWebpackConfig = require('../../config/transformWebpackConfig');
 const transformWebpackConfigFromSkeleton = require(paths.appWebpackConfig);
 
 module.exports = (webpackConfig, webpackEnv) => {

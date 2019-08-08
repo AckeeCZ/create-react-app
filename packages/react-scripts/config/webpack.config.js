@@ -76,6 +76,9 @@ const cssRegex = /\.css$/;
 const cssModuleRegex = /\.module\.css$/;
 const sassRegex = /\.(scss|sass)$/;
 const sassModuleRegex = /\.module\.(scss|sass)$/;
+// @ackee/react-scripts - beginning
+const lessRegex = /\.less$/;
+// @ackee/react-scripts - end
 
 const hasJsxRuntime = (() => {
   if (process.env.DISABLE_NEW_JSX_TRANSFORM === 'true') {
@@ -110,7 +113,7 @@ function createWebpackConfig(webpackEnv) {
   const shouldUseReactRefresh = env.raw.FAST_REFRESH;
 
   // common function to get style loaders
-  const getStyleLoaders = (cssOptions, preProcessor) => {
+  const getStyleLoaders = (cssOptions, preProcessor, preProcessorOptions) => {
     const loaders = [
       isEnvDevelopment && require.resolve('style-loader'),
       isEnvProduction && {
@@ -163,7 +166,10 @@ function createWebpackConfig(webpackEnv) {
         {
           loader: require.resolve(preProcessor),
           options: {
-            sourceMap: true
+            sourceMap: true,
+            // @ackee/react-scripts - beginning
+            ...preProcessorOptions
+            // @ackee/react-scripts - end
           }
         }
       );
@@ -578,6 +584,22 @@ function createWebpackConfig(webpackEnv) {
                 'sass-loader'
               )
             },
+            // @ackee/react-scripts - beginning
+            {
+              test: lessRegex,
+              use: getStyleLoaders(
+                {
+                  importLoaders: 2,
+                  sourceMap: isEnvProduction && shouldUseSourceMap,
+                  exportOnlyLocals: true
+                },
+                'less-loader',
+                {
+                  javascriptEnabled: true
+                }
+              )
+            },
+            // @ackee/react-scripts - end
             // "file" loader makes sure those assets get served by WebpackDevServer.
             // When you `import` an asset, you get its (virtual) filename.
             // In production, they would get copied to the `build` folder.
