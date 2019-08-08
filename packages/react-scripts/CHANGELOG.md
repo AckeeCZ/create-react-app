@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 
 - [BREAKING] `@babel/plugin-syntax-export-namespace-from` -> `export * as`
+- [BREAKING] Custom aliases were removed completely in favor of [jsconfig](https://facebook.github.io/create-react-app/docs/importing-a-component#absolute-imports).
 
 ### Fixed
 

@@ -1,16 +1,15 @@
 'use strict';
 
 const paths = require('../../../config/paths');
-const path = require('path');
 
-const transformWebpackConfigFromSkeleton = require(path.resolve(
-  paths.appConfig,
-  'transformWebpackConfig.js'
-));
+const transformWebpackConfig = require('../../config/transformWebpackConfigckConfig');
+const transformWebpackConfigFromSkeleton = require(paths.appWebpackConfig);
 
 module.exports = (webpackConfig, webpackEnv) => {
-  // TODO:
-  const customizedWebpackConfig = webpackConfig;
+  const customizedWebpackConfig = transformWebpackConfig(
+    webpackConfig,
+    webpackEnv
+  );
 
   return transformWebpackConfigFromSkeleton(
     customizedWebpackConfig,

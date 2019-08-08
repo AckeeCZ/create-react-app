@@ -80,7 +80,7 @@ module.exports = {
   prettierConfig: resolveApp('prettier.config.js'),
   appConfig: resolveApp('config/custom'),
   webpackConfig: resolveApp('config/webpack.config.js'),
-  appAliases: resolveApp('config/aliases.js'),
+  appWebpackConfig: resolveApp('config/transformWebpackConfig.js'),
   // @ackee/react-scripts - end
 };
 
@@ -108,7 +108,7 @@ module.exports = {
   // @ackee/react-scripts - beginning
   prettierConfig: resolveApp('prettier.config.js'),
   appConfig: resolveApp('config'),
-  appAliases: resolveApp('config/aliases.js'),
+  appWebpackConfig: resolveApp('config/transformWebpackConfig.js'),
   // @ackee/react-scripts - end
 
   // These properties only exist before ejecting:
@@ -154,7 +154,7 @@ if (
     // @ackee/react-scripts - beginning
     prettierConfig: resolveOwn('template/prettier.config.js'),
     appConfig: resolveOwn('template/config'),
-    appAliases: resolveOwn('config/aliases.js'),
+    appWebpackConfig: resolveOwn('config/transformWebpackConfig.js'),
     // @ackee/react-scripts - end
 
     // These properties only exist before ejecting:
