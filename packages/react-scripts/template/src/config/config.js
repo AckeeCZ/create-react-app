@@ -14,10 +14,7 @@ const defaults = {
         dsn: '',
     },
     api: {
-        trips: '/v1/admin/trips',
-        trip: '/v1/admin/trips/:id',
-        signin: '/v1/auth/sign-in',
-        signup: '/v1/auth/sign-up',
+        signIn: '/v1/auth/sign-in',
         me: '/v1/users/me',
         refresh: '/v1/auth/refresh',
     },
