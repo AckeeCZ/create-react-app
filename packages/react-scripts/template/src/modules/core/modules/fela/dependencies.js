@@ -1,6 +1,6 @@
-import * as constants from 'constants/index';
+import * as consts from 'consts';
 
-export { constants };
+export { consts };
 
 export { default as React, PureComponent } from 'react';
 export { default as PropTypes } from 'prop-types';

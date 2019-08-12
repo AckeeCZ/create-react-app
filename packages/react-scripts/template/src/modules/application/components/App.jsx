@@ -1,6 +1,5 @@
 import {
     React,
-    hot,
     // @use-auth-module-begin
     Auth,
     // @use-auth-module-end,
@@ -61,4 +60,4 @@ const App = () => {
     );
 };
 
-export default hot(module)(App);
+export default App;
