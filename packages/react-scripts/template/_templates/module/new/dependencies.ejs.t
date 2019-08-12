@@ -7,4 +7,4 @@ export { asyncType, strictObjectAccess } from '@ackee/redux-utils';
 
 export { api } from 'config/antonio';
 
-export * from 'Modules/sharedDependencies';
+export * from 'modules/sharedDependencies';
