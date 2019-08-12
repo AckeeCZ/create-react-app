@@ -1,1 +1,1 @@
-export { default as cs } from './cs.yml';
+export { default as cs } from './cs.json';

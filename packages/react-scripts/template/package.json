@@ -29,6 +29,7 @@
         "reselect": "4.x"
     },
     "devDependencies": {
+        "ackee-localize-spreadsheet-sdk": "0.x",
         "fela-plugin-validator": "10.x",
         "husky": "3.x",
         "hygen": "1.x",
@@ -36,18 +37,19 @@
         "lint-staged": "9.x"
     },
     "scripts": {
-        "start": "react-scripts start",
+        "start": "yarn localize && react-scripts start",
         "build": "yarn build:dev",
-        "build:dev": "react-scripts build --target=development",
-        "build:stage": "react-scripts build --target=stage",
-        "build:prod": "react-scripts build --target=production",
+        "build:dev": "yarn localize && react-scripts build --target=development",
+        "build:stage": "yarn localize && react-scripts build --target=stage",
+        "build:prod": "yarn localize && react-scripts build --target=production",
         "test:watch": "react-scripts test",
         "test": "cross-env CI=true react-scripts test --env=jsdom",
         "eject": "react-scripts eject",
         "circular-dependencies": "react-scripts circular-dependencies --circular",
         "create-module": "hygen module new --name $1",
         "cypress:open": "cypress open",
-        "analyze-bundle": "yarn build:prod --stats && webpack-bundle-analyzer build/bundle-stats.json"
+        "analyze-bundle": "yarn build:prod --stats && webpack-bundle-analyzer build/bundle-stats.json",
+        "localize": "ackee-localize-spreadsheet-sdk"
     },
     "husky": {
         "hooks": {

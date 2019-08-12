@@ -1,8 +1,8 @@
 {
     "localization": {
-        "sheet_id": "1HKjvejcuHIY73WvEkipD7_dmF9dFeNLji3nS2RXcIzk",
-        "dir": "locales/",
-        "cols": "cz,en",
+        "sheet_id": "1q8MSZGQqsWzo6zdme3ChwuWF7EdXMAyeZWSrgwOp-YQ",
+        "dir": "src/translations/",
+        "cols": "cs,en",
         "type": "key_web"
     }
 }

@@ -26,3 +26,6 @@ yarn-error.log*
 
 .yalc
 yalc.lock
+
+# localization files are generated, it's not source thus don't version them
+src/translations/*.json
