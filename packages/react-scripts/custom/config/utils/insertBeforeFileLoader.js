@@ -1,7 +1,9 @@
 'use strict';
 
+const findOneOf = require('./findOneOf');
+
 module.exports = function insertBeforeFileLoader(rules, loaders) {
-  const oneOfRule = rules.find(rule => Array.isArray(rule.oneOf));
+  const oneOfRule = findOneOf(rules);
   // file-loader is always the last loader
   const targetIndex = oneOfRule.length - 1;
 
