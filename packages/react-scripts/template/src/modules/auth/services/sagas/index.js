@@ -1,4 +1,4 @@
-import { sagaEffects } from 'Modules/auth/dependencies';
+import { sagaEffects } from 'modules/auth/dependencies';
 import { saga as petrus } from '../../config/petrus';
 import loginForm from './loginForm';
 

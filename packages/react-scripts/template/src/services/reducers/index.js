@@ -1,5 +1,5 @@
 // @use-auth-module-begin
-import { reducer as auth } from 'Modules/auth';
+import { reducer as auth } from 'modules/auth';
 // @use-auth-module-end
 
 // NOTE:

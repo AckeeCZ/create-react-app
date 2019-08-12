@@ -7,6 +7,6 @@ export { default as Button } from 'antd/es/button';
 
 export { submitForm, TextField } from '@ackee/mateus';
 
-export { authApi, api } from 'Config/antonio';
+export { authApi, api } from 'config/antonio';
 
-export * from 'Modules/sharedDependencies';
+export * from 'modules/sharedDependencies';

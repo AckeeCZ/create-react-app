@@ -1,4 +1,4 @@
-import { config, api } from 'Modules/auth/dependencies';
+import { config, api } from 'modules/auth/dependencies';
 
 export default function* authenticate({ email, password }) {
     const response = yield api.post(config.api.signin, {

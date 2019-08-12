@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Core from 'Modules/core';
-import Application from 'Modules/application';
+import Core from 'modules/core';
+import Application from 'modules/application';
 
 ReactDOM.render(
     <Core>

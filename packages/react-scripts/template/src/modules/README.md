@@ -114,15 +114,15 @@ It's one and **only entry point** for rest of the application. All exports from 
 export { default as UserProfile } from './containers/UserProfile';
 
 // in some-other-module/dependencies.js
-export { UserProfile } from 'Modules/user-profile';
+export { UserProfile } from 'modules/user-profile';
 ```
 
 ```js
 // DO import components from only from index.js entry file
-import { UserProfile } from 'Modules/user-profile';
+import { UserProfile } from 'modules/user-profile';
 
 // DO NOT import components directly
-import UserProfile from 'Modules/user-profile/containers/UserProfile';
+import UserProfile from 'modules/user-profile/containers/UserProfile';
 ```
 
 ### `dependencies.js`
@@ -142,13 +142,13 @@ import { Selectors } from '../dependencies';
 
 ```js
 // DO place external components to the module's dependencies.js file
-export { default as AppLoader } from 'Components/AppLoader';
+export { default as AppLoader } from 'components/AppLoader';
 // then in 'modules/user-profile/Foo/Foo.js' component:
 import { AppLoader } from '../../dependencies';
 
 // DO NOT import external directly
 // in 'modules/user-profile/Foo/Foo.js' component:
-import AppLoader from 'Components/AppLoader';
+import AppLoader from 'components/AppLoader';
 ```
 
 ### `README.md`
