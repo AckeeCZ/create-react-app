@@ -7,7 +7,7 @@ const prettier = require('prettier');
 
 const paths = require('../../../../config/paths');
 const inputFile = path.resolve(__dirname, './inputFile.js');
-const { getValidFiles } = require('./utilities');
+const { getExistingFiles } = require('./utilities');
 
 const optionalContextAdditions = {};
 
@@ -81,7 +81,7 @@ module.exports = () => {
         createPrettierFormatter(),
 
         // filter out non-existing files
-        getValidFiles(files),
+        getExistingFiles(files),
       ]);
 
       const prettierFormatter = results[0];
