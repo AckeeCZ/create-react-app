@@ -102,7 +102,6 @@ module.exports = {
   appNodeModules: resolveApp('node_modules'),
   publicUrlOrPath,
   // @ackee/react-scripts - beginning
-  prettierConfig: resolveApp('prettier.config.js'),
   appConfig: resolveApp('config'),
   appWebpackConfig: resolveApp('config/transformWebpackConfig.js'),
   // @ackee/react-scripts - end
@@ -115,6 +114,7 @@ module.exports = {
 
   // @ackee/react-scripts - beginning
   webpackConfig: resolveOwn('config/webpack.config.js'),
+  prettierConfig: resolveOwn('template/prettier.config.js'),
   // @ackee/react-scripts - end
 };
 
