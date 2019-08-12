@@ -49,33 +49,6 @@
         "cypress:open": "cypress open",
         "analyze-bundle": "yarn build:prod --stats && webpack-bundle-analyzer build/bundle-stats.json"
     },
-    "eslintConfig": {
-        "extends": [
-            "react-app",
-            "@ackee",
-            "prettier"
-        ],
-        "settings": {
-            "import/resolver": {
-                "node": {
-                    "paths": [
-                        "src"
-                    ]
-                }
-            }
-        },
-        "rules": {
-            "no-restricted-globals": "off"
-        },
-        "env": {
-            "browser": true,
-            "jest": true,
-            "cypress/globals": true
-        },
-        "plugins": [
-            "cypress"
-        ]
-    },
     "husky": {
         "hooks": {
             "pre-commit": "lint-staged",
