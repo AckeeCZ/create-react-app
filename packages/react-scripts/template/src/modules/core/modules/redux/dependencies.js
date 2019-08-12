@@ -1,9 +1,9 @@
 import * as sagaEffects from 'redux-saga/effects';
 import * as Sentry from '@sentry/browser';
-import * as constants from 'constants/index';
+import * as consts from 'consts';
 import * as Log from 'config/loglevel';
 
-export { sagaEffects, Sentry, constants, Log };
+export { sagaEffects, Sentry, consts, Log };
 
 export { default as React, PureComponent } from 'react';
 export { default as PropTypes } from 'prop-types';

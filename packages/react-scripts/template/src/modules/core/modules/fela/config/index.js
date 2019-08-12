@@ -1,10 +1,10 @@
-import { constants, resets, vendors, theme } from '../dependencies';
+import { consts, resets, vendors, theme } from '../dependencies';
 
 import plugins from './plugins';
 import enhancers from './enhancers';
 
 export const rendererConfig = {
-    devMode: constants.isEnvDevelopment,
+    devMode: consts.isEnvDevelopment,
     enhancers,
     plugins,
     theme,
