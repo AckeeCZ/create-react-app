@@ -58,13 +58,6 @@
         "rules": {
             "no-restricted-globals": "off"
         },
-        "settings": {
-            "import/resolver": {
-                "webpack": {
-                    "config": "./node_modules/@ackee/react-scripts/config/webpack.config.js"
-                }
-            }
-        },
         "env": {
             "browser": true,
             "jest": true,

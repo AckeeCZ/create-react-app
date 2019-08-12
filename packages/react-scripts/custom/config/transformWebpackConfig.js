@@ -16,6 +16,7 @@ const preloaders = [
   },
 ];
 
+// for template/src
 const getBabelPlugins = webpackEnv => {
   const isEnvProduction = webpackEnv === 'production';
 
@@ -43,12 +44,14 @@ const getBabelPlugins = webpackEnv => {
     isEnvProduction && [
       'babel-plugin-custom-import-path-transform',
       {
+        // TODO:
         transformImportPath: path.resolve(__dirname, 'transformImportPath.js'),
       },
     ],
   ].filter(Boolean);
 };
 
+// for node_modules
 const getNodeModulesBabelPlugins = webpackEnv => {
   const isEnvProduction = webpackEnv === 'production';
 
@@ -56,6 +59,7 @@ const getNodeModulesBabelPlugins = webpackEnv => {
     isEnvProduction && [
       'babel-plugin-custom-import-path-transform',
       {
+        // TODO:
         transformImportPath: path.resolve(__dirname, 'transformImportPath.js'),
       },
     ],
