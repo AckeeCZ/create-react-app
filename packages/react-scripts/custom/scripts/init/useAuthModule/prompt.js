@@ -11,6 +11,8 @@ const { getValidFiles } = require('./utilities');
 
 const optionalContextAdditions = {};
 
+// TODO:
+// '/Users/cermak/github/cra-upgrade/test/prettier.config.js'
 const createPrettierFormatter = async () => {
   const options = await prettier.resolveConfig(paths.prettierConfig);
 
