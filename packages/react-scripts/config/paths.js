@@ -119,6 +119,7 @@ module.exports = {
   // @ackee/react-scripts - beginning
   webpackConfig: resolveOwn('config/webpack.config.js'),
   prettierConfig: resolveOwn('template/prettier.config.js'),
+  templateSrc: resolveOwn('template/src'),
   // @ackee/react-scripts - end
 };
 
