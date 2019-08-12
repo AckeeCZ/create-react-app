@@ -1,5 +1,5 @@
 import * as constants from 'constants';
-import * as serviceWorker from 'Src/serviceWorker';
+import * as serviceWorker from 'serviceWorker';
 
 export { constants, serviceWorker };
 

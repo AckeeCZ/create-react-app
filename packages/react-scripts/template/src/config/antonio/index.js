@@ -1,6 +1,6 @@
 import { create } from '@ackee/antonio';
 
-import config from 'Config';
+import config from 'config';
 
 const {
     api,
@@ -14,7 +14,7 @@ const {
     },
     {
         // manageAuthUser: false
-    },
+    }
 );
 
 export {

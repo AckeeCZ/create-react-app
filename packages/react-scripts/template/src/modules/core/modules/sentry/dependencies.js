@@ -10,7 +10,7 @@ export { actionTypes } from '@ackee/lucas';
 export { default as createSentryMiddleware } from 'redux-sentry-middleware';
 export { createSelector } from 'reselect';
 
-export { default as Config } from 'Config';
+export { default as Config } from 'config';
 // @use-auth-module-begin
 export { authUserSelector } from 'modules/auth';
 // @use-auth-module-end

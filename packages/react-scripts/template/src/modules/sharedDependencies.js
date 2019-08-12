@@ -11,4 +11,4 @@ export { Route, Switch, Link } from 'react-router-dom';
 export { FelaComponent } from 'react-fela';
 export { FormattedMessage, injectIntl, intlShape } from 'react-intl';
 
-export { default as config } from 'Config';
+export { default as config } from 'config';

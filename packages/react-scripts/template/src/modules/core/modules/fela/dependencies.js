@@ -14,4 +14,4 @@ export { default as felaPluginUnit } from 'fela-plugin-unit';
 export { default as felaPluginNamedKeys } from 'fela-plugin-named-keys';
 export { default as felaPluginFriendlyPseudoClass } from 'fela-plugin-friendly-pseudo-class';
 
-export { vendors, resets, theme } from 'Styles';
+export { vendors, resets, theme } from 'styles';
