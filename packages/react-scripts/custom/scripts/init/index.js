@@ -57,7 +57,7 @@ exports.modifyTemplatePackageJson = async (ownPath, appPackage) => {
   delete appPackage.eslintConfig;
 
   // Setup the browsers list
-  appPackage.browserslist = defaultBrowsers;
+  appPackage.browserslist = ownPackage.browserlist || defaultBrowsers;
 
   // add rest of ownPackage to appPackage
   const appPackageUsedKeys = new Set(Object.keys(appPackage));
