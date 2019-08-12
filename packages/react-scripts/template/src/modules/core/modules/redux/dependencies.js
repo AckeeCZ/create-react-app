@@ -14,7 +14,7 @@ export { reducer as formReducer } from 'redux-form';
 export { saga as antonio } from 'config/antonio';
 export { submitFormSaga as formSaga } from '@ackee/mateus';
 
-export { default as config } from 'Config';
+export { default as config } from 'config';
 
 export { routerMiddlewareWithHistory, connectRouterWithHistory } from '../router';
 export { reducer as translateReducer, saga as localizationSaga } from '../localization';

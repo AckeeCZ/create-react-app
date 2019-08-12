@@ -1,4 +1,4 @@
-import * as translations from 'Src/translations';
+import * as translations from 'translations';
 
 export { translations };
 
