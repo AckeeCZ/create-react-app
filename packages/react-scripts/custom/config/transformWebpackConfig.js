@@ -7,6 +7,7 @@ const WorkerPlugin = require('worker-plugin');
 const paths = require('../../config/paths');
 const insertPreloaders = require('./utils/insertPreloaders');
 const appendBabelPlugins = require('./utils/appendBabelPlugins');
+const removeMiniCSSExtractLoader = require('./utils/removeMiniCSSExtractLoader');
 
 const preloaders = [
   {
@@ -44,8 +45,10 @@ const getBabelPlugins = webpackEnv => {
     isEnvProduction && [
       'babel-plugin-custom-import-path-transform',
       {
-        // TODO:
-        transformImportPath: path.resolve(__dirname, 'transformImportPath.js'),
+        transformImportPath: path.resolve(
+          __dirname,
+          'plugins/transformImportPath.js'
+        ),
       },
     ],
   ].filter(Boolean);
@@ -59,8 +62,10 @@ const getNodeModulesBabelPlugins = webpackEnv => {
     isEnvProduction && [
       'babel-plugin-custom-import-path-transform',
       {
-        // TODO:
-        transformImportPath: path.resolve(__dirname, 'transformImportPath.js'),
+        transformImportPath: path.resolve(
+          __dirname,
+          'plugins/transformImportPath.js'
+        ),
       },
     ],
   ].filter(Boolean);
@@ -76,6 +81,8 @@ const transformRules = (rules, webpackEnv) => {
     getNodeModulesBabelPlugins(webpackEnv),
     rule => rule.include !== paths.appSrc
   );
+
+  removeMiniCSSExtractLoader(rules);
 
   return rules;
 };
