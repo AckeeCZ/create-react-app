@@ -1,5 +1,6 @@
 {
     "dependencies": {
+        "@ackee/eslint-config": "^1.0.0",
         "babel-plugin-custom-import-path-transform": "^1.0.3",
         "babel-plugin-transform-imports": "^2.0.0",
         "chalk": "2.4.2",
@@ -7,7 +8,6 @@
         "cypress": "3.4.1",
         "enzyme": "^3.10.0",
         "enzyme-adapter-react-16": "^1.14.0",
-        "eslint-config-ackee": "^0.9.2",
         "eslint-config-prettier": "^6.0.0",
         "eslint-import-resolver-webpack": "^0.11.1",
         "eslint-plugin-cypress": "2.6.1",
