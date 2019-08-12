@@ -1,4 +1,4 @@
-import { api, config } from 'Modules/auth/dependencies';
+import { api, config } from 'modules/auth/dependencies';
 
 export default function* refreshTokens({ refreshToken }) {
     const response = yield api.post(config.api.refresh, null, {

@@ -1,6 +1,6 @@
-import * as Consts from 'Consts';
+import * as constants from 'constants';
 import * as serviceWorker from 'Src/serviceWorker';
 
-export { Consts, serviceWorker };
+export { constants, serviceWorker };
 
-export * from 'Modules/sharedDependencies';
+export * from 'modules/sharedDependencies';

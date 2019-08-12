@@ -1,5 +1,5 @@
 import { merge } from 'lodash';
-import * as Consts from 'Consts';
+import * as constants from 'constants';
 
 const { NODE_ENV, REACT_APP_NAME } = process.env;
 // eslint-disable-next-line
@@ -8,7 +8,7 @@ const envConfig = require(`./config.${NODE_ENV}.js`).default;
 const defaults = {
     // default configuration goes here
     appName: REACT_APP_NAME,
-    devTools: Consts.isEnvDevelopment,
+    devTools: constants.isEnvDevelopment,
     sentry: {
         // TODO: add PUBLIC 'dsn' of your project here:
         dsn: '',

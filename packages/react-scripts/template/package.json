@@ -52,7 +52,7 @@
     "eslintConfig": {
         "extends": [
             "react-app",
-            "ackee",
+            "@ackee",
             "prettier"
         ],
         "rules": {

@@ -1,4 +1,4 @@
 import { loadable } from '@ackee/lucas';
-import SimpleLoader from 'Components/Loader';
+import SimpleLoader from 'components/Loader';
 
 export default loadable(SimpleLoader);

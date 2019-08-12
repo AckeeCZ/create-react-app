@@ -32,7 +32,7 @@ Let's suppose you know what code-splitting is and how it works. If it's not the 
 **With default export syntax**
 
 ```js
-const Application = React.lazy(() => import('Modules/application'));
+const Application = React.lazy(() => import('modules/application'));
 ```
 
 But what about when we want to use named export syntax? Sure, it's possible, but the solution doesn't look so nice and it adds unnecessary complexity to our code. So don't use it, if possible.
@@ -41,7 +41,7 @@ But what about when we want to use named export syntax? Sure, it's possible, but
 
 ```js
 const Application = React.lazy(() =>
-    import('Modules/application').then(module => ({
+    import('modules/application').then(module => ({
         // Named export must be converted to default export.
         default: module.App,
     }))

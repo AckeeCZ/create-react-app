@@ -1,6 +1,6 @@
 import * as PropTypes from 'prop-types';
 import * as sagaEffects from 'redux-saga/effects';
-import * as Log from 'Config/loglevel';
+import * as Log from 'config/loglevel';
 
 export { PropTypes, sagaEffects, Log };
 
