@@ -1,6 +1,6 @@
 import * as sagaEffects from 'redux-saga/effects';
 import * as Sentry from '@sentry/browser';
-import * as consts from 'consts';
+import * as consts from 'constants/index';
 import * as ReduxUtils from '@ackee/redux-utils';
 import * as Log from 'config/loglevel';
 

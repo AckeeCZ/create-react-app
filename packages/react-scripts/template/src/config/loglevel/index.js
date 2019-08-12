@@ -1,6 +1,6 @@
 import * as loglevel from 'loglevel';
 import * as Sentry from '@sentry/browser';
-import { isEnvProduction } from 'consts';
+import { isEnvProduction } from 'constants/index';
 
 isEnvProduction ? loglevel.disableAll() : loglevel.enableAll();
 

@@ -1,4 +1,4 @@
-import * as consts from 'consts';
+import * as consts from 'constants/index';
 
 export { consts };
 

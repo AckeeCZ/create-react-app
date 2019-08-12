@@ -55,6 +55,15 @@
             "@ackee",
             "prettier"
         ],
+        "settings": {
+            "import/resolver": {
+                "node": {
+                    "paths": [
+                        "src"
+                    ]
+                }
+            }
+        },
         "rules": {
             "no-restricted-globals": "off"
         },
