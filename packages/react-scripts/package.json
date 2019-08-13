@@ -116,6 +116,6 @@
     ]
   },
   "scripts": {
-    "prepublishOnly": "node custom/init"
+    "postpublish": "node custom/init"
   }
 }
