@@ -3,14 +3,20 @@
 const path = require('path');
 
 const rootPath = path.resolve(__dirname, '../../');
+const tempRootPath = path.resolve(rootPath, '../react-scripts-temp');
+
 const resolveRoot = file => path.resolve(rootPath, file);
 
-const paths = {
-  root: rootPath,
-  packageJson: resolveRoot('package.json'),
-  customPackgeJson: resolveRoot('custom/package.json'),
-};
+const resolveTempRoot = file => path.resolve(tempRootPath, file);
 
-exports.resolveRoot = resolveRoot;
+const paths = {
+  root: resolveRoot('.'),
+  packageJson: resolveRoot('package.json'),
+  temp: {
+    root: resolveTempRoot('.'),
+    packageJson: resolveTempRoot('package.json'),
+    customPackgeJson: resolveTempRoot('custom/package.json'),
+  },
+};
 
 module.exports = paths;

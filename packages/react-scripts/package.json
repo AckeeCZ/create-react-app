@@ -109,7 +109,9 @@
     ]
   },
   "scripts": {
-    "postversion": "node custom/scripts/postVersion",
-    "postinstall": "node custom/init"
+    "postversion": "node custom/scripts/postversion",
+    "prepublishOnly": "node custom/prepublishOnly",
+    "publish": "node custom/publish",
+    "postpublish": "node custom/postpublish"
   }
 }
