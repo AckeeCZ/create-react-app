@@ -19,7 +19,7 @@
         "promzard": "^0.3.0",
         "webpack-ant-icon-loader": "^1.0.8",
         "webpack-bundle-analyzer": "^3.4.1",
-        "worker-plugin": "3.1.0",
+        "worker-plugin": "3.1.0"
     },
     "publishConfig": {
         "access": "public"
