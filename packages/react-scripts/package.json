@@ -1,6 +1,6 @@
 {
   "name": "@ackee/react-scripts",
-  "version": "1.0.0-alpha.6",
+  "version": "1.0.0-alpha.7",
   "description": "Configuration and scripts for Create React App.",
   "repository": {
     "type": "git",
@@ -110,8 +110,8 @@
   },
   "scripts": {
     "postversion": "node custom/scripts/postversion",
-    "prepublishOnly": "node custom/prepublishOnly",
-    "publish": "node custom/publish",
-    "postpublish": "node custom/postpublish"
+    "prepublishOnly": "node custom/scripts/prepublishOnly",
+    "publish": "node custom/scripts/publish",
+    "postpublish": "node custom/scripts/postpublish"
   }
 }
