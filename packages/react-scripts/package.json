@@ -100,7 +100,6 @@
     "production": [
       ">0.2%",
       "not dead",
-      "not ie <= 11",
       "not op_mini all"
     ],
     "development": [
@@ -111,8 +110,5 @@
   },
   "scripts": {
     "prepublishOnly": "node custom/init"
-  },
-  "publishConfig": {
-    "access": "public"
   }
 }
