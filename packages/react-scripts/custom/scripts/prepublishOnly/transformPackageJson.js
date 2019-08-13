@@ -1,14 +1,23 @@
 'use strict';
 
 const fs = require('fs-extra');
-const paths = require('../config/paths');
+const paths = require('../../config/paths');
 
 module.exports = async function transformPackageJson() {
   // transform react-scripts/package.json
   const [packageJson, customPackgeJson] = await Promise.all([
-    fs.readJSON(paths.packageJson),
-    fs.readJSON(paths.customPackgeJson),
+    fs.readJSON(paths.temp.packageJson),
+    fs.readJSON(paths.temp.customPackgeJson),
   ]);
+
+  for (const key of [
+    'postversion',
+    'prepublishOnly',
+    'publish',
+    'postpublish',
+  ]) {
+    delete packageJson.scripts[key];
+  }
 
   const finalPackageJson = {
     ...packageJson,
@@ -25,5 +34,5 @@ module.exports = async function transformPackageJson() {
 
   const formattedFileContent = JSON.stringify(finalPackageJson, null, 2);
 
-  return fs.writeFile(paths.packageJson, formattedFileContent);
+  return fs.writeFile(paths.temp.packageJson, formattedFileContent);
 };
