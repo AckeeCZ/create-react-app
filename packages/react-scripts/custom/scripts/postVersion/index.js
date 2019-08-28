@@ -10,21 +10,28 @@ const ignore = {
   stdio: 'ignore',
 };
 
-const { name, version } = fs.readJSONSync(paths.appPackageJson);
-const tag = `${name}@${version}`;
+try {
+  console.log('[postversion] Reading current package name and version...');
+  const { name, version } = fs.readJSONSync(paths.appPackageJson);
+  const tag = `${name}@${version}`;
 
-execSync('git add package.json', ignore);
-execSync(`git commit -m "${tag}"`, ignore);
+  console.log(`[postversion] Commiting new version ${tag}...`);
+  execSync('git add package.json', ignore);
+  execSync(`git commit -m "${tag}"`, ignore);
 
-const lastCommitBuffer = execSync('git rev-parse HEAD');
-const lastCommitHash = lastCommitBuffer.toString().replace('\n', '');
+  const lastCommitBuffer = execSync('git rev-parse HEAD');
+  const lastCommitHash = lastCommitBuffer.toString().replace('\n', '');
 
-execSync(`git tag -a ${tag} ${lastCommitHash} -m "${tag}"`);
+  console.log(`[postversion] Creating Git tag ${tag}...`);
+  execSync(`git tag -a ${tag} ${lastCommitHash} -m "${tag}"`);
 
-console.log(
-  `
+  console.log(
+    `
   Post version script succeed:
   - Version bumped to ${chalk.cyan(version)}.
   - ${chalk.cyan(tag)} tag created.
 `
-);
+  );
+} catch (e) {
+  console.error(e);
+}

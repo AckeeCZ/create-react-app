@@ -111,6 +111,7 @@
   "scripts": {
     "postversion": "node custom/scripts/postversion",
     "prepublishOnly": "node custom/scripts/prepublishOnly",
+    "publish": "node custom/scripts/publish",
     "postpublish": "node custom/scripts/postpublish"
   }
 }

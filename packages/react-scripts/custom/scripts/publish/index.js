@@ -7,4 +7,10 @@ const paths = require('../../config/paths');
 const { version } = fs.readJSONSync(paths.packageJson);
 const [tag] = version.match(/beta|alpha/) || ['latest'];
 
-execSync(`npm publish ${paths.temp.root} --tag ${tag} --dry-run`);
+try {
+  console.log(`[publish] Publishing ${paths.temp.root} with ${tag} tag...`);
+  execSync(`npm publish ${paths.temp.root} --tag ${tag}`);
+} catch (e) {
+  console.error(e);
+  execSync('node ../postpublish');
+}
