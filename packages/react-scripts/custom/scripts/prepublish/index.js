@@ -1,5 +1,10 @@
 'use strict';
 
+const { execSync } = require('child_process');
+
+console.log(`[prepublish] Installing dependencies...`);
+execSync('npm i fs-extra');
+
 const transformPackageJson = require('./transformPackageJson');
 
 (async function() {
