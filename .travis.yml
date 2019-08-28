@@ -6,6 +6,7 @@ before_install:
   - node custom/scripts/prepublish
 deploy:
   provider: npm
+  script: 'npm publish --tag alpha'
   email: ackeedevelopment@gmail.com
   skip_cleanup: true
   api_key:
@@ -13,4 +14,3 @@ deploy:
   on:
     tags: true
     repo: AckeeCZ/create-react-app
-  script: 'node custom/scripts/publish'
