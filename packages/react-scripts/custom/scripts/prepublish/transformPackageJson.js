@@ -6,13 +6,9 @@ const paths = require('../../config/paths');
 module.exports = async function transformPackageJson() {
   // transform react-scripts/package.json
   const [packageJson, customPackgeJson] = await Promise.all([
-    fs.readJSON(paths.temp.packageJson),
-    fs.readJSON(paths.temp.customPackgeJson),
+    fs.readJSON(paths.packageJson),
+    fs.readJSON(paths.customPackgeJson),
   ]);
-
-  ['postversion', 'prepublishOnly'].forEach(key => {
-    delete packageJson.scripts[key];
-  });
 
   const finalPackageJson = {
     ...packageJson,
@@ -29,5 +25,5 @@ module.exports = async function transformPackageJson() {
 
   const formattedFileContent = JSON.stringify(finalPackageJson, null, 2);
 
-  return fs.writeFile(paths.temp.packageJson, formattedFileContent);
+  return fs.writeFile(paths.packageJson, formattedFileContent);
 };
