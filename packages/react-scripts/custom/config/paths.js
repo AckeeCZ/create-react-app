@@ -8,8 +8,7 @@ const resolveRoot = file => path.resolve(rootPath, file);
 const paths = {
   root: resolveRoot('.'),
   packageJson: resolveRoot('package.json'),
+  customPackageJson: resolveRoot('custom/package.json'),
 };
-
-console.log({ paths });
 
 module.exports = paths;

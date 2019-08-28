@@ -5,29 +5,31 @@ const paths = require('../../config/paths');
 
 module.exports = async function transformPackageJson() {
   if (!fs.existsSync(paths.packageJson)) {
-    throw new Error(`${paths.packageJson} file not found`);
+    throw new Error(`paths.packageJson: ${paths.packageJson} file not found`);
   }
 
-  if (!fs.existsSync(paths.customPackgeJson)) {
-    throw new Error(`${paths.customPackgeJson} file not found`);
+  if (!fs.existsSync(paths.customPackageJson)) {
+    throw new Error(
+      `paths.customPackageJson: ${paths.customPackageJson} file not found`
+    );
   }
 
   // transform react-scripts/package.json
-  const [packageJson, customPackgeJson] = await Promise.all([
+  const [packageJson, customPackageJson] = await Promise.all([
     fs.readJSON(paths.packageJson),
-    fs.readJSON(paths.customPackgeJson),
+    fs.readJSON(paths.customPackageJson),
   ]);
 
   const finalPackageJson = {
     ...packageJson,
-    ...customPackgeJson,
+    ...customPackageJson,
     dependencies: {
       ...packageJson.dependencies,
-      ...customPackgeJson.dependencies,
+      ...customPackageJson.dependencies,
     },
     scripts: {
       ...packageJson.scripts,
-      ...customPackgeJson.scripts,
+      ...customPackageJson.scripts,
     },
   };
 
