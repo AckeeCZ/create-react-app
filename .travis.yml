@@ -3,7 +3,7 @@ node_js:
   - 8
 before_install:
   - cd packages/react-scripts/
-  - node scripts/custom/prepublish
+  - node scripts/custom/prepublish.js
 deploy:
   provider: npm
   email: ackeedevelopment@gmail.com
