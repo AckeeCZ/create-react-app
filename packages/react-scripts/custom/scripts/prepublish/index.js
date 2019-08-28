@@ -1,5 +1,7 @@
 'use strict';
 
+require('./installDependencies');
+
 const transformPackageJson = require('./transformPackageJson');
 
 (async function() {
