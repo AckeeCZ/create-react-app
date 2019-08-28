@@ -10,14 +10,9 @@ module.exports = async function transformPackageJson() {
     fs.readJSON(paths.temp.customPackgeJson),
   ]);
 
-  for (const key of [
-    'postversion',
-    'prepublishOnly',
-    'publish',
-    'postpublish',
-  ]) {
+  ['postversion', 'prepublishOnly'].forEach(key => {
     delete packageJson.scripts[key];
-  }
+  });
 
   const finalPackageJson = {
     ...packageJson,
