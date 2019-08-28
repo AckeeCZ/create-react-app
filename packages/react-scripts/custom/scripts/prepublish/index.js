@@ -1,5 +1,3 @@
-#!/usr/bin/env
-
 'use strict';
 
 const transformPackageJson = require('./transformPackageJson');
