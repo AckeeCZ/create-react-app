@@ -12,4 +12,5 @@ deploy:
     secure: gEVqnCNGm+VXsxWtb4JkHQUWehyitZyDuTRKaHtuC2ew7yPduO2RQSqEtVjRtDOKxZPag0A8sFbaaa5R9yVElvPOgsBa3ERPvYS1BTm4jjCLV2nwvwwoqMxnx3ZgIK3g7qhgfDRsiAmbe9Jux+/Vcca+VNfT5puq36UR/6XxT327CN7ScxdFOrsJogsfSrVzcb3ahqXlr1p+PxYYiNiy0xs+rfUkIcUKcKad3bAYbqRSTf6a284wEq2XmVCbtia0gD8Dzs9VmXt4TDDs3e1+bITjvQHS+oFcsgvwEgruMSEaPLFfDK/c6dlxB6+T/+DPj0q4EmKEvCmDVniwTepF7R660AscGIei7bYWntKzC8bMmHVD6eFBgo8N4OG+/nz1xPl1qkjDJqwOf/yfak0V2GpCfJjJMYlZOXzde3LF9r1xfJ/x04LGaWRAjz5gCVMSBho+AkExG6X8JM87aIpjS1HUX5y2GHZNIDL9gAs3sSAQmoCaGs7+A9RQY9Y/pHUx/oiRMSMaLAenmX5wCE5NQtHaJSHuTEc000CKl2NsVYVZJH4MU58rSmT9ov2Xi7+kxI/A7TxXO474nqlUOExhTUVmie1Ka6U/KPWHDJAael4oqbkLsyxzEqBx0nPmwkMdOFHf/+zkFGR+iqWYtLP+ZK2OAQcSI/Zx+V5jO7b/O2Y=
   on:
     tags: true
+    tag: alpha
     repo: AckeeCZ/create-react-app
