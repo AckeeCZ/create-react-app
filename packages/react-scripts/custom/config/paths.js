@@ -10,4 +10,6 @@ const paths = {
   packageJson: resolveRoot('package.json'),
 };
 
+console.log({ paths });
+
 module.exports = paths;
