@@ -15,6 +15,10 @@ try {
   const { name, version } = fs.readJSONSync(paths.appPackageJson);
   const tag = `${name}@${version}`;
 
+  if (!name) {
+    throw new Error(`[postversion] Package name is undefined.`);
+  }
+
   console.log(`[postversion] Commiting new version ${tag}...`);
   execSync('git add package.json', ignore);
   execSync(`git commit -m "${tag}"`, ignore);

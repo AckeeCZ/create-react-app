@@ -4,8 +4,10 @@ node_js:
 before_install:
   - cd packages/react-scripts/
   - node custom/scripts/prepublish
+before_deploy:
+  - export DEPLOY_TAG="alpha"
 deploy:
-  tag: $DEPLOY_TAG
+  tag: echo $DEPLOY_TAG
   provider: npm
   email: ackeedevelopment@gmail.com
   skip_cleanup: true
