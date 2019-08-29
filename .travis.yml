@@ -1,16 +1,16 @@
 language: node_js
 node_js:
-  - 8
+- 8
 before_install:
-  - cd packages/react-scripts/
-  - node custom/scripts/prepublish
-
+- cd packages/react-scripts/
+- node custom/scripts/prepublish
+deploy:
   tag: alpha
-  provider: script
+  provider: npm
   email: ackeedevelopment@gmail.com
   skip_cleanup: true
   api_key:
-    secure: hizdfBbmF1i49RNqxoBfPMULIRouHx1AvkZZqEM+otKeQtbnsRDuIi7e3UJmQrXWp3M7J6RJmXzCV+DkkYntDffSNd35Z7m7VRCzt9VFjFjGlC9Hp6hNTpSmcNk31wiIBFWrqCidC2YKCCHyYEMxAKxEheA+HZU4lXaht9Pa51k5ka1yN14VmdfJzjvChGKB/rCuBsK83EUoQajNbOgCicAC3gy1Upzak0FVtMl0KkMrHVikeFN42jzoCmX7Mm4rKyT55H9K3za9cOce3QSpmxu2yQ8LylYjHVHefFZLAEOL4dE13u9u/I5tVUMzR+ZZ1SEnSjr2F2wjZz9K8MSuiFmFL1P1brCbysyQld0syONkIgJRMey8y8t/i2vRDBpqrn6T0/I3qAVWX5c0iXMKsSKkPckE7U0b3S1edbkzut8SNW6I3dbM3Dr9JHfDLvt7VM/pmhwj4Ag346Tf/D0VPR6zBdZ38plw5/b620c97KM8HdqziGMTPfqAXd4H1DeAfNEGWbXIY9LQBSU0seu5TjUVr7KNutkQKAjZ1MIWf1E/TRMK7Az08ueTkvBqI8WMtF0zt7V+1hrhyrAKETVVlFiQqCLbiyniuZOePXToDeSyXnVym51vNrgtAl6OdHz3t2q7YOnuFVuvkHkkeTXJsl20cIwgk5c1LlLKuq/QSy8=
+    secure: Ep+Mj5Ly5UP0b94g6NIyvyBf52bXBL4TvZ3xwqmzs0yAcb5yukZDf/+zrB5t8M6Aw1AnAajHvbf0DmzviXtcCUKsvgF2gjZrx64dVcRuMRUEdQVxoJsYNUwppocmySbeHnc/k0xradO1VEhd91sfOffryp8fhyMyMBQ+mqOCabsdVJqiKAkACFY/rSZ5NPRgmuofzAXPjMLDzalfiyweXyIBzsflACJSQeDWFx4fJqT6vAHAQd6LCuUQya21/AQ4ylRcAL2Gtn0KPstqIWlT7lhHhjPD/4pLX7dCu8PZ6lsu2sgkN7XhdZejjWOZ3wgtAWR6UY46eGVLqVyJLMtz4xlGf2CenCIa283eUvN7P1+1s3ckix4qLP3o2nyCcN8vqm2Dd4ZRQiYixHEl+Nq88tglYYL52gGaDmbMIwXvp6pkAupeJx8ZW/b3AFzQ5Zc+L1TjvJ1UtIQgMDvCwobnv7y/91mdyUTSMFpYwYlPGQIUzbhBAd2jrrvvbxYTwv2g1eqHbrWlQ3vR/o6vkmYd4Xxg2tS8N2sOprLdph8jBo3wd5ddIJS+IscHQBgzhXke5woBgg6k6gjET+E33qP/po8dzQByTXSMBlU+fwEcxlLzIlQ71Q0mIrtMqawZPAYDh4bmrSTPTExlXuZWH5PpOp0JLlJCeaxjRGGmtDVAttE=
   on:
     tags: true
     repo: AckeeCZ/create-react-app
