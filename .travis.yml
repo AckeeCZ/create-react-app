@@ -16,3 +16,4 @@ deploy:
   on:
     tags: true
     repo: AckeeCZ/create-react-app
+    all_branches: true
