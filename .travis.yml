@@ -5,7 +5,7 @@ before_install:
   - cd packages/react-scripts/
   - node custom/travis/beforeInstall
 before_deploy:
-  - node custom/travis/beforeDeploy
+  - export DEPLOY_TAG=$(node custom/travis/beforeDeploy)
 deploy:
   tag: $DEPLOY_TAG
   provider: npm
