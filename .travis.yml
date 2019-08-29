@@ -3,9 +3,9 @@ node_js:
   - 8
 before_install:
   - cd packages/react-scripts/
-  - node custom/scripts/prepublish
+  - node custom/travis/beforeInstall
 before_deploy:
-  - export DEPLOY_TAG="alpha"
+  - node custom/travis/beforeDeploy
 deploy:
   tag: $DEPLOY_TAG
   provider: npm
