@@ -1,3 +1,3 @@
 'use strict';
 
-exports.authModulePrompt = require('./prompt');
+module.exports = require('./prompt');

@@ -5,7 +5,7 @@ const path = require('path');
 const fs = require('fs-extra');
 const prettier = require('prettier');
 
-const paths = require('../../../../config/paths');
+const paths = require('../../../config/paths');
 const inputFile = path.resolve(__dirname, './inputFile.js');
 const { getExistingFiles } = require('./utilities');
 

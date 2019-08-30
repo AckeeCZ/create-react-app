@@ -9,6 +9,7 @@ const paths = {
   root: resolveRoot('.'),
   packageJson: resolveRoot('package.json'),
   customPackageJson: resolveRoot('custom/package.json'),
+  prettierConfig: resolveRoot('template/prettier.config.js'),
 };
 
 module.exports = paths;
