@@ -4,7 +4,7 @@ const { execSync } = require('child_process');
 const { defaultBrowsers } = require('react-dev-utils/browsersHelper');
 
 const deleteObjectKeys = require('./utils/deleteObjectKeys');
-const { authModulePrompt } = require('./useAuthModule');
+const authModulePrompt = require('./useAuthModule');
 const installDependencies = require('./installDependencies');
 const mergeDependencies = require('./mergeDependencies');
 const getPackage = require('./getPackage');

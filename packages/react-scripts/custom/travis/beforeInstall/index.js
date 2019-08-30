@@ -1,7 +1,15 @@
 'use strict';
 
-require('./installDependencies');
+const installDependencies = require('./installDependencies');
 
-const transformPackageJson = require('./transformPackageJson');
+(async () => {
+  try {
+    installDependencies();
 
-transformPackageJson().catch(console.error);
+    const transformPackageJson = require('./transformPackageJson');
+
+    await transformPackageJson();
+  } catch (e) {
+    console.error(e);
+  }
+})();
