@@ -1,4 +1,7 @@
 {
+    "bin": {
+        "ackee-react-scripts": "./custom/bin/ackee-react-scripts.js"
+    },
     "dependencies": {
         "@ackee/eslint-config": "^1.0.0",
         "babel-plugin-custom-import-path-transform": "^1.0.3",

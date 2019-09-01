@@ -1,7 +1,6 @@
 'use strict';
 
 const { execSync } = require('child_process');
-const { defaultBrowsers } = require('react-dev-utils/browsersHelper');
 
 const deleteObjectKeys = require('./utils/deleteObjectKeys');
 const authModulePrompt = require('./useAuthModule');
@@ -57,7 +56,9 @@ exports.modifyTemplatePackageJson = async (ownPath, appPackage) => {
   delete appPackage.eslintConfig;
 
   // Setup the browsers list
-  appPackage.browserslist = ownPackage.browserlist || defaultBrowsers;
+  if (ownPackage.browserslist) {
+    appPackage.browserslist = ownPackage.browserslist;
+  }
 
   // add rest of ownPackage to appPackage
   const appPackageUsedKeys = new Set(Object.keys(appPackage));
