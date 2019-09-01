@@ -45,16 +45,16 @@
         "test:watch": "react-scripts test",
         "test": "cross-env CI=true react-scripts test --env=jsdom",
         "eject": "react-scripts eject",
-        "circular-dependencies": "react-scripts circular-dependencies --circular",
+        "circular-modules": "ackee-react-scripts circular-modules",
         "create-module": "hygen module new --name $1",
         "cypress:open": "cypress open",
-        "analyze-bundle": "yarn build:prod --stats && webpack-bundle-analyzer build/bundle-stats.json",
-        "localize": "ackee-localize-spreadsheet-sdk"
+        "localize": "ackee-localize-spreadsheet-sdk",
+        "analyze-bundle": "yarn build:prod --stats && webpack-bundle-analyzer build/bundle-stats.json"
     },
     "husky": {
         "hooks": {
             "pre-commit": "lint-staged",
-            "pre-push": "yarn circular-dependencies && yarn test"
+            "pre-push": "yarn circular-modules && yarn test"
         }
     },
     "lint-staged": {
@@ -71,6 +71,19 @@
         "testPathIgnorePatterns": [
             "<rootDir>/node_modules",
             "<rootDir>/src/config/config.test.js"
+        ]
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not ie <= 11",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
         ]
     }
 }

@@ -26,6 +26,10 @@ module.exports = async function transformPackageJson() {
   const finalPackageJson = {
     ...packageJson,
     ...customPackageJson,
+    bin: {
+      ...packageJson.bin,
+      ...customPackageJson.bin,
+    },
     dependencies: {
       ...packageJson.dependencies,
       ...customPackageJson.dependencies,

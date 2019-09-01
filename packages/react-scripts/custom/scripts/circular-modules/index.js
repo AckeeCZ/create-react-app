@@ -6,7 +6,6 @@ const { performance } = require('perf_hooks');
 const paths = require('../../../config/paths');
 
 const availableArguments = {
-  CIRCULAR: '--circular',
   SILENT: '--silent',
 };
 
@@ -95,7 +94,7 @@ async function performanDependenciesAnalysis({ options, notSilent }) {
 
   const circular = res.circular();
 
-  if (notSilent && args.includes(availableArguments.CIRCULAR)) {
+  if (notSilent) {
     printCircular(circular);
   }
 
