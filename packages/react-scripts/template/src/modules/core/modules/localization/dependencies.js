@@ -2,7 +2,7 @@ import * as translations from 'translations';
 
 export { translations };
 
-export { translatableHOC as translatable, reducer as localizationReducerFactory } from '@ackee/jerome';
+export { translatableWithAntdFactory, reducer as localizationReducerFactory } from '@ackee/jerome';
 
 export { addLocaleData } from 'react-intl';
 
