@@ -11,6 +11,7 @@ const paths = {
   customPackageJson: resolveRoot('custom/package.json'),
   prettierConfig: resolveRoot('template/prettier.config.js'),
   templateSrc: resolveRoot('template/src'),
+  custom: resolveRoot('custom'),
 };
 
 module.exports = paths;
