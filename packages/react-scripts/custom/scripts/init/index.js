@@ -3,7 +3,7 @@
 const { execSync } = require('child_process');
 
 const deleteObjectKeys = require('./utils/deleteObjectKeys');
-const authModulePrompt = require('./useAuthModule');
+// const authModulePrompt = require('./useAuthModule');
 const installDependencies = require('./installDependencies');
 const mergeDependencies = require('./mergeDependencies');
 const getPackage = require('./getPackage');
@@ -24,7 +24,7 @@ exports.gitCommitAmend = () => {
 exports.modifyTemplatePackageJson = async (ownPath, appPackage) => {
   const ownPackage = getPackage(ownPath);
 
-  const excludeFromJsonPackage = await authModulePrompt(ownPath);
+  // const excludeFromJsonPackage = await authModulePrompt(ownPath);
 
   // Copy over some of the dependencies
   const dependencies = mergeDependencies(
@@ -33,8 +33,8 @@ exports.modifyTemplatePackageJson = async (ownPath, appPackage) => {
   );
 
   appPackage.dependencies = deleteObjectKeys(
-    dependencies,
-    excludeFromJsonPackage.dependencies
+    dependencies
+    // excludeFromJsonPackage.dependencies
   );
 
   const devDependencies = mergeDependencies(
@@ -43,13 +43,13 @@ exports.modifyTemplatePackageJson = async (ownPath, appPackage) => {
   );
 
   appPackage.devDependencies = deleteObjectKeys(
-    devDependencies,
-    excludeFromJsonPackage.devDependencies
+    devDependencies
+    // excludeFromJsonPackage.devDependencies
   );
 
   appPackage.scripts = deleteObjectKeys(
-    ownPackage.scripts,
-    excludeFromJsonPackage.scripts
+    ownPackage.scripts
+    // excludeFromJsonPackage.scripts
   );
 
   // eslint config is defined in separe file
