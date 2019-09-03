@@ -23,11 +23,12 @@ const { defaultBrowsers } = require('react-dev-utils/browsersHelper');
 const os = require('os');
 const verifyTypeScriptSetup = require('./utils/verifyTypeScriptSetup');
 // @ackee/react-scripts - beginning
+const customPaths = require('../custom/config/paths');
 const {
   gitCommitAmend,
   modifyTemplatePackageJson,
   installDependencies,
-} = require('../custom/scripts/init');
+} = require(path.resolve(customPaths.custom, 'scripts/init'));
 // @ackee/react-scripts - end
 
 function isInGitRepository() {
