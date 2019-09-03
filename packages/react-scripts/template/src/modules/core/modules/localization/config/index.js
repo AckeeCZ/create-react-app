@@ -1,13 +1,12 @@
-import { addLocaleData, csLocales, csAntd, translations } from '../dependencies';
+import { csAntd, translations } from '../dependencies';
+import { Languages } from '../constants';
 
-addLocaleData([...csLocales]);
-
-export const languages = ['cs'];
+export const languages = Object.values(Languages);
 
 export const intlData = {
-    cs: translations.cs,
+    [Languages.CS]: translations.cs,
 };
 
 export const antdData = {
-    cs: csAntd,
+    [Languages.CS]: csAntd,
 };
