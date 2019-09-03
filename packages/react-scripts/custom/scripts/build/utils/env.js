@@ -7,10 +7,16 @@ exports.getTargetValue = (args = []) => {
   return targetArg ? targetArg.replace(argKey, '') : targetArg;
 };
 
+const Target = {
+  DEVELOPMENT: 'development',
+  STAGE: 'stage',
+  PRODUCTION: 'production',
+};
+
 exports.getNodeEnv = targetValue => {
   switch (targetValue) {
-    case 'development':
-    case 'stage':
+    case Target.DEVELOPMENT:
+    case Target.STAGE:
       return 'development';
     default:
       return 'production';
@@ -19,8 +25,8 @@ exports.getNodeEnv = targetValue => {
 
 exports.getBuildEnv = targetValue => {
   switch (targetValue) {
-    case 'development':
-    case 'stage':
+    case Target.DEVELOPMENT:
+    case Target.STAGE:
       return targetValue;
     default:
       return 'production';
