@@ -23,12 +23,11 @@ const { defaultBrowsers } = require('react-dev-utils/browsersHelper');
 const os = require('os');
 const verifyTypeScriptSetup = require('./utils/verifyTypeScriptSetup');
 // @ackee/react-scripts - beginning
-const customPaths = require('../custom/config/paths');
-const {
-  gitCommitAmend,
-  modifyTemplatePackageJson,
-  installDependencies,
-} = require(path.resolve(customPaths.custom, 'scripts/init'));
+// const {
+//   gitCommitAmend,
+//   modifyTemplatePackageJson,
+//   installDependencies,
+// } = require('../custom/scripts/init');
 // @ackee/react-scripts - end
 
 function isInGitRepository() {
@@ -215,7 +214,7 @@ module.exports = async function(
   });
   
   // @ackee/react-scripts - beginning
-  await modifyTemplatePackageJson(ownPath, appPackage);
+  // await modifyTemplatePackageJson(ownPath, appPackage);
   // @ackee/react-scripts - end
 
   fs.writeFileSync(
@@ -350,14 +349,14 @@ module.exports = async function(
     console.log('Created git commit.');
   }
 
-  await installDependencies(appPackage, {
-    useYarn,
-    verbose,
-  });
+  // await installDependencies(appPackage, {
+  //   useYarn,
+  //   verbose,
+  // });
 
   if (didGitInit) {
     // append changes to the last commit (the init commit) caused by installing postponed devDependencies
-    gitCommitAmend();
+    // gitCommitAmend();
   }
   // @ackee/react-scripts - end
 
