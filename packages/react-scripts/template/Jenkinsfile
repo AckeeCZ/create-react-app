@@ -6,7 +6,7 @@ PipelineReact {
         stage: 'npm install && npm run build:stage',
         development: 'npm install && npm run build:dev',
     ]
-    baseURL = '${projectName}-frontend'
+    baseURL = "${projectName}-frontend"
     buildDir = 'build'
 
     bucketURL = [
