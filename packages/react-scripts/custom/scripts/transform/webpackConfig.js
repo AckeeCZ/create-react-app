@@ -1,6 +1,6 @@
 'use strict';
 
-const paths = require('../../../config/paths');
+const paths = require('../../config/paths');
 
 const transformWebpackConfig = require('../../config/transformWebpackConfig');
 const transformWebpackConfigFromSkeleton = require(paths.appWebpackConfig);

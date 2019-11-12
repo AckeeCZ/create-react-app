@@ -4,7 +4,7 @@ const { execSync } = require('child_process');
 const fs = require('fs-extra');
 const chalk = require('chalk');
 
-const paths = require('../../../config/paths');
+const paths = require('../../config/paths');
 
 const ignore = {
   stdio: 'ignore',
