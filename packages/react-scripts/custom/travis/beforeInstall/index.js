@@ -7,9 +7,8 @@ const installDependencies = require('./installDependencies');
     installDependencies();
 
     const transformPackageJson = require('./transformPackageJson');
-    const rewriteReadme = require('./rewriteReadme');
 
-    await Promise.all([transformPackageJson(), rewriteReadme()]);
+    await Promise.all([transformPackageJson()]);
   } catch (e) {
     console.error(e);
   }

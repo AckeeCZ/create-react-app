@@ -12,13 +12,11 @@ const resolveAppRoot = relativePath => path.resolve(appDirectory, relativePath);
 const paths = {
   // @start: react-scripts context
   customPackageJson: resolveReactScriptsRoot('custom/custom-package.json'),
-  customReadme: resolveReactScriptsRoot('custom/custom-readme.md'),
 
   prettierConfig: resolveReactScriptsRoot('template/prettier.config.js'),
   templateSrc: resolveReactScriptsRoot('template/src'),
 
   packageJson: resolveReactScriptsRoot('package.json'),
-  readme: resolveReactScriptsRoot('README.md'),
 
   // TODO: won't work after eject, use resolveAppRoot then
   webpackConfig: resolveReactScriptsRoot('config/webpack.config.js'),
