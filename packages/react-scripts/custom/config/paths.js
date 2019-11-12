@@ -11,7 +11,7 @@ const resolveAppRoot = relativePath => path.resolve(appDirectory, relativePath);
 
 const paths = {
   // @start: react-scripts context
-  customPackageJson: resolveReactScriptsRoot('custom/package.json'),
+  customPackageJson: resolveReactScriptsRoot('custom/custom-package.json'),
 
   prettierConfig: resolveReactScriptsRoot('template/prettier.config.js'),
   templateSrc: resolveReactScriptsRoot('template/src'),
