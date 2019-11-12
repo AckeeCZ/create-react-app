@@ -3,9 +3,8 @@ import {
     compose,
     routerMiddlewareWithHistory,
     createSagaMiddleware,
-    Sentry,
     sentryMiddleware,
-    config,
+    Config,
     Log,
 } from '../dependencies';
 
@@ -13,16 +12,13 @@ import rootSaga from '../services/saga';
 
 export default function configureEnhancer() {
     const sagaMiddleware = createSagaMiddleware({
-        onError(e) {
-            Log.error(e);
-            Sentry.captureException(e);
-        },
+        onError: Log.error,
     });
 
     const middlewares = [routerMiddlewareWithHistory, sagaMiddleware, sentryMiddleware];
     const enhancerArgs = [applyMiddleware(...middlewares)];
 
-    if (config.devTools) {
+    if (Config.devTools) {
         // eslint-disable-next-line
         const reduxDevTools = window && window.__REDUX_DEVTOOLS_EXTENSION__;
         enhancerArgs.push(reduxDevTools ? reduxDevTools() : r => r);

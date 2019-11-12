@@ -1,17 +1,13 @@
-import { compose, injectIntl, reduxForm, config, connect, bindActionCreators, submitForm } from '../dependencies';
+import { compose, reduxForm, Config, connect, submitForm } from '../dependencies';
 
 import LoginForm from '../components/LoginForm';
 import { loginForm } from '../services/actions';
 
-const submitLoginForm = submitForm(config.forms.login, loginForm);
+const submitLoginForm = submitForm(Config.forms.login, loginForm);
 
-const mapDispatchToProps = dispatch =>
-    bindActionCreators(
-        {
-            onSubmit: submitLoginForm,
-        },
-        dispatch,
-    );
+const mapDispatchToProps = {
+    onSubmit: submitLoginForm,
+};
 
 const validate = (values = {}) => {
     const errors = {};
@@ -27,15 +23,14 @@ const validate = (values = {}) => {
 };
 
 const formCofig = {
-    form: config.forms.login,
+    form: Config.forms.login,
     validate,
 };
 
 export default compose(
-    injectIntl,
     connect(
         null,
-        mapDispatchToProps,
+        mapDispatchToProps
     ),
-    reduxForm(formCofig),
+    reduxForm(formCofig)
 )(LoginForm);

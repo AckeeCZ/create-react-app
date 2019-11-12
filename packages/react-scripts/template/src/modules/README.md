@@ -67,7 +67,7 @@ Note that each of these folders is optional, however a module must include `inde
     /components
     /containers
     /config
-    /consts
+    /constants
     /HOC
     /services
         /actions
