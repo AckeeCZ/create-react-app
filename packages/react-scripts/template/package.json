@@ -1,8 +1,8 @@
 {
     "dependencies": {
         "@ackee/antonio": "3.0.0-beta.6",
-        "@ackee/chris": "1.x",
-        "@ackee/jerome": "2.x",
+        "@ackee/chris": "2.x",
+        "@ackee/jerome": "3.x",
         "@ackee/lucas": "0.x",
         "@ackee/mateus": "1.x",
         "@ackee/petrus": "4.0.0-beta.18",
