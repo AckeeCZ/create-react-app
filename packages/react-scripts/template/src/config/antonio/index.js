@@ -1,6 +1,6 @@
 import { create } from '@ackee/antonio';
 
-import config from 'config';
+import Config from 'config';
 
 const {
     api,
@@ -10,7 +10,7 @@ const {
     saga,
 } = create(
     {
-        baseURL: config.api.base,
+        baseURL: Config.api.base,
     },
     {
         // manageAuthUser: false

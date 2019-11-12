@@ -1,9 +1,8 @@
 import * as sagaEffects from 'redux-saga/effects';
-import * as Sentry from '@sentry/browser';
-import * as consts from 'constants/index';
+import * as Consts from 'constants/index';
 import * as Log from 'config/loglevel';
 
-export { sagaEffects, Sentry, consts, Log };
+export { sagaEffects, Consts, Log };
 
 export { default as React, PureComponent } from 'react';
 export { default as PropTypes } from 'prop-types';
@@ -14,7 +13,7 @@ export { reducer as formReducer } from 'redux-form';
 export { saga as antonio } from 'config/antonio';
 export { submitFormSaga as formSaga } from '@ackee/mateus';
 
-export { default as config } from 'config';
+export { default as Config } from 'config';
 
 export { routerMiddlewareWithHistory, connectRouterWithHistory } from '../router';
 export { reducer as translateReducer, saga as localizationSaga } from '../localization';

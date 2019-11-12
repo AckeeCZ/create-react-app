@@ -1,5 +1,5 @@
 {
-    "extends": ["react-app", "@ackee", "prettier"],
+    "extends": ["react-app", "@ackee/eslint-config", "prettier"],
     "settings": {
         "import/resolver": {
             "node": {
@@ -12,8 +12,7 @@
     },
     "env": {
         "browser": true,
-        "jest": true,
-        "cypress/globals": true
+        "jest": true
     },
     "plugins": ["cypress"]
 }

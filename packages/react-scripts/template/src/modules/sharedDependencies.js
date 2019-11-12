@@ -10,7 +10,7 @@ export { compose, combineReducers } from 'redux';
 export { connect, useDispatch, useSelector } from 'react-redux';
 export { Route, Switch, Link, Redirect, useLocation, useRouteMatch } from 'react-router-dom';
 export { FelaComponent, connect as connectFela } from 'react-fela';
-export { FormattedMessage, FormattedNumber, FromattedDate, useIntl } from 'react-intl';
+export { FormattedMessage, FormattedNumber, FormattedDate, useIntl } from 'react-intl';
 
 export { childrenPropType } from '@ackee/lucas';
 export {
@@ -23,4 +23,4 @@ export {
 export { takeLatestRequest, takeRequest } from '@ackee/antonio/es/saga-effects';
 
 export { default as Config } from 'config';
-export { authApi, api } from 'Config/antonio';
+export { authApi, api } from 'config/antonio';

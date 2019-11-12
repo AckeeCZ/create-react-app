@@ -1,45 +1,46 @@
-import { React, PropTypes, Form, Button, TextField } from '../dependencies';
+import { React, PropTypes, Form, Button, TextField, useIntl } from '../dependencies';
 
-const LoginForm = ({ handleSubmit, intl, submitting, error }) => (
-    <Form onSubmit={handleSubmit}>
-        <TextField
-            {...{
-                id: 'email',
-                name: 'email',
-                disabled: submitting,
-                label: intl.formatMessage({ id: 'login.email' }),
-            }}
-        />
+const LoginForm = ({ handleSubmit, submitting, error }) => {
+    const { formatMessage } = useIntl();
 
-        <TextField
-            {...{
-                id: 'password',
-                name: 'password',
-                type: 'password',
-                disabled: submitting,
-                label: intl.formatMessage({ id: 'login.password' }),
-            }}
-        />
+    return (
+        <Form onSubmit={handleSubmit}>
+            <TextField
+                {...{
+                    id: 'email',
+                    name: 'email',
+                    disabled: submitting,
+                    label: formatMessage({ id: 'login.email' }),
+                }}
+            />
 
-        <Button
-            {...{
-                id: 'submitButton',
-                htmlType: 'submit',
-                disabled: submitting,
-            }}
-        >
-            {intl.formatMessage({ id: 'login.submit' })}
-        </Button>
+            <TextField
+                {...{
+                    id: 'password',
+                    name: 'password',
+                    type: 'password',
+                    disabled: submitting,
+                    label: formatMessage({ id: 'login.password' }),
+                }}
+            />
 
-        {error && <p>{error}</p>}
-    </Form>
-);
+            <Button
+                {...{
+                    id: 'submitButton',
+                    htmlType: 'submit',
+                    disabled: submitting,
+                }}
+            >
+                {formatMessage({ id: 'login.submit' })}
+            </Button>
+
+            {error && <p>{error}</p>}
+        </Form>
+    );
+};
 
 LoginForm.propTypes = {
     handleSubmit: PropTypes.func.isRequired,
-    intl: PropTypes.shape({
-        formatMessage: PropTypes.func.isRequired,
-    }).isRequired,
     submitting: PropTypes.bool.isRequired,
     error: PropTypes.string,
 };

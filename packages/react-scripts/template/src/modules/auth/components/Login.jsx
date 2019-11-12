@@ -1,7 +1,5 @@
-import { Petrus } from '../dependencies';
-
-import AuthLoader from './AuthLoader';
+import firewall from '../HOC/firewall';
 import AuthContent from '../containers/AuthContent';
 import LoginForm from '../containers/LoginForm';
 
-export default Petrus.authorizable(AuthContent, LoginForm, AuthLoader);
+export default firewall(AuthContent, LoginForm);
