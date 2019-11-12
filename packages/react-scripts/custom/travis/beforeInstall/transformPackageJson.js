@@ -5,7 +5,7 @@ const paths = require('../../config/paths');
 
 module.exports = async function transformPackageJson() {
   console.log(
-    '[beforeInstall] injecting custom scripts, dependencies to package.json...'
+    '[beforeInstall] Injecting custom scripts, dependencies to package.json...'
   );
   if (!fs.existsSync(paths.packageJson)) {
     throw new Error(`paths.packageJson: ${paths.packageJson} file not found`);
@@ -26,6 +26,7 @@ module.exports = async function transformPackageJson() {
   const finalPackageJson = {
     ...packageJson,
     ...customPackageJson,
+    files: [...packageJson.files, ...customPackageJson.files],
     bin: {
       ...packageJson.bin,
       ...customPackageJson.bin,
