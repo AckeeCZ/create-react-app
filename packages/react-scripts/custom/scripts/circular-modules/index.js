@@ -3,7 +3,7 @@
 const madge = require('madge');
 const chalk = require('chalk');
 const { performance } = require('perf_hooks');
-const paths = require('../../../config/paths');
+const paths = require('../../config/paths');
 
 const availableArguments = {
   SILENT: '--silent',

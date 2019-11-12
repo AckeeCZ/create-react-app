@@ -4,7 +4,7 @@ const path = require('path');
 const webpack = require('webpack');
 const WorkerPlugin = require('worker-plugin');
 
-const paths = require('../../config/paths');
+const paths = require('../config/paths');
 const insertPreloaders = require('./utils/insertPreloaders');
 const appendBabelPlugins = require('./utils/appendBabelPlugins');
 const removeMiniCSSExtractLoader = require('./utils/removeMiniCSSExtractLoader');
