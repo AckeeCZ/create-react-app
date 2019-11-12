@@ -1,12 +1,12 @@
 {
     "dependencies": {
-        "@ackee/antonio": "3.0.0-beta.5",
+        "@ackee/antonio": "3.0.0-beta.6",
         "@ackee/chris": "1.x",
         "@ackee/jerome": "2.x",
         "@ackee/lucas": "0.x",
         "@ackee/mateus": "1.x",
-        "@ackee/petrus": "4.0.0-beta.12",
-        "@ackee/redux-utils": "2.0.0",
+        "@ackee/petrus": "4.0.0-beta.18",
+        "@ackee/redux-utils": "2.x",
         "@sentry/browser": "5.x",
         "antd": "3.x",
         "connected-react-router": "6.5.x",
