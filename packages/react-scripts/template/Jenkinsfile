@@ -1,10 +1,14 @@
+/* 
+    Be aware!
+    http://docs.groovy-lang.org/latest/html/documentation/#_string_interpolation 
+*/
 PipelineReact {
-    projectName = 'project-name'
-    slackChannel = '#ci-${projectName}'
+    projectName = "project-name"
+    slackChannel = "#ci-${projectName}"
     buildCommand = [
-        master: 'npm install && npm test && npm run build:prod',
-        stage: 'npm install && npm run build:stage',
-        development: 'npm install && npm run build:dev',
+        master: "yarn && yarn test && yarn build:prod",
+        stage: "yarn && yarn build:stage",
+        development: "yarn && yarn build:dev",
     ]
     baseURL = "${projectName}-frontend"
     buildDir = 'build'
