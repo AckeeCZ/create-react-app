@@ -1,3 +1,4 @@
+import { reducer as formReducer } from 'redux-form';
 // @use-auth-module-begin
 import { reducer as auth } from 'modules/auth';
 // @use-auth-module-end
@@ -9,6 +10,7 @@ const reducers = {
     // @use-auth-module-begin
     auth,
     // @use-auth-module-end
+    form: formReducer,
 };
 
 export default reducers;

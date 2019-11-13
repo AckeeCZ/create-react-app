@@ -23,7 +23,6 @@ module.exports = {
   dependencies: {
     files: [
       resolveTemplateSrc('config/antonio/index.js'),
-      resolveTemplateSrc('services/sagas/authSaga.js'),
       resolveTemplateSrc('services/sagas/modules/index.js'),
       resolveTemplateSrc('services/sagas/index.js'),
       resolveTemplateSrc('services/reducers/index.js'),

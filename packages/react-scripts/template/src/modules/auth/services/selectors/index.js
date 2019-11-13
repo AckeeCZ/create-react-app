@@ -1,4 +1,4 @@
-import { createSelector, Petrus } from '../dependencies';
+import { createSelector, Petrus } from '../../dependencies';
 
 export const authUserSelector = createSelector(
     Petrus.entitiesSelector,

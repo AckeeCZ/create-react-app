@@ -3,6 +3,7 @@ import {
     Config,
     createSentryMiddleware,
     Log,
+    Consts,
     // @use-auth-module-begin
     authUserSelector,
     // @use-auth-module-end
@@ -15,7 +16,7 @@ const options = {
     release: `${process.env.REACT_APP_NAME}@${process.env.REACT_APP_VERSION}`,
 };
 
-if (!options.dsn && window) {
+if (!options.dsn && !Consts.isServerEnv) {
     const projectName = window.encodeURIComponent(Config.appName);
     const url = `https://sentry.ackee.cz/settings/ackee-production/projects/${projectName}/keys/`;
 
@@ -25,7 +26,7 @@ if (!options.dsn && window) {
 export const initializeSentry = () => {
     const init = () => Sentry.init(options);
 
-    window && window.requestIdleCallback ? window.requestIdleCallback(init) : init();
+    !Consts.isServerEnv && window.requestIdleCallback ? window.requestIdleCallback(init) : init();
 };
 
 // docs: https://github.com/vidit-sh/redux-sentry-middleware#sentry-middleware-for-redux
