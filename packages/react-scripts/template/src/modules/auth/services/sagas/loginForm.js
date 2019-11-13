@@ -1,5 +1,6 @@
 import { Petrus, sagaEffects } from 'modules/auth/dependencies';
-import types from '../actionTypes';
+
+import { types } from '../actions';
 
 const { put, take, takeEvery } = sagaEffects;
 

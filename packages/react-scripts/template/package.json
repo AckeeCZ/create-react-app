@@ -42,12 +42,12 @@
         "build:stage": "react-scripts build --target=stage",
         "build:prod": "react-scripts build --target=production",
         "test:watch": "react-scripts test",
-        "postinstall": "yarn localize",
         "test": "cross-env CI=true react-scripts test --env=jsdom",
+        "cypress:open": "cypress open",
         "eject": "react-scripts eject",
         "circular-modules": "ackee-react-scripts circular-modules",
-        "cypress:open": "cypress open",
         "localize": "ackee-localize-spreadsheet-sdk",
+        "postinstall": "yarn localize",
         "analyze-bundle": "yarn build:prod --stats && webpack-bundle-analyzer build/bundle-stats.json"
     },
     "husky": {

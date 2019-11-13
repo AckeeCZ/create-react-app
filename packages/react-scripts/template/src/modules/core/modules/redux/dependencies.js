@@ -4,7 +4,7 @@ import * as Log from 'config/loglevel';
 
 export { sagaEffects, Consts, Log };
 
-export { default as React, PureComponent } from 'react';
+export { default as React } from 'react';
 export { default as PropTypes } from 'prop-types';
 export { Provider } from 'react-redux';
 export { createStore, applyMiddleware, combineReducers, compose } from 'redux';

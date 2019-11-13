@@ -1,7 +1,7 @@
 import {
     React,
     // @use-auth-module-begin
-    Auth,
+    Login,
     // @use-auth-module-end,
     Switch,
     Route,
@@ -38,7 +38,7 @@ const routes = [
     // @use-auth-module-begin
     {
         path: '/auth',
-        component: Auth,
+        component: Login,
     },
     // @use-auth-module-end
     {

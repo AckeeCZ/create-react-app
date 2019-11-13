@@ -1,21 +1,15 @@
-import { React, PureComponent, PropTypes, Provider } from '../dependencies';
+import { React, PropTypes, Provider } from '../dependencies';
 
 import { configureStore } from '../config';
 
-class Redux extends PureComponent {
-    static propTypes = {
-        children: PropTypes.node.isRequired,
-    };
+function Redux({ children }) {
+    const store = configureStore();
 
-    constructor(props) {
-        super(props);
-
-        this.store = configureStore();
-    }
-
-    render() {
-        return <Provider store={this.store}>{this.props.children}</Provider>;
-    }
+    return <Provider store={store}>{children}</Provider>;
 }
+
+Redux.propTypes = {
+    children: PropTypes.node.isRequired,
+};
 
 export default Redux;
