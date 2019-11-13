@@ -14,6 +14,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Aliases aren't begins with capital letter, they correspond with real directory name.
   - Remove `eslint-import-resolver-webpack` loader.
 - [BREAKING] `yaml-loader` -> Now there is now to include the loader by default, since localization are generated dynamically from Google Spread sheet to JSON files.
+- `hygen` - NPM package, templates
+- `pre-push` hook in favor of Jenkins/Gitlab pipeline -> offload running tests and checking circular dependencies there.
 
 ### Fixed
 
