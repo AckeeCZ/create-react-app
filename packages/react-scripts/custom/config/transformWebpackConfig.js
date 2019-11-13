@@ -8,6 +8,8 @@ const paths = require('../config/paths');
 const insertPreloaders = require('./utils/insertPreloaders');
 const appendBabelPlugins = require('./utils/appendBabelPlugins');
 const removeMiniCSSExtractLoader = require('./utils/removeMiniCSSExtractLoader');
+const removeStyleLoader = require('./utils/removeStyleLoader');
+const removeMiniCSSExtractPlugin = require('./utils/removeMiniCSSExtractPlugin');
 
 const preloaders = [
   {
@@ -83,11 +85,14 @@ const transformRules = (rules, webpackEnv) => {
   );
 
   removeMiniCSSExtractLoader(rules);
+  removeStyleLoader(rules);
 
   return rules;
 };
 
 const transformPlugins = plugins => {
+  removeMiniCSSExtractPlugin(plugins);
+
   const definePlugin = plugins.find(
     plugin => plugin instanceof webpack.DefinePlugin
   );
