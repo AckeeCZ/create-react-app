@@ -10,9 +10,5 @@
     "rules": {
         "no-restricted-globals": "off"
     },
-    "env": {
-        "browser": true,
-        "jest": true
-    },
     "plugins": ["cypress"]
 }

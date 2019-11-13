@@ -54,6 +54,4 @@ npx create-react-app my-test-app --scripts-version file:./create-react-app/packa
 >
 > Make sure that `node_modules` aren't included in the `react-scripts` directory when running the script above. Otherwise, weird issues may occur!
 
-### Upgrading (rebasing) to a new Create React App version
-
-[TODO]
+### [Upgrading (rebasing) to a new Create React App version](custom/README.md)
