@@ -6,9 +6,8 @@ import {
     sentryMiddleware,
     Config,
     Log,
+    Consts,
 } from '../dependencies';
-
-import rootSaga from '../services/saga';
 
 export default function configureEnhancer() {
     const sagaMiddleware = createSagaMiddleware({
@@ -18,16 +17,16 @@ export default function configureEnhancer() {
     const middlewares = [routerMiddlewareWithHistory, sagaMiddleware, sentryMiddleware];
     const enhancerArgs = [applyMiddleware(...middlewares)];
 
-    if (Config.devTools) {
+    if (Config.devTools && !Consts.isServerEnv) {
         // eslint-disable-next-line
-        const reduxDevTools = window && window.__REDUX_DEVTOOLS_EXTENSION__;
-        enhancerArgs.push(reduxDevTools ? reduxDevTools() : r => r);
+        const reduxDevTools = window.__REDUX_DEVTOOLS_EXTENSION__;
+        if (reduxDevTools) {
+            enhancerArgs.push(reduxDevTools());
+        }
     }
 
     return {
         enhancer: compose(...enhancerArgs),
-        runSagaMiddleware() {
-            sagaMiddleware.run(rootSaga);
-        },
+        sagaMiddleware,
     };
 }

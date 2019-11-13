@@ -8,10 +8,7 @@ export { default as React } from 'react';
 export { default as PropTypes } from 'prop-types';
 export { Provider } from 'react-redux';
 export { createStore, applyMiddleware, combineReducers, compose } from 'redux';
-export { default as createSagaMiddleware } from 'redux-saga';
-export { reducer as formReducer } from 'redux-form';
-export { saga as antonio } from 'config/antonio';
-export { submitFormSaga as formSaga } from '@ackee/mateus';
+export { default as createSagaMiddleware, END } from 'redux-saga';
 
 export { default as Config } from 'config';
 

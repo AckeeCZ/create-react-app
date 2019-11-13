@@ -2,8 +2,8 @@ import { React, PropTypes, connectFela, childrenPropType, FormattedMessage, Antd
 
 import * as Styles from './Loader.styles';
 
-const Loader = ({ children, showLoader, styles }) => {
-    return showLoader ? (
+const Loader = ({ children, show, styles }) => {
+    return show ? (
         <div className={styles.loader}>
             <AntdSpin />
             <div className={styles.text}>
@@ -17,12 +17,11 @@ const Loader = ({ children, showLoader, styles }) => {
 
 Loader.propTypes = {
     children: childrenPropType,
-    showLoader: PropTypes.bool,
+    show: PropTypes.bool.isRequired,
     styles: PropTypes.shape().isRequired,
 };
 
 Loader.defaultProps = {
-    showLoader: true,
     children: null,
 };
 
