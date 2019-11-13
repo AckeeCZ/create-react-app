@@ -42,18 +42,18 @@
         "build:stage": "react-scripts build --target=stage",
         "build:prod": "react-scripts build --target=production",
         "test:watch": "react-scripts test",
-        "test": "cross-env CI=true react-scripts test --env=jsdom",
         "cypress:open": "cypress open",
         "eject": "react-scripts eject",
-        "circular-modules": "ackee-react-scripts circular-modules",
+        "check-circular-modules": "ackee-react-scripts circular-modules",
         "localize": "ackee-localize-spreadsheet-sdk",
         "postinstall": "yarn localize",
-        "analyze-bundle": "yarn build:prod --stats && webpack-bundle-analyzer build/bundle-stats.json"
+        "analyze-bundle": "yarn build:prod --stats && webpack-bundle-analyzer build/bundle-stats.json",
+        "ci-test": "cross-env CI=true react-scripts test --env=jsdom",
+        "ci-check-circular-modules": "circular-modules"
     },
     "husky": {
         "hooks": {
-            "pre-commit": "lint-staged",
-            "pre-push": "yarn circular-modules && yarn test"
+            "pre-commit": "lint-staged"
         }
     },
     "lint-staged": {
