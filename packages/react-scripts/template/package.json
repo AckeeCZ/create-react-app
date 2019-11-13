@@ -32,7 +32,6 @@
         "ackee-localize-spreadsheet-sdk": "0.x",
         "fela-plugin-validator": "10.x",
         "husky": "3.x",
-        "hygen": "1.x",
         "imagemin-lint-staged": "0.x",
         "lint-staged": "9.x"
     },
@@ -46,7 +45,6 @@
         "test": "cross-env CI=true react-scripts test --env=jsdom",
         "eject": "react-scripts eject",
         "circular-modules": "ackee-react-scripts circular-modules",
-        "create-module": "hygen module new --name $1",
         "cypress:open": "cypress open",
         "localize": "ackee-localize-spreadsheet-sdk",
         "analyze-bundle": "yarn build:prod --stats && webpack-bundle-analyzer build/bundle-stats.json"
