@@ -21,7 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Updated
 
-- Upgraded to [`react-scripts@3.1.1`](https://github.com/facebook/create-react-app/releases/tag/v3.1.1).
+- Upgraded to [`react-scripts@3.2.0`](https://github.com/facebook/create-react-app/releases/tag/v3.2.0).
 - Change internal structure to simplify react-scripts upgrades and maintainability.
 - Move ESLint config outside of `package.json` to its own file - `.eslintrc`.
 - Upgrade `eslint-config-ackee` to `@ackee/eslint-config`.
