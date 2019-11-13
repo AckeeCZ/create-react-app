@@ -30,6 +30,7 @@ module.exports = {
       resolveTemplateSrc('modules/application/components/App.jsx'),
       resolveTemplateSrc('modules/core/modules/sentry/config/index.js'),
       resolveTemplateSrc('modules/core/modules/sentry/dependencies.js'),
+      resolveTemplateSrc('modules/sharedDependencies.js'),
     ],
     directories: [resolveTemplateSrc('modules/auth')],
     jsonPackage: {

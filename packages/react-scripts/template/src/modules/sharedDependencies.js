@@ -24,6 +24,11 @@ export {
 export { takeLatestRequest, takeRequest } from '@ackee/antonio/es/saga-effects';
 
 export { default as Config } from 'config';
-export { authApi, api } from 'config/antonio';
+export {
+    // @use-auth-module-begin
+    authApi,
+    // @use-auth-module-end
+    api,
+} from 'config/antonio';
 
 export { push, goBack } from 'connected-react-router';
