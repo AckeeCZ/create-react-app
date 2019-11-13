@@ -2,7 +2,7 @@ import * as Consts from 'constants/index';
 
 export { Consts };
 
-export { default as React, PureComponent } from 'react';
+export { default as React } from 'react';
 export { default as PropTypes } from 'prop-types';
 
 export { createRenderer } from 'fela';

@@ -11,6 +11,7 @@ export { connect, useDispatch, useSelector } from 'react-redux';
 export { Route, Switch, Link, Redirect, useLocation, useRouteMatch } from 'react-router-dom';
 export { FelaComponent, connect as connectFela } from 'react-fela';
 export { FormattedMessage, FormattedNumber, FormattedDate, useIntl } from 'react-intl';
+export { createSelector } from 'reselect';
 
 export { childrenPropType } from '@ackee/lucas';
 export {
@@ -24,3 +25,5 @@ export { takeLatestRequest, takeRequest } from '@ackee/antonio/es/saga-effects';
 
 export { default as Config } from 'config';
 export { authApi, api } from 'config/antonio';
+
+export { push, goBack } from 'connected-react-router';
