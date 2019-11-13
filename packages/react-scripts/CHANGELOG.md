@@ -34,6 +34,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Make the webpack configurable from generated skeleton without ejecting.
 - Remove global components in favor of a new `ui` module.
 - Global configuration for `@ackee/redux-utils`, see `src/config/redux-utils`.
+- Dynamic CSS reset [@import-normalize](https://create-react-app.dev/docs/adding-css-reset#indexcss) - it's generated based on current `browserslist`.
 
 ## [@ackee/react-scripts@0.11.6] - 2019-07-18
 
