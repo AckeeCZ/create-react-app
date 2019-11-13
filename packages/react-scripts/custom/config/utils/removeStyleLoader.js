@@ -1,20 +1,19 @@
 'use strict';
 
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-
 const findOneOf = require('./findOneOf');
 
-module.exports = rules => {
+function removeStyleLoader(rules) {
   const oneOf = findOneOf(rules);
 
   const styleLoaders = oneOf.filter(loader => Array.isArray(loader.use));
 
   const targetLocations = [];
+  const styleLoaderPath = require.resolve('style-loader');
 
-  // Find MiniCssExtractPlugin.loader in style loaders
+  // Find 'style-loader' in style loaders
   styleLoaders.forEach((loader, loaderIndex) => {
     const targetIndex = loader.use.findIndex(
-      styleLoader => styleLoader.loader === MiniCssExtractPlugin.loader
+      subLoader => subLoader === styleLoaderPath
     );
 
     if (targetIndex >= 0) {
@@ -22,8 +21,10 @@ module.exports = rules => {
     }
   });
 
-  // Delete MiniCssExtractPlugin.loader from style loaders
+  // Delete 'style-loader' from style loaders
   for (const [loaderIndex, targetIndex] of targetLocations) {
     styleLoaders[loaderIndex].use.splice(targetIndex, 1);
   }
-};
+}
+
+module.exports = removeStyleLoader;
