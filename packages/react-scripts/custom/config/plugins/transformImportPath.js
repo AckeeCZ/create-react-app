@@ -1,13 +1,31 @@
 'use strict';
 
+const { safeRequire } = require('../../utils');
+const paths = require('../paths');
+const customTransformImportPath = safeRequire(paths.appTransformImportPath);
+
 const isNotProd = process.env.BABEL_ENV !== 'production';
 
 function replaceImportPath(originalPath) {
-  if (isNotProd || !originalPath.startsWith('antd/lib/')) {
+  return originalPath.startsWith('antd/lib/')
+    ? originalPath.replace('/lib/', '/es/')
+    : originalPath;
+}
+
+module.exports = function(originalPath, callingFileName, options) {
+  if (isNotProd) {
     return originalPath;
   }
 
-  return originalPath.replace('/lib/', '/es/');
-}
+  const transformedPath = replaceImportPath(
+    originalPath,
+    callingFileName,
+    options
+  );
 
-module.exports = replaceImportPath;
+  if (!customTransformImportPath) {
+    return transformedPath;
+  }
+
+  return customTransformImportPath(transformedPath, callingFileName, options);
+};

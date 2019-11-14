@@ -3,21 +3,35 @@
     http://docs.groovy-lang.org/latest/html/documentation/#_string_interpolation 
 */
 PipelineReact {
+    /* TODO: Set your project name. */ 
     projectName = "project-name"
+
+    /* TODO: Join to this Slack channel.  */
     slackChannel = "#ci-${projectName}"
+
+    runTests = true
+    runCircularModulesCheck = true
+
     buildCommand = [
         master: "yarn && yarn test && yarn build:prod",
         stage: "yarn && yarn build:stage",
         development: "yarn && yarn build:dev",
     ]
-    baseURL = "${projectName}-frontend"
+
+    baseURL = "${projectName}-web"
     buildDir = 'build'
 
     bucketURL = [
         master: "gs://${baseURL}.ack.ee/",
-        stage: "gs://frontend-stage.${projectName}.cz/",
+        stage: "gs://${baseURL}-stage.ack.ee/",
         development: "gs://${baseURL}-development.ack.ee/",
     ]
+
+    cloudProject = [
+        master: "ackee-production",
+        development: "infrastruktura-1307"
+    ]
+
     nodeEnv = '-e NODE_PATH=./app:./config'
     nodeImage = 'node:8'
     excludeDir = '.git'
