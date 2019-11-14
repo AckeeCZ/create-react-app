@@ -44,7 +44,7 @@
         "test:watch": "react-scripts test",
         "cypress:open": "cypress open",
         "eject": "react-scripts eject",
-        "check-circular-modules": "ackee-react-scripts circular-modules",
+        "check-circular-modules": "ackee-react-scripts check-circular-modules",
         "localize": "ackee-localize-spreadsheet-sdk",
         "postinstall": "yarn localize",
         "analyze-bundle": "yarn build:prod --stats && webpack-bundle-analyzer build/bundle-stats.json",
