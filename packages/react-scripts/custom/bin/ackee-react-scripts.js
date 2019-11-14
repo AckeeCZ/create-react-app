@@ -13,7 +13,7 @@ const spawn = require('react-dev-utils/crossSpawn');
 const args = process.argv.slice(2);
 
 const scripts = {
-  CIRCULAR_MODULES: 'circular-modules',
+  CIRCULAR_MODULES: 'check-circular-modules',
 };
 
 const scriptIndex = args.findIndex(x => scripts[x]);

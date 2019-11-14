@@ -23,7 +23,12 @@ const createJestConfig = require('./utils/createJestConfig');
 const inquirer = require('react-dev-utils/inquirer');
 const spawnSync = require('react-dev-utils/crossSpawn').sync;
 const os = require('os');
-const { modifyPackageJson } = require('../custom/scripts/eject');
+// @ackee/react-scripts - beginning
+const {
+  modifyPackageJson,
+  selectFilesFromCustomDir,
+} = require('../custom/scripts/eject');
+// @ackee/react-scripts - end
 
 const green = chalk.green;
 const cyan = chalk.cyan;
@@ -126,6 +131,13 @@ inquirer
       );
     }, []);
 
+    // @ackee/react-scripts - beginning
+    selectFilesFromCustomDir({ ownPath, folders, files });
+
+    // Allow 'config' dir. to be override
+    folders.splice(folders.indexOf('config'), 1);
+    // @ackee/react-scripts - end
+
     // Ensure that the app folder is clean and we won't override any files
     folders.forEach(verifyAbsent);
     files.forEach(verifyAbsent);
@@ -172,7 +184,7 @@ inquirer
     const ownPackage = require(path.join(ownPath, 'package.json'));
     const appPackage = require(path.join(appPath, 'package.json'));
 
-    console.log(cyan('Updating the dependencies'));
+    console.log(cyan('Updating the dependencies and devDependencies'));
     const ownPackageName = ownPackage.name;
     if (appPackage.devDependencies) {
       // We used to put react-scripts in devDependencies
@@ -194,8 +206,8 @@ inquirer
       ) {
         return;
       }
-      console.log(`  Adding ${cyan(key)} to dependencies`);
-      appPackage.dependencies[key] = ownPackage.dependencies[key];
+      console.log(`  Adding ${cyan(key)} to devDependencies`);
+      appPackage.devDependencies[key] = ownPackage.dependencies[key];
     });
     // Sort the deps
     const unsortedDependencies = appPackage.dependencies;
@@ -214,6 +226,10 @@ inquirer
     delete appPackage.scripts['eject'];
     Object.keys(appPackage.scripts).forEach(key => {
       Object.keys(ownPackage.bin).forEach(binKey => {
+        // @ackee/react-scripts - beginning
+        // 'build:dev' -> 'build'
+        binKey = binKey.split(':')[0];
+        // @ackee/react-scripts - end
         const regex = new RegExp(binKey + ' (\\w+)', 'g');
         if (!regex.test(appPackage.scripts[key])) {
           return;
@@ -242,13 +258,17 @@ inquirer
       presets: ['react-app'],
     };
 
+    // @ackee/react-scripts - beginning
+    // Don't add eslint to package.json, since it's placed in its own file.
+
     // Add ESlint config
-    if (!appPackage.eslintConfig) {
-      console.log(`  Adding ${cyan('ESLint')} configuration`);
-      appPackage.eslintConfig = {
-        extends: 'react-app',
-      };
-    }
+    // if (!appPackage.eslintConfig) {
+    //   console.log(`  Adding ${cyan('ESLint')} configuration`);
+    //   appPackage.eslintConfig = {
+    //     extends: 'react-app',
+    //   };
+    // }
+    // @ackee/react-scripts - end
 
     fs.writeFileSync(
       path.join(appPath, 'package.json'),
