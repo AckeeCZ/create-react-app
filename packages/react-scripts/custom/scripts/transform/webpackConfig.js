@@ -11,6 +11,10 @@ module.exports = (webpackConfig, webpackEnv) => {
     webpackEnv
   );
 
+  if (!transformWebpackConfigFromSkeleton) {
+    return customizedWebpackConfig;
+  }
+
   return transformWebpackConfigFromSkeleton(
     customizedWebpackConfig,
     webpackEnv
