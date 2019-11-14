@@ -4,9 +4,11 @@ const { execSync } = require('child_process');
 
 const deleteObjectKeys = require('./utils/deleteObjectKeys');
 const authModulePrompt = require('./useAuthModule');
-const installDependencies = require('./installDependencies');
 const mergeDependencies = require('./mergeDependencies');
 const getPackage = require('./getPackage');
+
+exports.installDependencies = require('./installDependencies');
+exports.renameEslintConfig = require('./renameEslintConfig');
 
 exports.gitCommitAmend = () => {
   const ignore = {
@@ -70,5 +72,3 @@ exports.modifyTemplatePackageJson = async (ownPath, appPackage) => {
 
   return appPackage;
 };
-
-exports.installDependencies = installDependencies;

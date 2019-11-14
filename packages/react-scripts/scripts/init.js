@@ -27,6 +27,7 @@ const {
   gitCommitAmend,
   modifyTemplatePackageJson,
   installDependencies,
+  renameEslintConfig,
 } = require('../custom/scripts/init');
 // @ackee/react-scripts - end
 
@@ -371,6 +372,8 @@ module.exports = async function(
     useYarn,
     verbose,
   });
+
+  await renameEslintConfig();
 
   if (didGitInit) {
     // append changes to the last commit (the init commit) caused by installing postponed devDependencies

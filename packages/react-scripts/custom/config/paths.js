@@ -12,6 +12,9 @@ const resolveAppRoot = relativePath => path.resolve(appDirectory, relativePath);
 const paths = {
   // @start: react-scripts context
   customPackageJson: resolveReactScriptsRoot('custom/custom-package.json'),
+  customTransformImportPath: resolveReactScriptsRoot(
+    'custom/config/plugins/transformImportPath.js'
+  ),
 
   prettierConfig: resolveReactScriptsRoot('template/prettier.config.js'),
   templateSrc: resolveReactScriptsRoot('template/src'),
@@ -23,9 +26,14 @@ const paths = {
   // @end: react-scripts context
 
   // @start: app context
-  appPackageJson: resolveAppRoot('package.json'),
   appWebpackConfig: resolveAppRoot('config/transformWebpackConfig.js'),
+  appTransformImportPath: resolveAppRoot(
+    'config/plugins/transformImportPath.js'
+  ),
   appSrc: resolveAppRoot('src'),
+  appPackageJson: resolveAppRoot('package.json'),
+  appDisabledEslintrc: resolveAppRoot('eslintrc'),
+  appEnabledEslintrc: resolveAppRoot('.eslintrc'),
   // @end: app context
 };
 

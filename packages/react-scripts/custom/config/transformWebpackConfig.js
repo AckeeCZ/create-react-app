@@ -1,6 +1,5 @@
 'use strict';
 
-const path = require('path');
 const webpack = require('webpack');
 const WorkerPlugin = require('worker-plugin');
 
@@ -45,12 +44,9 @@ const getBabelPlugins = webpackEnv => {
     ],
 
     isEnvProduction && [
-      'babel-plugin-custom-import-path-transform',
+      require.resolve('babel-plugin-custom-import-path-transform'),
       {
-        transformImportPath: path.resolve(
-          __dirname,
-          'plugins/transformImportPath.js'
-        ),
+        transformImportPath: paths.customTransformImportPath,
       },
     ],
   ].filter(Boolean);
@@ -62,12 +58,9 @@ const getNodeModulesBabelPlugins = webpackEnv => {
 
   return [
     isEnvProduction && [
-      'babel-plugin-custom-import-path-transform',
+      require.resolve('babel-plugin-custom-import-path-transform'),
       {
-        transformImportPath: path.resolve(
-          __dirname,
-          'plugins/transformImportPath.js'
-        ),
+        transformImportPath: paths.customTransformImportPath,
       },
     ],
   ].filter(Boolean);
