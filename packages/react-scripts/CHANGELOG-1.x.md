@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [@ackee/react-scripts@1.0.0-beta.0]
+## @ackee/react-scripts@1.0.0-beta.0
 
 ### Removed
 
@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Aliases aren't begins with capital letter, they correspond with real directory name.
   - Remove `eslint-import-resolver-webpack` loader.
 - **[BREAKING] `yaml-loader` -> Now there is now to include the loader by default, since localization are generated dynamically from Google Spread sheet to JSON files.**
+- **[BREAKING] `react-hot-loader`**
 - `hygen` - NPM package, templates
 - `pre-push` hook in favor of Jenkins/Gitlab pipeline -> offload running tests and checking circular dependencies there.
 
@@ -23,6 +24,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Updated
 
+- **[BREAKING]** Script `analyze-dependencies` in `package.json` to `ackee-react-scripts check-circular-modules`
+- **[BREAKING]** `browserslist` - checkout [migration guide](../../MIGRATION-GUIDE-0.x-1.x.md#browsers-list)
 - Upgraded to [`react-scripts@3.2.0`](https://github.com/facebook/create-react-app/releases/tag/v3.2.0).
 - **Change internal structure to simplify react-scripts upgrades and maintainability**.
   - Add upgrade guide, see `custom/README.md`.
