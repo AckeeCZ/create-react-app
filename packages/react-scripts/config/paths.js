@@ -83,7 +83,7 @@ module.exports = {
   // @ackee/react-scripts - end
 };
 
-// @remove-on-eject-beginning
+// @remove-on-eject-begin
 const resolveOwn = relativePath => path.resolve(__dirname, '..', relativePath);
 
 // config before eject: we're in ./node_modules/react-scripts/config/
