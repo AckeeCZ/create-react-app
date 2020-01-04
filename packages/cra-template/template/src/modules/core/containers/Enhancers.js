@@ -7,5 +7,5 @@ const Children = ({ children }) => children;
 
 export default compose(
     withTranslatable,
-    withErrorBoundary,
+    withErrorBoundary
 )(Children);

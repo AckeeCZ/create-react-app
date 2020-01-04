@@ -7,7 +7,7 @@ const createTypes = createAsyncType('sentry');
 export const types = strictObjectAccess(
     createTypes({
         types: ['SET_SENTRY_EVENT_ID'],
-    }),
+    })
 );
 
 export const setSentryEventId = eventId => ({

@@ -1,5 +1,5 @@
 {
-    "extends": ["react-app", "@ackee/eslint-config", "prettier"],
+    "extends": ["react-app", "react-app/jest", "@ackee/eslint-config", "prettier"],
     "settings": {
         "import/resolver": {
             "node": {

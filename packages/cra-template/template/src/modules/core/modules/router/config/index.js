@@ -1,8 +1,4 @@
-import {
-    createBrowserHistory,
-    routerMiddleware,
-    connectRouter,
-} from '../dependencies';
+import { createBrowserHistory, routerMiddleware, connectRouter } from '../dependencies';
 
 export const history = createBrowserHistory();
 
