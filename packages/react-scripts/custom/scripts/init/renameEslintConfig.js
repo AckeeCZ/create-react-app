@@ -1,10 +1,13 @@
 'use strict';
 
 const fs = require('fs-extra');
-const paths = require('../../config/paths');
+const path = require('path');
 
-async function renameEslintConfig() {
-  return fs.rename(paths.appDisabledEslintrc, paths.appEnabledEslintrc);
+function renameEslintConfig(appPath) {
+  const disabledEslintrc = path.resolve(appPath, 'eslintrc');
+  const enabledEslintrc = path.resolve(appPath, '.eslintrc');
+
+  return fs.rename(disabledEslintrc, enabledEslintrc);
 }
 
 module.exports = renameEslintConfig;

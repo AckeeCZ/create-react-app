@@ -12,7 +12,7 @@ const ignore = {
 
 try {
   console.log('[postversion] Reading current package name and version...');
-  const { name, version } = fs.readJSONSync(paths.appPackageJson);
+  const { name, version } = fs.readJSONSync(paths.packageJson);
   const tag = `${name}@${version}`;
 
   if (!name) {

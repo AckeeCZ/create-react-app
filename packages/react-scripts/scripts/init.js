@@ -24,9 +24,7 @@ const os = require('os');
 const verifyTypeScriptSetup = require('./utils/verifyTypeScriptSetup');
 // @ackee/react-scripts - beginning
 const {
-  gitCommitAmend,
   modifyAppPackageJson,
-  installDependencies,
   renameEslintConfig,
 } = require('../custom/scripts/init');
 // @ackee/react-scripts - end
@@ -232,7 +230,7 @@ module.exports = async function(
   });
 
   // @ackee/react-scripts - beginning
-  await modifyAppPackageJson(appPackage, templateJson);
+  await modifyAppPackageJson({ appPackage, templateJson, templatePath });
   // @ackee/react-scripts - end
 
   fs.writeFileSync(
@@ -297,6 +295,10 @@ module.exports = async function(
     console.log();
     console.log('Initialized a git repository.');
   }
+
+  // @ackee/react-scripts - beginning
+  await renameEslintConfig(appPath);
+  // @ackee/react-scripts - end
 
   let command;
   let remove;
@@ -367,19 +369,6 @@ module.exports = async function(
     console.log();
     console.log('Created git commit.');
   }
-
-  await installDependencies(appPackage, {
-    useYarn,
-    verbose,
-  });
-
-  await renameEslintConfig();
-
-  if (didGitInit) {
-    // append changes to the last commit (the init commit) caused by installing postponed devDependencies
-    gitCommitAmend();
-  }
-  // @ackee/react-scripts - end
 
   // Display the most elegant way to cd.
   // This needs to handle an undefined originalDirectory for
