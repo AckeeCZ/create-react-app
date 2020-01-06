@@ -1,26 +1,12 @@
 'use strict';
 
 const path = require('path');
-const chalk = require('chalk');
-const paths = require('../../../config/paths');
 
-const resolveTemplateSrc = file => path.resolve(paths.templateSrc, file);
+module.exports = templatePath => {
+  const templateSrc = path.resolve(templatePath, 'template/src');
+  const resolveTemplateSrc = file => path.resolve(templateSrc, file);
 
-module.exports = {
-  useAuthModule: prompt(
-    `Do you want to include the ${chalk.cyan('"auth"')} module?`,
-    'Y/n',
-    response => {
-      const includeModule = ['y', 'y/n'].includes(response.toLowerCase());
-      console.log(
-        `> auth module ${chalk.cyan(
-          includeModule ? 'was included' : 'was NOT included'
-        )}`
-      );
-      return includeModule;
-    }
-  ),
-  dependencies: {
+  return {
     files: [
       resolveTemplateSrc('config/antonio/index.js'),
       resolveTemplateSrc('services/sagas/modules/index.js'),
@@ -33,8 +19,8 @@ module.exports = {
       resolveTemplateSrc('modules/sharedDependencies.js'),
     ],
     directories: [resolveTemplateSrc('modules/auth')],
-    jsonPackage: {
+    packageJson: {
       dependencies: ['@ackee/petrus'],
     },
-  },
+  };
 };
