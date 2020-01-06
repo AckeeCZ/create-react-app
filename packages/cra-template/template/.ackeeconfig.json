@@ -3,6 +3,7 @@
         "sheet_id": "1q8MSZGQqsWzo6zdme3ChwuWF7EdXMAyeZWSrgwOp-YQ",
         "dir": "src/translations/",
         "cols": "cs,en",
-        "type": "key_web"
+        "type": "key_web",
+        "sheet_url": "https://docs.google.com/spreadsheets/d/1q8MSZGQqsWzo6zdme3ChwuWF7EdXMAyeZWSrgwOp-YQ"
     }
 }
