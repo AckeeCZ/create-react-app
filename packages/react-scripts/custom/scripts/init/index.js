@@ -1,5 +1,7 @@
 'use strict';
 
+const sortByKey = require('../uitls/sortByKey');
+
 const authModulePrompt = require('./useAuthModule');
 const mergeObjects = require('./mergeObjects');
 
@@ -27,4 +29,6 @@ exports.modifyAppPackageJson = async ({
   delete appPackage.eslintConfig;
 
   await authModulePrompt({ appPackage, templatePath });
+
+  Object.assign(appPackage, sortByKey(appPackage));
 };
