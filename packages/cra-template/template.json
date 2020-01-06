@@ -1,9 +1,6 @@
 {
   "package": {
     "dependencies": {
-      "@testing-library/react": "^9.3.2",
-      "@testing-library/jest-dom": "^4.2.4",
-      "@testing-library/user-event": "^7.1.2",
       "@ackee/antonio": "3.0.0-beta.7",
       "@ackee/chris": "2.x",
       "@ackee/jerome": "3.x",
@@ -14,15 +11,15 @@
       "@sentry/browser": "5.x",
       "antd": "3.x",
       "connected-react-router": "6.5.x",
-      "fela": "10.x",
-      "fela-monolithic": "10.x",
-      "fela-plugin-friendly-pseudo-class": "10.x",
-      "fela-plugin-named-keys": "10.x",
-      "fela-plugin-unit": "10.x",
+      "fela": "11.x",
+      "fela-monolithic": "11.x",
+      "fela-plugin-friendly-pseudo-class": "11.x",
+      "fela-plugin-named-keys": "11.x",
+      "fela-plugin-unit": "11.x",
       "history": "4.x",
       "lodash": "4.17.x",
       "loglevel": "1.x",
-      "react-fela": "10.x",
+      "react-fela": "11.x",
       "react-intl": "3.x",
       "react-redux": "7.x",
       "react-router-dom": "5.x",
@@ -33,6 +30,9 @@
       "reselect": "4.x"
     },
     "devDependencies": {
+      "@testing-library/react": "^9.3.2",
+      "@testing-library/jest-dom": "^4.2.4",
+      "@testing-library/user-event": "^7.1.2",
       "ackee-localize-spreadsheet-sdk": "0.x",
       "fela-plugin-validator": "10.x",
       "husky": "3.x",
@@ -53,11 +53,12 @@
       "postinstall": "yarn localize",
       "analyze-bundle": "yarn build:prod --stats && webpack-bundle-analyzer build/bundle-stats.json",
       "ci-test": "cross-env CI=true react-scripts test --env=jsdom",
-      "ci-check-circular-modules": "circular-modules"
+      "ci-check-circular-modules": "check-circular-modules"
     },
     "husky": {
       "hooks": {
-        "pre-commit": "lint-staged"
+        "pre-commit": "lint-staged",
+        "pre-push": "yarn check-circular-modules"
       }
     },
     "lint-staged": {
