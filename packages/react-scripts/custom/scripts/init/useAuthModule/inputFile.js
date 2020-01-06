@@ -35,8 +35,6 @@ module.exports = {
     directories: [resolveTemplateSrc('modules/auth')],
     jsonPackage: {
       dependencies: ['@ackee/petrus'],
-      devDependencies: [],
-      scripts: [],
     },
   },
 };
