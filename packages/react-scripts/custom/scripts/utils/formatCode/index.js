@@ -1,6 +1,5 @@
 'use strict';
 
-// const path = require('path');
 const prettier = require('prettier');
 
 module.exports = function formatCode(input) {
