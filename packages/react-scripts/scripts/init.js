@@ -25,7 +25,7 @@ const verifyTypeScriptSetup = require('./utils/verifyTypeScriptSetup');
 // @ackee/react-scripts - beginning
 const {
   gitCommitAmend,
-  modifyTemplatePackageJson,
+  modifyAppPackageJson,
   installDependencies,
   renameEslintConfig,
 } = require('../custom/scripts/init');
@@ -232,7 +232,7 @@ module.exports = async function(
   });
 
   // @ackee/react-scripts - beginning
-  await modifyTemplatePackageJson(ownPath, appPackage);
+  await modifyAppPackageJson(appPackage, templateJson);
   // @ackee/react-scripts - end
 
   fs.writeFileSync(

@@ -59,7 +59,7 @@ const getActiveContent = (content = '') => {
   return enabledRows.join('\n');
 };
 
-module.exports = () => {
+module.exports = packageJson => {
   return new Promise((resolve, reject) => {
     promzard(inputFile, optionalContextAdditions, async (err, data) => {
       if (err) {
@@ -69,6 +69,12 @@ module.exports = () => {
 
       const { useAuthModule, dependencies } = data;
       let { files, directories, jsonPackage } = dependencies;
+
+      if (!useAuthModule) {
+        jsonPackage.dependencies.forEach(dependency => {
+          delete packageJson.dependencies[dependency];
+        });
+      }
 
       if (!useAuthModule) {
         // delete directories
@@ -120,7 +126,7 @@ module.exports = () => {
         await Promise.all(removingTasks);
       }
 
-      resolve(useAuthModule ? {} : jsonPackage);
+      resolve();
     });
   });
 };
