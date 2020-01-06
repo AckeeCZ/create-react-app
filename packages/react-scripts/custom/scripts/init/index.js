@@ -5,7 +5,6 @@ const sortByKey = require('../utils/sortByKey');
 const authModulePrompt = require('./useAuthModule');
 const mergeObjects = require('./mergeObjects');
 
-exports.installDependencies = require('./installDependencies');
 exports.renameEslintConfig = require('./renameEslintConfig');
 
 exports.modifyAppPackageJson = async ({
