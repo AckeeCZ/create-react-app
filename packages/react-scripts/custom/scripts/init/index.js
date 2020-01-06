@@ -1,6 +1,6 @@
 'use strict';
 
-const sortByKey = require('../uitls/sortByKey');
+const sortByKey = require('../utils/sortByKey');
 
 const authModulePrompt = require('./useAuthModule');
 const mergeObjects = require('./mergeObjects');
