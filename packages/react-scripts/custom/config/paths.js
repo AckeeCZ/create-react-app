@@ -28,7 +28,7 @@ Object.assign(paths, {
 // @remove-on-eject-beginning
 // Paths before eject
 Object.assign(paths, {
-  customPackageJson: resolveReactScriptsRoot('custom/custom-package.json'),
+  templateJson: resolveReactScriptsRoot('custom/template.json'),
   packageJson: resolveReactScriptsRoot('package.json'),
   webpackConfig: resolveReactScriptsRoot('config/webpack.config.js'),
 });

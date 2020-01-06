@@ -11,33 +11,31 @@ module.exports = async function transformPackageJson() {
     throw new Error(`paths.packageJson: ${paths.packageJson} file not found`);
   }
 
-  if (!fs.existsSync(paths.customPackageJson)) {
-    throw new Error(
-      `paths.customPackageJson: ${paths.customPackageJson} file not found`
-    );
+  if (!fs.existsSync(paths.templateJson)) {
+    throw new Error(`paths.templateJson: ${paths.templateJson} file not found`);
   }
 
   // transform react-scripts/package.json
-  const [packageJson, customPackageJson] = await Promise.all([
+  const [packageJson, templateJson] = await Promise.all([
     fs.readJSON(paths.packageJson),
-    fs.readJSON(paths.customPackageJson),
+    fs.readJSON(paths.templateJson),
   ]);
 
   const finalPackageJson = {
     ...packageJson,
-    ...customPackageJson,
-    files: [...packageJson.files, ...customPackageJson.files],
+    ...templateJson,
+    files: [...packageJson.files, ...templateJson.files],
     bin: {
       ...packageJson.bin,
-      ...customPackageJson.bin,
+      ...templateJson.bin,
     },
     dependencies: {
       ...packageJson.dependencies,
-      ...customPackageJson.dependencies,
+      ...templateJson.dependencies,
     },
     scripts: {
       ...packageJson.scripts,
-      ...customPackageJson.scripts,
+      ...templateJson.scripts,
     },
   };
 

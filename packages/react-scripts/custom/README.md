@@ -2,7 +2,7 @@
 
 ## BE AWARE!
 
-1. #### Do not rename `custom-package.json` to `package.json`.
+1. #### Do not rename `template.json` to `package.json`.
 
    If you do so, whole `custom` directory will be ignored during `@ackee/react-scripts` publishing, since the `custom` dir. would be considered as a its own NPM package.
 
