@@ -1,4 +1,4 @@
-# @aceek/create-react-app
+# @ackee/create-react-app
 
 This package includes the global command for [Create React App](https://github.com/facebook/create-react-app).<br>
 Please refer to its documentation:
