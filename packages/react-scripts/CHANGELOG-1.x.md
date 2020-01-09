@@ -49,7 +49,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Updated
 
 - **[BREAKING]** Script `analyze-dependencies` in `package.json` to `ackee-react-scripts check-circular-modules`
-- **[BREAKING]** `browserslist` - checkout [migration guide](../../MIGRATION-GUIDE-0.x-1.x.md#browsers-list)
+- **[BREAKING]** `browserslist`
 - Upgraded to [`react-scripts@3.2.0`](https://github.com/facebook/create-react-app/releases/tag/v3.2.0).
 - **Change internal structure to simplify react-scripts upgrades and maintainability**.
   - Add upgrade guide, see `custom/README.md`.
