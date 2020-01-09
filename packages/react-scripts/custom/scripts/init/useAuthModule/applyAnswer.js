@@ -60,15 +60,13 @@ const getActiveContent = (content = '') => {
 };
 
 module.exports = async (useAuthModule, { appPackage, templatePath }) => {
-  let { files, directories, jsonPackage } = getDependencies(templatePath);
+  let { files, directories, packageJson } = getDependencies(templatePath);
 
   if (!useAuthModule) {
-    jsonPackage.dependencies.forEach(dependency => {
+    packageJson.dependencies.forEach(dependency => {
       delete appPackage.dependencies[dependency];
     });
-  }
 
-  if (!useAuthModule) {
     // delete directories
     const tasks = directories.map(dir => fs.remove(dir));
 
