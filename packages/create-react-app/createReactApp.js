@@ -433,7 +433,8 @@ function run(
       .then(({ isOnline, packageInfo, templateInfo }) => {
         let packageVersion = semver.coerce(packageInfo.version);
 
-        const templatesVersionMinimum = '3.3.0';
+        // This environment variable can be removed post-release.
+        const templatesVersionMinimum = '1.0.0-beta.1';
 
         // Assume compatibility if we can't test the version.
         if (!semver.valid(packageVersion)) {
@@ -568,7 +569,7 @@ function run(
 }
 
 function getInstallPackage(version, originalDirectory) {
-  let packageToInstall = 'react-scripts';
+  let packageToInstall = '@ackee/react-scripts';
   const validSemver = semver.valid(version);
   if (validSemver) {
     packageToInstall += `@${validSemver}`;
@@ -620,7 +621,7 @@ function getInstallPackage(version, originalDirectory) {
 }
 
 function getTemplateInstallPackage(template, originalDirectory) {
-  let templateToInstall = 'cra-template';
+  let templateToInstall = '@ackee/cra-template';
   if (template) {
     if (template.match(/^file:/)) {
       templateToInstall = `file:${path.resolve(
