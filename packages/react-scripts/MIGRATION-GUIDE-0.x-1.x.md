@@ -5,10 +5,11 @@
 Install the latest version:
 
 ```sh
-yarn add @ackee/react-scripts@1.0.0 -D
+# Coming soon:
+# yarn add @ackee/react-scripts@1.0.0 -D
 
 # For beta testers:
-yarn add @ackee/react-scripts@1.0.0-beta.0 -D
+yarn add @ackee/react-scripts@1.0.0-beta.1 -D
 ```
 
 There're only a few breaking changes you have to resolve, continue to [Must update](#must-update) section.
@@ -191,6 +192,16 @@ There're only a few breaking changes you have to resolve, continue to [Must upda
         "last 1 safari version"
     ]
   },
+  ```
+
+- ### Moving from `enzyme` to `@testing-library`
+
+  ```diff
+  // Removed packages for testing:
+  - 'enzyme', 'enzyme-adapter-react-16' and 'jest-enzyme'
+
+  // Added packages for testing:
+  +  '@testing-library/react', '@testing-library/jest-dom', and '@testing-library/user-event'
   ```
 
 ## Recommended to update
