@@ -1,14 +1,9 @@
-# Create React App [![Build Status](https://dev.azure.com/facebook/create-react-app/_apis/build/status/facebook.create-react-app?branchName=master)](https://dev.azure.com/facebook/create-react-app/_build/latest?definitionId=1&branchName=master) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-green.svg)](https://github.com/facebook/create-react-app/blob/master/CONTRIBUTING.md)
+# Create React App
 
 Create React apps with no build configuration.
 
 - [Creating an App](#creating-an-app) – How to create a new app.
 - [User Guide](https://facebook.github.io/create-react-app/) – How to develop apps bootstrapped with Create React App.
-
-> # Folder Structure of Create React App
->
-> "create-react-app is a monorepo, meaning it is divided into independent sub-packages.
-> These packages can be found in..." - [Read More](https://github.com/facebook/create-react-app/blob/master/CONTRIBUTING.md#folder-structure-of-create-react-app).
 
 ---
 
@@ -19,7 +14,7 @@ If you have questions or need help, please ask in our [Spectrum](https://spectru
 ## Quick Overview
 
 ```sh
-npx create-react-app my-app --scripts-version @ackee/react-scripts
+npx @ackee/create-react-app my-app
 cd my-app
 yarn start
 ```
@@ -47,7 +42,7 @@ To create a new app, you may choose one of the following methods:
 ### npx
 
 ```sh
-npx create-react-app my-app --scripts-version @ackee/react-scripts
+npx @ackee/create-react-app my-app
 ```
 
 Inside the newly created project, you can run some built-in commands:
@@ -167,5 +162,3 @@ We are grateful to the authors of existing related projects for their ideas and 
 ## License
 
 # Create React App is open source software [licensed as MIT](https://github.com/facebook/create-react-app/blob/master/LICENSE).
-
-> > > > > > > Add migratioin guide: 0.x -> 1.x
