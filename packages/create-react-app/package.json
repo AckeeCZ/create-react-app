@@ -1,13 +1,13 @@
 {
-  "name": "create-react-app",
-  "version": "4.0.3",
+  "name": "@ackee/create-react-app",
+  "version": "3.3.0",
   "keywords": [
     "react"
   ],
   "description": "Create React apps with no build configuration.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/facebook/create-react-app.git",
+    "url": "https://github.com/AckeeCZ/create-react-app.git",
     "directory": "packages/create-react-app"
   },
   "license": "MIT",
@@ -15,7 +15,7 @@
     "node": ">=10"
   },
   "bugs": {
-    "url": "https://github.com/facebook/create-react-app/issues"
+    "url": "https://github.com/AckeeCZ/create-react-app/issues"
   },
   "files": [
     "index.js",
@@ -23,7 +23,7 @@
     "yarn.lock.cached"
   ],
   "bin": {
-    "create-react-app": "./index.js"
+    "@ackee/create-react-app": "./index.js"
   },
   "scripts": {
     "test": "cross-env FORCE_COLOR=true jest"
@@ -44,5 +44,8 @@
   "devDependencies": {
     "cross-env": "^7.0.2",
     "jest": "26.6.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
