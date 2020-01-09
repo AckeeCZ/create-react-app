@@ -7,7 +7,6 @@
    If you do so, whole `custom` directory will be ignored during `@ackee/react-scripts` publishing, since the `custom` dir. would be considered as a its own NPM package.
 
 2. #### Try to modify `custom` outer content as least as possible to prevent conflicts during an upgrade to newer `react-scripts` version.
-   Of course, there're following and only exceptions: `template`, `template-typescript`, `README.md`, and `CHANGELOG.md`.
 
 ---
 
@@ -51,4 +50,4 @@ Upgrade to the latest `react-scripts` version:
 
 ## Before publishing
 
-Try to create a new project locally and run `yarn start` at least.
+Try to create a new project locally and at least run `yarn start`.
