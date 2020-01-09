@@ -4,7 +4,7 @@
 
 # @ackee/react-scripts
 
-This package includes scripts and configuration used by [Create React App](https://github.com/facebook/create-react-app).<br>
+This package includes scripts and configuration used by [Create React App](https://github.com/AckeeCZ/create-react-app).<br>
 Please refer to its documentation:
 
 - [Getting Started](https://facebook.github.io/create-react-app/docs/getting-started) – How to create a new app.
@@ -12,15 +12,11 @@ Please refer to its documentation:
 
 ## How to use
 
-**To create a new project**, run the following command. Don't forget to replace `my-app` with your project name.
+To create a new project with specific version of `@ackee/react-scripts`, run the following command. Don't forget to replace `my-app` with your project name:
 
 ```bash
-npx create-react-app my-app --scripts-version @ackee/react-scripts
+npx @ackee/create-react-app my-app --scripts-version @ackee/react-scripts@1.0.0
 ```
-
-Notes
-
-- The default react-scripts are replaced with the custom ones by adding `--scripts-version @ackee/react-scripts`.
 
 ## Development
 
@@ -28,14 +24,12 @@ Read, how to efficiently develop the `react-scripts` package and how to locally 
 
 ### Testing react-scripts
 
-If you are working outside of the `template` scope, use `yarn link`. Read more about `yarn link` [here](https://yarnpkg.com/lang/en/docs/cli/link/).
-
 ### Testing new template
 
-You can run `create-react-app` with local react-scripts as follow:
+You can run `@ackee/create-react-app` with local react-scripts version:
 
 ```sh
-npx create-react-app my-test-app --scripts-version file:./create-react-app/packages/react-scripts;
+npx @ackee/create-react-app my-test-app --scripts-version file:./create-react-app/packages/react-scripts;
 ```
 
 Or you can just run a small script: `bash ./create-test-react-app.sh`
@@ -47,7 +41,7 @@ Or you can just run a small script: `bash ./create-test-react-app.sh`
 rm -rf ./my-test-app;
 
 # build skeleton with the latest local version of your react-scripts
-npx create-react-app my-test-app --scripts-version file:./create-react-app/packages/react-scripts;
+npx @ackee/create-react-app my-test-app --scripts-version file:./create-react-app/packages/react-scripts;
 ```
 
 > ## Save your time, read this:

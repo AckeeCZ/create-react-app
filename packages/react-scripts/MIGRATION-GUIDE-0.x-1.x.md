@@ -1,15 +1,11 @@
-# Migration guide `0.x` -> `1.x`
+# Migration guide `0.x` -> `1.0.0`
 
 > **No need anymore to set `NODE_ENV` variable before opening CRA project in vscode.**
 
 Install the latest version:
 
 ```sh
-# Coming soon:
-# yarn add @ackee/react-scripts@1.0.0 -D
-
-# For beta testers:
-yarn add @ackee/react-scripts@1.0.0-beta.1 -D
+yarn add @ackee/react-scripts@1.0.0 -D
 ```
 
 There're only a few breaking changes you have to resolve, continue to [Must update](#must-update) section.
@@ -22,7 +18,7 @@ There're only a few breaking changes you have to resolve, continue to [Must upda
 
 ---
 
-## Must update (breaking changes)
+## <a name="must-update"></a>Must update (breaking changes)
 
 1. #### Removed support for `export * as` syntax
 
@@ -238,7 +234,7 @@ There're only a few breaking changes you have to resolve, continue to [Must upda
 
   > From `webpack@5.0.0` it should be possible to use typescript in webpack config and therefore make the whopping `webpackConfig` more developer friendly.
 
-## Low priority to update
+## Optional to update
 
 - ### Remove `hygen` from skeleton
   A new command in [Ackee frontend](https://github.com/AckeeCZ/vscode-frontend) vscode plugin will supersede current, already obsolute, hygen template.
