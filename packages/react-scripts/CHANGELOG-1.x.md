@@ -16,6 +16,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Upgraded to [`react-scripts@3.3.0`](https://github.com/facebook/create-react-app/releases/tag/v3.3.0).
 - Fela packages from v10 -> v11.
 
+### Added
+
+- `pre-push` hook with script for checking circular dependencies.
+
 ## @ackee/react-scripts@1.0.0-beta.0
 
 ### Removed
