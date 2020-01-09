@@ -5,6 +5,8 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## @ackee/react-scripts@1.0.0 - 2020-01-09
+
 ## @ackee/react-scripts@1.0.0-beta.1
 
 ### Removed
@@ -13,12 +15,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Updated
 
-- Upgraded to [`react-scripts@3.3.0`](https://github.com/facebook/create-react-app/releases/tag/v3.3.0).
+- **Upgraded to [`react-scripts@3.3.0`](https://github.com/facebook/create-react-app/releases/tag/v3.3.0).**
 - Fela packages from v10 -> v11.
 
 ### Added
 
 - `pre-push` hook with script for checking circular dependencies.
+- Since package was upgraded to `react-scripts@3.3.0` version:
+  - [Optional Chaining](https://github.com/TC39/proposal-optional-chaining) and [Nullish Coalescing Operators](https://github.com/tc39/proposal-nullish-coalescing)
+  - [Numeric Separators](https://github.com/tc39/proposal-numeric-separator)
+  - Custom templates:
+    ```sh
+    npx @ackee/create-react-app my-app --template cra-template-my
+    ```
 
 ## @ackee/react-scripts@1.0.0-beta.0
 
