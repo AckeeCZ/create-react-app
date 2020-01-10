@@ -245,7 +245,7 @@ There're only a few breaking changes you have to resolve, continue to [Must upda
 
   > From `webpack@5.0.0` it should be possible to use typescript in webpack config and therefore make the whopping `webpackConfig` more developer friendly.
 
-## <a href="optional-update"></a>Optional to update
+## <a name="optional-update"></a>Optional to update
 
 - ### Remove `hygen` from skeleton
   A new command in [Ackee frontend](https://github.com/AckeeCZ/vscode-frontend) vscode plugin will supersede current, already obsolute, hygen template.
