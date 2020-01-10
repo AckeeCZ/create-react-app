@@ -170,7 +170,7 @@ There're only a few breaking changes you have to resolve, continue to [Must upda
    > + import Config as 'config/config';
    > ```
 
-- ### Browsers list
+6. #### Browsers list
 
   Default `browserslist` has been updated to:
 
@@ -190,15 +190,25 @@ There're only a few breaking changes you have to resolve, continue to [Must upda
   },
   ```
 
-- ### Moving from `enzyme` to `@testing-library`
+7. #### Migrating from `enzyme` to `@testing-library`
 
   ```diff
-  // Removed packages for testing:
+  // Remove these packages:
   - 'enzyme', 'enzyme-adapter-react-16' and 'jest-enzyme'
 
-  // Added packages for testing:
+  // Add these packages:
   +  '@testing-library/react', '@testing-library/jest-dom', and '@testing-library/user-event'
   ```
+  
+  Then update `src/setupTest.js` to:
+  ```js
+   // jest-dom adds custom jest matchers for asserting on DOM nodes.
+   // allows you to do things like:
+   // expect(element).toHaveTextContent(/react/i)
+   // learn more: https://github.com/testing-library/jest-dom
+   import '@testing-library/jest-dom/extend-expect';
+  ```
+  If you've made some changes here, then you must obviously updated manually and use this only as starting point. 
 
 ## Recommended to update
 
