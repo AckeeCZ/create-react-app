@@ -1,11 +1,11 @@
-# Migration guide `0.x` -> `1.0.0`
+# Migration guide `0.x` -> `1.0.x`
 
 > **No need anymore to set `NODE_ENV` variable before opening CRA project in vscode.**
 
 Install the latest version:
 
 ```sh
-yarn add @ackee/react-scripts@1.0.0 -D
+yarn add @ackee/react-scripts@1.0.x -D
 ```
 
 There're only a few breaking changes you have to resolve, continue to [Must update](#must-update) section.
