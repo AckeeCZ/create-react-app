@@ -264,3 +264,9 @@ There're only a few breaking changes you have to resolve, continue to [Must upda
   -     "create-module": "hygen module new --name $1",
   }
   ```
+  
+  ---
+  
+  > ### For vscode users
+  > To load new aliases, you need to reload vscode. Type `Command + Shift + P`, then launch the `Reload window` command.
+  
