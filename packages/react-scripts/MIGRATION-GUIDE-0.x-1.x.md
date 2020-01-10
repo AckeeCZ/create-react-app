@@ -192,12 +192,14 @@ There're only a few breaking changes you have to resolve, continue to [Must upda
 
 7. #### Migrating from `enzyme` to `@testing-library`
 
+  These packages were removed from `@ackee/react-scripts`:
   ```diff
-  // Remove these packages:
   - 'enzyme', 'enzyme-adapter-react-16' and 'jest-enzyme'
+  ```
 
-  // Add these packages:
-  +  '@testing-library/react', '@testing-library/jest-dom', and '@testing-library/user-event'
+  Install these packages:
+  ```sh
+  yarn add @testing-library/react @testing-library/jest-dom @testing-library/user-event -D
   ```
   
   Then update `src/setupTest.js` to:
@@ -208,7 +210,6 @@ There're only a few breaking changes you have to resolve, continue to [Must upda
    // learn more: https://github.com/testing-library/jest-dom
    import '@testing-library/jest-dom/extend-expect';
   ```
-  If you've made some changes here, then you must obviously updated manually and use this only as starting point. 
 
 ## Recommended to update
 
@@ -244,7 +245,7 @@ There're only a few breaking changes you have to resolve, continue to [Must upda
 
   > From `webpack@5.0.0` it should be possible to use typescript in webpack config and therefore make the whopping `webpackConfig` more developer friendly.
 
-## Optional to update
+## <a href="optional-update"></a>Optional to update
 
 - ### Remove `hygen` from skeleton
   A new command in [Ackee frontend](https://github.com/AckeeCZ/vscode-frontend) vscode plugin will supersede current, already obsolute, hygen template.
