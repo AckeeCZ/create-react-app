@@ -4,6 +4,8 @@ const fs = require('fs-extra');
 const paths = require('../../config/paths');
 
 const { version } = fs.readJSONSync(paths.packageJson);
-const [tag] = version.match(/beta|alpha/) || ['next'];
+const [tag] = version.match(/beta|alpha/) || [];
 
-console.log(tag);
+if (tag) {
+  console.log(tag);
+}
