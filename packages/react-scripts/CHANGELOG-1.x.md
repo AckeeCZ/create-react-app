@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## @ackee/react-scripts@1.0.2 - 2020-01-10
 
+### Fixed
+
 - Internal - fix `setTravisDeployTag` script - set `latest` tag if the version isn't a beta or an alpha.
 
 ## @ackee/react-scripts@1.0.1 - 2020-01-10
