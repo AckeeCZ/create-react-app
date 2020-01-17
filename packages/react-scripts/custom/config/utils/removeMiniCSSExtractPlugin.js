@@ -7,7 +7,9 @@ function removeMiniCSSExtractPlugin(plugins = []) {
     plugin => plugin instanceof MiniCssExtractPlugin
   );
 
-  plugins.splice(pluginIndex, 1);
+  if (pluginIndex >= 0) {
+    plugins.splice(pluginIndex, 1);
+  }
 }
 
 module.exports = removeMiniCSSExtractPlugin;
