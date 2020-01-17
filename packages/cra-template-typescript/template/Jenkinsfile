@@ -1,0 +1,36 @@
+/* 
+    Be aware!
+    http://docs.groovy-lang.org/latest/html/documentation/#_string_interpolation 
+*/
+PipelineReact {
+    /* TODO: Set project name  */
+    slackChannel = "#ci-project-name"
+
+    runTests = true
+    runCircularModulesCheck = true
+
+    buildCommand = [
+        master: "yarn && yarn test && yarn build:prod",
+        stage: "yarn && yarn test && yarn build:stage",
+        development: "yarn && yarn test && yarn build:dev",
+    ]
+
+    buildDir = 'build'
+    /* TODO: Set project name  */
+    baseURL = "project-name"
+
+    bucketURL = [
+        master: "gs://${baseURL}.ack.ee/",
+        stage: "gs://${baseURL}-stage.ack.ee/",
+        development: "gs://${baseURL}-development.ack.ee/",
+    ]
+
+    cloudProject = [
+        master: "ackee-production",
+        development: "infrastruktura-1307"
+    ]
+
+    nodeEnv = '-e NODE_PATH=./app:./config'
+    nodeImage = 'node:8'
+    excludeDir = '.git'
+}
