@@ -1,0 +1,15 @@
+{
+    "extends": ["react-app"],
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "paths": ["src"]
+            }
+        }
+    },
+    "rules": {
+        "no-restricted-globals": "off",
+        "react/jsx-props-no-spreading": "off"
+    },
+    "plugins": ["cypress"]
+}
