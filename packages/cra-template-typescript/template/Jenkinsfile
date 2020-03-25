@@ -1,6 +1,6 @@
-/* 
+/*
     Be aware!
-    http://docs.groovy-lang.org/latest/html/documentation/#_string_interpolation 
+    http://docs.groovy-lang.org/latest/html/documentation/#_string_interpolation
 */
 PipelineReact {
     /* TODO: Set project name  */
@@ -8,11 +8,15 @@ PipelineReact {
 
     runTests = true
     runCircularModulesCheck = true
+    /* TODO: Set true only after initialization with 'lhci wizard' in your project  */
+    runLighthouse = false
+
+    installCommand = "yarn"
 
     buildCommand = [
-        master: "yarn && yarn test && yarn build:prod",
-        stage: "yarn && yarn test && yarn build:stage",
-        development: "yarn && yarn test && yarn build:dev",
+        master: "yarn build:prod",
+        stage: "yarn build:stage",
+        development: "yarn build:dev",
     ]
 
     buildDir = 'build'
