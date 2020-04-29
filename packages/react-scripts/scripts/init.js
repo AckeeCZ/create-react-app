@@ -363,9 +363,7 @@ module.exports = async function(
   }
 
   // Create git commit if git repo was initialized
-  // @ackee/react-scripts - beginning
-  const didGitInit = tryGitInit(appPath);
-  if (initializedGit && didGitInit) {
+  if (initializedGit && tryGitCommit(appPath)) {
     console.log();
     console.log('Created git commit.');
   }
