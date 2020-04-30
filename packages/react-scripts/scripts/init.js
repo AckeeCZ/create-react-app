@@ -26,6 +26,8 @@ const verifyTypeScriptSetup = require('./utils/verifyTypeScriptSetup');
 const {
   modifyAppPackageJson,
   renameEslintConfig,
+  updateTemplatePackageBlacklist,
+  updateTemplatePackageToMerge,
 } = require('../custom/scripts/init');
 // @ackee/react-scripts - end
 
@@ -94,7 +96,7 @@ module.exports = async function(
   originalDirectory,
   templateName
 ) {
-  const appPackage = require(path.join(appPath, 'package.json'));
+  let appPackage = require(path.join(appPath, 'package.json'));
   const useYarn = fs.existsSync(path.join(appPath, 'yarn.lock'));
 
   if (!templateName) {
@@ -181,6 +183,11 @@ module.exports = async function(
   // Keys from templatePackage that will be merged with appPackage
   const templatePackageToMerge = ['dependencies', 'scripts'];
 
+  // @ackee/react-scripts - beginning
+  updateTemplatePackageBlacklist(templatePackageBlacklist);
+  updateTemplatePackageToMerge(templatePackageToMerge);
+  // @ackee/react-scripts - beginning
+
   // Keys from templatePackage that will be added to appPackage,
   // replacing any existing entries.
   const templatePackageToReplace = Object.keys(templatePackage).filter(key => {
@@ -230,7 +237,11 @@ module.exports = async function(
   });
 
   // @ackee/react-scripts - beginning
-  await modifyAppPackageJson({ appPackage, templateJson, templatePath });
+  appPackage = await modifyAppPackageJson({
+    appPackage,
+    templatePackage,
+    templatePath,
+  });
   // @ackee/react-scripts - end
 
   fs.writeFileSync(
