@@ -9,7 +9,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Fixed
 
-- Fix undefined `BUILD_ENV`.
 - Use `BUILD_ENV` instead of `NODE_ENV` for retrieving correct env. config.
 
 ## @ackee/cra-template@1.0.0 - 2020-01-09
