@@ -9,25 +9,35 @@ exports.renameEslintConfig = require('./renameEslintConfig');
 
 exports.modifyAppPackageJson = async ({
   appPackage,
-  templateJson,
+  templatePackage,
   templatePath,
 }) => {
-  Object.assign(appPackage, templateJson, {
-    dependencies: mergeObjects(
-      appPackage.dependencies,
-      templateJson.dependencies
-    ),
-    devDependencies: mergeObjects(
-      appPackage.devDependencies,
-      templateJson.devDependencies
-    ),
-    scripts: mergeObjects(appPackage.scripts, templateJson.scripts),
-  });
+  appPackage.devDependencies = mergeObjects(
+    appPackage.devDependencies,
+    templatePackage.devDependencies
+  );
 
   // eslint config is defined in separe file
   delete appPackage.eslintConfig;
 
   await authModulePrompt({ appPackage, templatePath });
 
-  Object.assign(appPackage, sortByKey(appPackage));
+  return sortByKey(appPackage);
+};
+
+exports.updateTemplatePackageBlacklist = (backlist = []) => {
+  const removeKeysFromBlacklist = ['devDependencies'];
+
+  for (const key of removeKeysFromBlacklist) {
+    const index = backlist.indexOf(key);
+    if (index >= 0) {
+      backlist.splice(index, 1);
+    }
+  }
+};
+
+exports.updateTemplatePackageToMerge = (toMerge = []) => {
+  const addKeysToMerge = ['devDependencies'];
+
+  toMerge.push(...addKeysToMerge);
 };
