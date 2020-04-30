@@ -1,9 +1,9 @@
 import { merge } from 'lodash';
 import { isEnvDevelopment } from 'constants/index';
 
-const { NODE_ENV, REACT_APP_NAME } = process.env;
+const { BUILD_ENV, REACT_APP_NAME } = process.env;
 // eslint-disable-next-line
-const envConfig = require(`./config.${NODE_ENV}.js`).default;
+const envConfig = require(`./config.${BUILD_ENV}.js`).default;
 
 const defaults = {
     // default configuration goes here
