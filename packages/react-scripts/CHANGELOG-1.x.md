@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## @ackee/react-scripts@1.0.4 - 2020-04-30
+
+### Updated
+
+- Rebase [`v3.4.1`](https://github.com/facebook/create-react-app/releases/tag/v3.4.1) CRA version.
+
 ## @ackee/react-scripts@1.0.3 - 2020-01-17
 
 ### Fixed
