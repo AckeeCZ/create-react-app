@@ -594,7 +594,9 @@ function createWebpackConfig(webpackEnv) {
                 },
                 'less-loader',
                 {
-                  javascriptEnabled: true
+                  lessOptions: {
+                    javascriptEnabled: true
+                  }
                 }
               )
             },
