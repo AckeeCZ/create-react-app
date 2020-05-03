@@ -22,7 +22,7 @@ exports.modifyAppPackageJson = async ({
 
   await authModulePrompt({ appPackage, templatePath });
 
-  return sortByKey(appPackage);
+  return appPackage;
 };
 
 exports.updateTemplatePackageBlacklist = (backlist = []) => {
