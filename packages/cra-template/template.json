@@ -34,11 +34,12 @@
       "reselect": "4.x"
     },
     "devDependencies": {
-      "@testing-library/react": "^10.0.4",
-      "@testing-library/jest-dom": "^5.5.0",
-      "@testing-library/user-event": "^10.1.0",
+      "@testing-library/react": "10.x",
+      "@testing-library/jest-dom": "5.x",
+      "@testing-library/user-event": "10.x",
       "ackee-localize-spreadsheet-sdk": "0.x",
       "fela-plugin-validator": "10.x",
+      "gitmoji-changelog": "2.x",
       "husky": "4.x",
       "imagemin-lint-staged": "0.x",
       "lint-staged": "10.x"
@@ -57,7 +58,10 @@
       "postinstall": "yarn localize",
       "analyze-bundle": "yarn build:prod --stats && webpack-bundle-analyzer build/bundle-stats.json",
       "ci-test": "cross-env CI=true react-scripts test --env=jsdom",
-      "ci-check-circular-modules": "check-circular-modules"
+      "ci-check-circular-modules": "check-circular-modules",
+      "release": "yarn version",
+      "version": "yarn changelog && code CHANGELOG.md --wait && git add CHANGELOG.md",
+      "changelog": "git fetch origin && npx gitmoji-changelog"
     },
     "husky": {
       "hooks": {
