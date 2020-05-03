@@ -1,11 +1,15 @@
-import { React, FormattedMessage, FelaComponent } from '../../dependencies';
+import { React, PropTypes, FormattedMessage } from '../../dependencies';
 
-import * as styles from './HomePage.styles';
-
-const HomePage = () => (
-    <FelaComponent style={styles.homePage}>
+const HomePage = ({ styles }) => (
+    <div className={styles.homePage}>
         <FormattedMessage id="page.home.content" />
-    </FelaComponent>
+    </div>
 );
+
+HomePage.propTypes = {
+    styles: PropTypes.shape({
+        homePage: PropTypes.string.isRequired,
+    }).isRequired,
+};
 
 export default HomePage;
