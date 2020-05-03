@@ -10,7 +10,7 @@
       "@ackee/redux-utils": "2.x",
       "@sentry/browser": "5.x",
       "antd": "3.x",
-      "connected-react-router": "6.6.x",
+      "connected-react-router": "6.8.x",
       "fela": "11.x",
       "fela-monolithic": "11.x",
       "fela-plugin-friendly-pseudo-class": "11.x",
@@ -30,6 +30,7 @@
       "reselect": "4.x"
     },
     "devDependencies": {
+      "@lhci/cli": "^0.3.14",
       "@testing-library/react": "10.x",
       "@testing-library/jest-dom": "5.x",
       "@testing-library/user-event": "10.x",
@@ -55,6 +56,7 @@
       "analyze-bundle": "yarn build:prod --stats && webpack-bundle-analyzer build/bundle-stats.json",
       "ci-test": "cross-env CI=true react-scripts test --env=jsdom",
       "ci-check-circular-modules": "check-circular-modules",
+      "ci-lighthouse": "./node_modules/@lhci/cli/src/cli.js autorun",
       "release": "yarn version",
       "version": "yarn changelog && code CHANGELOG.md --wait && git add CHANGELOG.md",
       "changelog": "git fetch origin && npx gitmoji-changelog"
