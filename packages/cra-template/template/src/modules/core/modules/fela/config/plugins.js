@@ -3,6 +3,7 @@ import {
     felaPluginUnit,
     felaPluginNamedKeys,
     felaPluginFriendlyPseudoClass,
+    felaPluginPrefixer,
 } from '../dependencies';
 
 import namedKeys from './namedKeys';
@@ -18,6 +19,8 @@ const plugins = [
 
     // docs: https://github.com/rofrischmann/fela/tree/master/packages/fela-plugin-friendly-pseudo-class
     felaPluginNamedKeys(namedKeys),
+
+    felaPluginPrefixer(),
 
     // felaPluginValidator should be the last plugin
     process.env.NODE_ENV === 'development' &&
