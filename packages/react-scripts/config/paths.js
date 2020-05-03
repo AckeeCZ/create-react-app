@@ -73,11 +73,6 @@ module.exports = {
   proxySetup: resolveApp('src/setupProxy.js'),
   appNodeModules: resolveApp('node_modules'),
   publicUrlOrPath,
-  // @ackee/react-scripts - beginning
-  appConfig: resolveApp('config/custom'),
-  webpackConfig: resolveApp('config/webpack.config.js'),
-  appWebpackConfig: resolveApp('config/transformWebpackConfig.js'),
-  // @ackee/react-scripts - end
 };
 
 // @remove-on-eject-begin
@@ -100,10 +95,6 @@ module.exports = {
   proxySetup: resolveApp('src/setupProxy.js'),
   appNodeModules: resolveApp('node_modules'),
   publicUrlOrPath,
-  // @ackee/react-scripts - beginning
-  appConfig: resolveApp('config'),
-  appWebpackConfig: resolveApp('config/transformWebpackConfig.js'),
-  // @ackee/react-scripts - end
 
   // These properties only exist before ejecting:
   ownPath: resolveOwn('.'),
@@ -140,10 +131,6 @@ if (
     proxySetup: resolveOwn(`${templatePath}/src/setupProxy.js`),
     appNodeModules: resolveOwn('node_modules'),
     publicUrlOrPath,
-    // @ackee/react-scripts - beginning
-    appConfig: resolveOwn('template/config'),
-    appWebpackConfig: resolveOwn('config/transformWebpackConfig.js'),
-    // @ackee/react-scripts - end
 
     // These properties only exist before ejecting:
     ownPath: resolveOwn('.'),
