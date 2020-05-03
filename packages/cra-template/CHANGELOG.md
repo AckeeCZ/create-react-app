@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Add npm scripts for generating changelog with `gitmoji-changelog`.
 - Add `ci-lighthouse` npm script.
+- Add `fela-plugin-prefixer`.
 
 ## Updated
 
