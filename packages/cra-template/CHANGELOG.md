@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Updated
 
+- Set `EXTEND_ESLINT` to `true` since `@ackee/eslint-config` were upgraded to `2.1.0` -> `eslint-config-react-app` is now part of `@ackee/eslint-config`.
 - Upgrade dependencies.
 
 ## @ackee/cra-template@1.0.1 - 2020-04-30
