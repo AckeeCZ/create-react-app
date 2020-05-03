@@ -1,43 +1,35 @@
-import { React, PropTypes, Form, Button, TextField, useIntl } from '../dependencies';
+import { React, PropTypes, Form, Button, TextField } from '../dependencies';
+import { FormattedNumber, FormattedMessage } from 'modules/ui/dependencies';
 
-const LoginForm = ({ handleSubmit, submitting, error }) => {
-    const { formatMessage } = useIntl();
-
+function LoginForm({ handleSubmit, submitting, error }) {
     return (
         <Form onSubmit={handleSubmit}>
             <TextField
-                {...{
-                    id: 'email',
-                    name: 'email',
-                    disabled: submitting,
-                    label: formatMessage({ id: 'login.email' }),
-                }}
+                id="email"
+                name="email"
+                disabled={submitting}
+                label={<FormattedNumber id="login.email" />}
+                autoComplete="email"
+                autoFocus
             />
 
             <TextField
-                {...{
-                    id: 'password',
-                    name: 'password',
-                    type: 'password',
-                    disabled: submitting,
-                    label: formatMessage({ id: 'login.password' }),
-                }}
+                id="password"
+                name="password"
+                type="password"
+                disabled={submitting}
+                label={<FormattedNumber id="login.password" />}
+                autoComplete="current-password"
             />
 
-            <Button
-                {...{
-                    id: 'submitButton',
-                    htmlType: 'submit',
-                    disabled: submitting,
-                }}
-            >
-                {formatMessage({ id: 'login.submit' })}
+            <Button id="submitButton" htmlType="submit" disabled={submitting}>
+                <FormattedMessage id="login.submit" />
             </Button>
 
             {error && <p>{error}</p>}
         </Form>
     );
-};
+}
 
 LoginForm.propTypes = {
     handleSubmit: PropTypes.func.isRequired,
