@@ -23,6 +23,7 @@ Object.assign(paths, {
     'config/plugins/transformImportPath.js'
   ),
   appSrc: resolveAppRoot('src'),
+  appPackageJson: resolveAppRoot('package.json'),
 });
 
 // @remove-on-eject-beginning

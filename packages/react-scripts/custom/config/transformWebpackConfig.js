@@ -9,14 +9,17 @@ const appendBabelPlugins = require('./utils/appendBabelPlugins');
 const removeMiniCSSExtractLoader = require('./utils/removeMiniCSSExtractLoader');
 const removeStyleLoader = require('./utils/removeStyleLoader');
 const removeMiniCSSExtractPlugin = require('./utils/removeMiniCSSExtractPlugin');
+const shouldApplyAntIconLoader = require('./utils/shouldApplyAntIconLoader');
 
-const preloaders = [
-  {
+const preloaders = [];
+
+if (shouldApplyAntIconLoader()) {
+  preloaders.push({
     loader: require.resolve('webpack-ant-icon-loader'),
     enforce: 'pre',
     include: [require.resolve('@ant-design/icons/lib/dist')],
-  },
-];
+  });
+}
 
 // for template/src
 const getBabelPlugins = webpackEnv => {
