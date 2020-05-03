@@ -1,23 +1,19 @@
-import { React, FormattedMessage, PropTypes } from '../dependencies';
+import { React, FormattedMessage, useDispatch, useSelector, Petrus } from '../dependencies';
 
-const texts = {
-    logout: <FormattedMessage id="logout" />,
-};
+import { userEmailSelector } from '../services/selectors';
 
-function AuthContent({ logout, userEmail }) {
+function AuthContent() {
+    const dispatch = useDispatch();
+    const userEmail = useSelector(userEmailSelector);
+
     return (
         <>
             <div>Signed in user: {userEmail}</div>
-            <button type="button" onClick={logout}>
-                {texts.logout}
+            <button type="button" onClick={() => dispatch(Petrus.logoutRequest())}>
+                <FormattedMessage id="logout" />
             </button>
         </>
     );
 }
-
-AuthContent.propTypes = {
-    logout: PropTypes.func.isRequired,
-    userEmail: PropTypes.string.isRequired,
-};
 
 export default AuthContent;
