@@ -16,7 +16,7 @@
   },
   "license": "MIT",
   "engines": {
-    "node": ">=8.10"
+    "node": ">=10"
   },
   "bugs": {
     "url": "https://github.com/AckeeCZ/create-react-app/issues"

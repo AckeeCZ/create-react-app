@@ -3,6 +3,7 @@ import {
     felaPluginUnit,
     felaPluginNamedKeys,
     felaPluginFriendlyPseudoClass,
+    felaPluginPrefixer,
 } from '../dependencies';
 
 import namedKeys from './namedKeys';
@@ -26,6 +27,8 @@ const plugins = [
             deleteInvalid: true,
             useCSSLint: true,
         }),
+
+    felaPluginPrefixer(),
 ].filter(Boolean);
 
 export default plugins;

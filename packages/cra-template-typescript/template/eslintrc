@@ -1,15 +1,12 @@
 {
-    "extends": ["react-app"],
+    "extends": ["@ackee/eslint-config", "prettier"],
     "settings": {
         "import/resolver": {
             "node": {
-                "paths": ["src"]
+                "paths": ["src"],
+                "extensions": [".ts", ".tsx"]
             }
         }
-    },
-    "rules": {
-        "no-restricted-globals": "off",
-        "react/jsx-props-no-spreading": "off"
     },
     "plugins": ["cypress"]
 }

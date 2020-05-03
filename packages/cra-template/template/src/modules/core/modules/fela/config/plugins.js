@@ -20,8 +20,6 @@ const plugins = [
     // docs: https://github.com/rofrischmann/fela/tree/master/packages/fela-plugin-friendly-pseudo-class
     felaPluginNamedKeys(namedKeys),
 
-    felaPluginPrefixer(),
-
     // felaPluginValidator should be the last plugin
     process.env.NODE_ENV === 'development' &&
         felaPluginValidator({
@@ -29,6 +27,8 @@ const plugins = [
             deleteInvalid: true,
             useCSSLint: true,
         }),
+
+    felaPluginPrefixer(),
 ].filter(Boolean);
 
 export default plugins;
