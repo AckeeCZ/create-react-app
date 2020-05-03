@@ -10,7 +10,7 @@ export { compose, combineReducers } from 'redux';
 export { connect, useDispatch, useSelector } from 'react-redux';
 export { Route, Switch, Link, Redirect, useLocation, useRouteMatch } from 'react-router-dom';
 export { FelaComponent, connect as connectFela } from 'react-fela';
-export { FormattedMessage, FormattedNumber, FormattedDate, useIntl } from 'react-intl';
+export { FormattedMessage, FormattedNumber, FormattedDate, useIntl, injectIntl } from 'react-intl';
 export { createSelector } from 'reselect';
 
 export { childrenPropType } from '@ackee/lucas';

@@ -1,5 +1,4 @@
-import { React, PropTypes, Form, Button, TextField } from '../dependencies';
-import { FormattedNumber, FormattedMessage } from 'modules/ui/dependencies';
+import { React, PropTypes, Form, Button, TextField, FormattedMessage } from '../dependencies';
 
 function LoginForm({ handleSubmit, submitting, error }) {
     return (
@@ -8,7 +7,7 @@ function LoginForm({ handleSubmit, submitting, error }) {
                 id="email"
                 name="email"
                 disabled={submitting}
-                label={<FormattedNumber id="login.email" />}
+                label={<FormattedMessage id="login.email" />}
                 autoComplete="email"
                 autoFocus
             />
@@ -18,7 +17,7 @@ function LoginForm({ handleSubmit, submitting, error }) {
                 name="password"
                 type="password"
                 disabled={submitting}
-                label={<FormattedNumber id="login.password" />}
+                label={<FormattedMessage id="login.password" />}
                 autoComplete="current-password"
             />
 

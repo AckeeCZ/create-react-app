@@ -5,10 +5,9 @@ import {
     // @use-auth-module-end,
     Switch,
     Route,
+    UI,
 } from '../dependencies';
 
-import Container from './Container';
-import Navbar from './Navbar';
 import HomePage from './HomePage';
 import NoMatchPage from './NoMatchPage';
 
@@ -45,6 +44,8 @@ const routes = [
         component: NoMatchPage,
     },
 ];
+
+const { Container, Navbar } = UI;
 
 const App = () => {
     return (

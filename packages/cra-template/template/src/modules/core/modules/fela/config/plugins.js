@@ -3,7 +3,7 @@ import {
     felaPluginUnit,
     felaPluginNamedKeys,
     felaPluginFriendlyPseudoClass,
-    felaPluginPrefixer,
+    // felaPluginPrefixer,
 } from '../dependencies';
 
 import namedKeys from './namedKeys';
@@ -24,11 +24,12 @@ const plugins = [
     process.env.NODE_ENV === 'development' &&
         felaPluginValidator({
             logInvalid: true,
-            deleteInvalid: true,
-            useCSSLint: true,
+            deleteInvalid: false,
+            useCSSLint: false,
         }),
 
-    felaPluginPrefixer(),
+    // NOTE: It's disabled because it deletes rules that are valid, such a 'display: grid'
+    // felaPluginPrefixer(),
 ].filter(Boolean);
 
 export default plugins;
