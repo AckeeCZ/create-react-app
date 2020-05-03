@@ -10,11 +10,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Added
 
 - Add npm scripts for generating changelog with `gitmoji-changelog`.
+- Add `ci-lighthouse` npm script.
 
 ## Updated
 
 - Set `EXTEND_ESLINT` to `true` since `@ackee/eslint-config` were upgraded to `2.1.0` -> `eslint-config-react-app` is now part of `@ackee/eslint-config`.
 - Upgrade dependencies.
+- Min required node version is 10.
 
 ## @ackee/cra-template@1.0.1 - 2020-04-30
 
