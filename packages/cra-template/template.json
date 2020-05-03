@@ -30,14 +30,14 @@
       "reselect": "4.x"
     },
     "devDependencies": {
-      "@testing-library/react": "^9.3.2",
-      "@testing-library/jest-dom": "^4.2.4",
-      "@testing-library/user-event": "^7.1.2",
+      "@testing-library/react": "^10.0.4",
+      "@testing-library/jest-dom": "^5.5.0",
+      "@testing-library/user-event": "^10.1.0",
       "ackee-localize-spreadsheet-sdk": "0.x",
       "fela-plugin-validator": "10.x",
-      "husky": "3.x",
+      "husky": "4.x",
       "imagemin-lint-staged": "0.x",
-      "lint-staged": "9.x"
+      "lint-staged": "10.x"
     },
     "scripts": {
       "start": "yarn localize && react-scripts start",
@@ -63,12 +63,10 @@
     },
     "lint-staged": {
       "*.{js,jsx,json,scss,less,css,md}": [
-        "prettier --config ./prettier.config.js --write",
-        "git add"
+        "prettier --config ./prettier.config.js --write"
       ],
-      "**/*.{png,jpeg,jpg,gif,svg}": [
-        "imagemin-lint-staged",
-        "git add"
+      "**/*.{png,jpeg,jpg,gif,svg,webp}": [
+        "imagemin-lint-staged"
       ]
     },
     "jest": {
