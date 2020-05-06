@@ -13,24 +13,37 @@ const getTargetValue = (args = []) => {
   return targetArg ? targetArg.replace(argKey, '') : targetArg;
 };
 
+const invalidTargetValueError = value =>
+  new Error(
+    `Received invalid --target value: '${value}', choose one of: ${Object.values(
+      Target
+    ).join(', ')}`
+  );
+
 const getNodeEnv = targetValue => {
   switch (targetValue) {
     case Target.DEVELOPMENT:
-    case Target.STAGE:
       return 'development';
-    default:
+
+    case Target.STAGE:
+    case Target.PRODUCTION:
       return 'production';
+
+    default:
+      throw invalidTargetValueError(targetValue);
   }
 };
 
 const getBuildEnv = targetValue => {
-  if (Object.values(Target).includes(targetValue)) {
-    return targetValue;
-  }
+  switch (targetValue) {
+    case Target.DEVELOPMENT:
+    case Target.STAGE:
+    case Target.PRODUCTION:
+      return targetValue;
 
-  throw new Error(
-    `Invalid --target value, choose one of: ${Object.values(Target).join(', ')}`
-  );
+    default:
+      throw invalidTargetValueError(targetValue);
+  }
 };
 
 function getCustomEnvVariables() {
