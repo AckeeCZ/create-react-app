@@ -1,1 +1,1 @@
-This file has moved [here](https://github.com/facebook/create-react-app/blob/master/packages/cra-template-typescript/template/README.md)
+This file has moved [here](https://github.com/AckeeCZ/create-react-app/tree/master/packages/cra-template-typescript)
