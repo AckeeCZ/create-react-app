@@ -6,6 +6,7 @@
         "custom"
     ],
     "dependencies": {
+        "@ackee/browserslist-config": "^1.0.0",
         "@ackee/eslint-config": "^2.1.0",
         "babel-plugin-custom-import-path-transform": "^1.0.3",
         "babel-plugin-transform-imports": "^2.0.0",
@@ -25,5 +26,8 @@
     },
     "publishConfig": {
         "access": "public"
-    }
+    },
+    "browserslist": [
+        "extends @ackee/browserslist-config"
+    ]
 }
