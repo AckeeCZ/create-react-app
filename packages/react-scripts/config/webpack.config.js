@@ -241,7 +241,7 @@ function createWebpackConfig(webpackEnv) {
               inline: 2,
             },
             mangle: {
-              safari10: true,
+              safari10: false,
             },
             // Added for profiling in devtools
             keep_classnames: isEnvProductionProfile,
