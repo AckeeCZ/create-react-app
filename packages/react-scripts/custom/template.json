@@ -7,12 +7,11 @@
     ],
     "dependencies": {
         "@ackee/browserslist-config": "^1.0.1",
-        "@ackee/eslint-config": "^2.1.0",
+        "@ackee/eslint-config": "^2.5.0",
         "babel-plugin-custom-import-path-transform": "^1.0.3",
         "babel-plugin-transform-imports": "^2.0.0",
         "chalk": "3.0.0",
         "cross-env": "^7.0.2",
-        "cypress": "4.5.0",
         "eslint-config-prettier": "^6.9.0",
         "eslint-plugin-cypress": "2.10.3",
         "less": "^3.11.1",
@@ -23,6 +22,9 @@
         "webpack-ant-icon-loader": "^1.0.8",
         "webpack-bundle-analyzer": "^3.7.0",
         "worker-plugin": "4.0.3"
+    },
+    "devDependencies": {
+        "cypress": "^6.4.0"
     },
     "publishConfig": {
         "access": "public"
