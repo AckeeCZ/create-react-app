@@ -1,12 +1,12 @@
 {
   "package": {
     "dependencies": {
-      "@ackee/antonio": "3.0.0-beta.9",
+      "@ackee/antonio": "3.x",
       "@ackee/chris": "2.x",
-      "@ackee/jerome": "3.x",
+      "@ackee/jerome": "4.x",
       "@ackee/lucas": "0.x",
       "@ackee/mateus": "1.x",
-      "@ackee/petrus": "4.x",
+      "@ackee/petrus": "5.x",
       "@ackee/redux-utils": "2.x",
       "@sentry/browser": "5.x",
       "antd": "3.x",
@@ -34,7 +34,7 @@
       "@testing-library/react": "10.x",
       "@testing-library/jest-dom": "5.x",
       "@testing-library/user-event": "10.x",
-      "lokse": "^1.3.0",
+      "lokse": "^1.3.1",
       "fela-plugin-validator": "11.x",
       "fela-plugin-prefixer": "11.x",
       "gitmoji-changelog": "2.x",
