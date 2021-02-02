@@ -42,6 +42,14 @@
       "imagemin-lint-staged": "0.x",
       "lint-staged": "10.x"
     },
+    "resolutions": {
+      "dot-prop": "^6.0.1",
+      "http-proxy": "^1.18.1",
+      "elliptic": "^6.5.3",
+      "node-forge": "^0.10.0",
+      "serialize-javascript": "^3.1.0",
+      "object-path": "^0.11.5"
+    },
     "scripts": {
       "start": "yarn localize && react-scripts start",
       "build": "yarn build:dev",
@@ -72,9 +80,7 @@
       "*.{js,jsx,json,scss,less,css,md}": [
         "prettier --config ./prettier.config.js --write"
       ],
-      "**/*.{png,jpeg,jpg,gif,svg,webp}": [
-        "imagemin-lint-staged"
-      ]
+      "**/*.{png,jpeg,jpg,gif,svg,webp}": ["imagemin-lint-staged"]
     },
     "jest": {
       "testPathIgnorePatterns": [
@@ -83,12 +89,7 @@
       ]
     },
     "browserslist": {
-      "production": [
-        ">0.2%",
-        "not dead",
-        "not ie <= 11",
-        "not op_mini all"
-      ],
+      "production": [">0.2%", "not dead", "not ie <= 11", "not op_mini all"],
       "development": [
         "last 1 chrome version",
         "last 1 firefox version",
