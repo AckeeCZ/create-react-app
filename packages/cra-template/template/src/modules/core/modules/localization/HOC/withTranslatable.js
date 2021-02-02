@@ -1,4 +1,4 @@
-import { translatableWithAntdFactory } from '../dependencies';
+import { translatableFactory } from '../dependencies';
 import { intlData, antdData } from '../config';
 
-export default translatableWithAntdFactory(intlData, antdData);
+export default translatableFactory(intlData, antdData);
