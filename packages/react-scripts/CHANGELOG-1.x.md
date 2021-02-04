@@ -5,6 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## @ackee/react-scripts@1.2.0 - 2021-02-04
+
+### Added
+
+- Temporary added `resolutions` to fix audit vulnerabilities
+
+### Updated
+
+- Updated Cypress to version `6.4.0`
+- Updated Petrus and Antonio packages to versions `5.x` and `3.x`
+- Updated Jerome to version `4.x`
+
+### Changed
+
+- Updated build scripts to correspond to the new Gitalb CI naming
+
 ## @ackee/react-scripts@1.1.1 - 2020-06-10
 
 ### Updated
