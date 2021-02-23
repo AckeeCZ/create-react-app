@@ -1,11 +1,18 @@
-import { React, FelaComponent, FormattedMessage } from '../dependencies';
+import React from 'react';
+import { FormattedMessage } from 'react-intl';
 
-import * as styles from './ErrorMessage.styles';
+import { useFelaEnhanced } from 'hooks';
 
-const ErrorMessage = () => (
-    <FelaComponent style={styles.message}>
-        <FormattedMessage id="error.general" />
-    </FelaComponent>
-);
+import * as errorMessageStyles from './ErrorMessage.styles';
+
+const ErrorMessage = () => {
+    const { styles } = useFelaEnhanced(errorMessageStyles);
+
+    return (
+        <div className={styles.message}>
+            <FormattedMessage id="error.general" />
+        </div>
+    );
+};
 
 export default ErrorMessage;

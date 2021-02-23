@@ -1,21 +1,19 @@
-import { React, FelaComponent, Link, FormattedMessage, PropTypes } from '../../../dependencies';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { FormattedMessage } from 'react-intl';
+import * as PropTypes from 'prop-types';
 
-import * as styles from './NavItem.styles';
+import { useFelaEnhanced } from 'hooks';
+
+import * as itemStyles from './NavItem.styles';
 
 const NavItem = ({ to, messageId }) => {
+    const { styles } = useFelaEnhanced(itemStyles);
+
     return (
-        <FelaComponent style={styles.navItem}>
-            {({ className }) => (
-                <Link
-                    {...{
-                        to,
-                        className,
-                    }}
-                >
-                    <FormattedMessage id={messageId} />
-                </Link>
-            )}
-        </FelaComponent>
+        <Link to={to} className={styles.navItem}>
+            <FormattedMessage id={messageId} />
+        </Link>
     );
 };
 

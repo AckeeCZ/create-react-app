@@ -1,11 +1,17 @@
-import { React, FormattedMessage, FelaComponent } from '../../dependencies';
+import React from 'react';
+import { FormattedMessage } from 'react-intl';
 
-import * as styles from './HomePage.styles';
+import { useFelaEnhanced } from 'hooks';
 
-const HomePage = () => (
-    <FelaComponent style={styles.homePage}>
-        <FormattedMessage id="page.home.content" />
-    </FelaComponent>
-);
+import * as homePageStyles from './HomePage.styles';
+
+const HomePage = () => {
+    const { styles } = useFelaEnhanced(homePageStyles);
+    return (
+        <div className={styles.homePage}>
+            <FormattedMessage id="page.home.content" />
+        </div>
+    );
+};
 
 export default HomePage;
