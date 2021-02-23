@@ -1,16 +1,21 @@
-import { React, FelaComponent, PropTypes } from '../../dependencies';
+import React from 'react';
+import * as PropTypes from 'prop-types';
+
+import { useFelaEnhanced } from 'hooks';
 
 import NavItem from './NavItem';
 
-import * as styles from './Navbar.styles';
+import * as navbarStyles from './Navbar.styles';
 
 const Navbar = ({ navItems }) => {
+    const { styles } = useFelaEnhanced(navbarStyles);
+
     return (
-        <FelaComponent style={styles.navbar}>
+        <div className={styles.navbar}>
             {navItems.map(navItem => (
                 <NavItem key={navItem.to} {...navItem} />
             ))}
-        </FelaComponent>
+        </div>
     );
 };
 

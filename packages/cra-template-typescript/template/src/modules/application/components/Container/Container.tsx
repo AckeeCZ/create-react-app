@@ -1,9 +1,14 @@
-import { React, childrenPropType, FelaComponent } from '../../dependencies';
+import React from 'react';
+import { childrenPropType } from '@ackee/lucas';
 
-import * as styles from './Container.styles';
+import { useFelaEnhanced } from 'hooks';
+
+import * as containerStyles from './Container.styles';
 
 const Container = ({ children }) => {
-    return <FelaComponent style={styles.container}>{children}</FelaComponent>;
+    const { styles } = useFelaEnhanced(containerStyles);
+
+    return <div className={styles.container}>{children}</div>;
 };
 
 Container.propTypes = {

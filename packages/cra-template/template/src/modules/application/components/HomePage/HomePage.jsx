@@ -1,15 +1,17 @@
-import { React, PropTypes, FormattedMessage } from '../../dependencies';
+import React from 'react';
+import { FormattedMessage } from 'react-intl';
 
-const HomePage = ({ styles }) => (
-    <div className={styles.homePage}>
-        <FormattedMessage id="page.home.content" />
-    </div>
-);
+import { useFelaEnhanced } from 'hooks';
 
-HomePage.propTypes = {
-    styles: PropTypes.shape({
-        homePage: PropTypes.string.isRequired,
-    }).isRequired,
+import * as homePageStyles from './HomePage.styles';
+
+const HomePage = () => {
+    const { styles } = useFelaEnhanced(homePageStyles);
+    return (
+        <div className={styles.homePage}>
+            <FormattedMessage id="page.home.content" />
+        </div>
+    );
 };
 
 export default HomePage;

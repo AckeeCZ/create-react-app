@@ -1,8 +1,16 @@
-import { React, PropTypes, connectFela, childrenPropType, FormattedMessage, AntdSpin } from '../../dependencies';
+import React from 'react';
+import * as PropTypes from 'prop-types';
+import { FormattedMessage } from 'react-intl';
+import { childrenPropType } from '@ackee/lucas';
+import { Spin as AntdSpin } from 'antd';
 
-import * as Styles from './Loader.styles';
+import { useFelaEnhanced } from 'hooks';
 
-const Loader = ({ children, show, styles }) => {
+import * as loaderStyles from './Loader.styles';
+
+const Loader = ({ children, show }) => {
+    const { styles } = useFelaEnhanced(loaderStyles);
+
     return show ? (
         <div className={styles.loader}>
             <AntdSpin />
@@ -18,11 +26,10 @@ const Loader = ({ children, show, styles }) => {
 Loader.propTypes = {
     children: childrenPropType,
     show: PropTypes.bool.isRequired,
-    styles: PropTypes.shape().isRequired,
 };
 
 Loader.defaultProps = {
     children: null,
 };
 
-export default connectFela(Styles)(Loader);
+export default Loader;

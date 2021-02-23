@@ -1,19 +1,26 @@
-import { React, PropTypes } from '../../dependencies';
+import React from 'react';
+import * as PropTypes from 'prop-types';
 
-import NavItem, { NavItemPropType } from './NavItem';
+import { useFelaEnhanced } from 'hooks';
 
-const Navbar = ({ styles, navItems }) => (
-    <nav className={styles.navbar}>
-        {navItems.map((navItem, index) => (
-            // NOTE: It's ok to use index as key for static arrays.
-            <NavItem key={index} {...navItem} />
-        ))}
-    </nav>
-);
+import NavItem from './NavItem';
+
+import * as navbarStyles from './Navbar.styles';
+
+const Navbar = ({ navItems }) => {
+    const { styles } = useFelaEnhanced(navbarStyles);
+
+    return (
+        <div className={styles.navbar}>
+            {navItems.map(navItem => (
+                <NavItem key={navItem.to} {...navItem} />
+            ))}
+        </div>
+    );
+};
 
 Navbar.propTypes = {
-    styles: PropTypes.shape().isRequired,
-    navItems: PropTypes.arrayOf(PropTypes.shape(NavItemPropType).isRequired).isRequired,
+    navItems: PropTypes.arrayOf(PropTypes.shape(NavItem.propTypes).isRequired).isRequired,
 };
 
 export default Navbar;
