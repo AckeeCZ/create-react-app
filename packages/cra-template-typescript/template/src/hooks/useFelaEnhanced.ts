@@ -1,18 +1,34 @@
 import React from 'react';
-import { combineMultiRules } from 'fela-tools';
-import { useFela } from 'react-fela';
+import { combineMultiRules, TNormalizedMultiRule } from 'fela-tools';
+import { TRule } from 'fela';
+import { useFela, Rules as ReactFelaRules } from 'react-fela';
+
+import { Theme } from 'styles/theme';
+
+declare module 'fela-tools' {
+    function combineMultiRules<TRuleProps, Styles>(
+        ...rules: Array<TMultiRule>
+    ): TNormalizedMultiRule<TRuleProps, Styles>;
+}
 
 // This solution is based on the implementation of [connect binding](https://github.com/robinweser/fela/blob/master/packages/fela-bindings/src/connectFactory.js) from fela
-export default function useFelaEnhanced(rules, { extend, ...otherProps } = {}) {
-    const { theme, renderer } = useFela();
+export default function useFelaEnhanced<FelaRules, Props>(
+    rules: ReactFelaRules<Props, FelaRules, Theme>,
+    props: Props & { extend?: ReactFelaRules<Omit<Props, 'extend'>, FelaRules, Theme> } = {} as Props,
+) {
+    const { theme, renderer } = useFela<Theme>();
 
+    const { extend, ...otherProps } = props;
     const allRules = [rules];
 
     if (extend) {
         allRules.push(extend);
     }
 
-    const combinedRules = combineMultiRules(...allRules);
+    type PropsWithoutExtend = Omit<Props, 'extend'>;
+    type PropsWithTheme = PropsWithoutExtend & { theme: Theme };
+
+    const combinedRules: TNormalizedMultiRule<PropsWithTheme, FelaRules> = combineMultiRules(...allRules);
 
     const preparedRules = combinedRules(
         {
@@ -22,8 +38,13 @@ export default function useFelaEnhanced(rules, { extend, ...otherProps } = {}) {
         renderer,
     );
 
-    const styles = Object.keys(preparedRules).reduce((styleMap, name) => {
-        const preparedRule = preparedRules[name];
+    type RulesKey = keyof FelaRules;
+    type Styles = { [key in RulesKey]: string };
+
+    const rulesKeys = Object.keys(preparedRules) as RulesKey[];
+
+    const styles = rulesKeys.reduce<Styles>((styleMap, name) => {
+        const preparedRule = preparedRules[name] as TRule<PropsWithTheme>;
 
         styleMap[name] = renderer.renderRule(preparedRule, {
             ...otherProps,
@@ -31,10 +52,12 @@ export default function useFelaEnhanced(rules, { extend, ...otherProps } = {}) {
         });
 
         return styleMap;
-    }, {});
+    }, {} as Styles);
 
-    const boundRules = Object.keys(preparedRules).reduce((ruleMap, name) => {
-        ruleMap[name] = props =>
+    type Rules = { [key in RulesKey]: TRule<PropsWithTheme> };
+
+    const boundRules = rulesKeys.reduce<Rules>((ruleMap, name) => {
+        ruleMap[name] = (props: PropsWithoutExtend) =>
             preparedRules[name](
                 {
                     theme,
@@ -44,9 +67,9 @@ export default function useFelaEnhanced(rules, { extend, ...otherProps } = {}) {
             );
 
         return ruleMap;
-    }, {});
+    }, {} as Rules);
 
-    const foo = React.useMemo(
+    return React.useMemo(
         () => ({
             styles,
             rules: boundRules,
@@ -54,5 +77,4 @@ export default function useFelaEnhanced(rules, { extend, ...otherProps } = {}) {
         }),
         [styles, theme, boundRules],
     );
-    return foo;
 }
