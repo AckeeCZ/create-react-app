@@ -1,5 +1,7 @@
 import * as theme from './theme';
 
+export type Theme = typeof theme;
+
 export { theme };
 
 export { default as vendors } from './vendors.less';

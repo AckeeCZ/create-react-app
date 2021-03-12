@@ -3,7 +3,7 @@ import { combineMultiRules, TNormalizedMultiRule } from 'fela-tools';
 import { TRule } from 'fela';
 import { useFela, Rules as ReactFelaRules } from 'react-fela';
 
-import { Theme } from 'styles/theme';
+import { Theme } from 'styles';
 
 declare module 'fela-tools' {
     function combineMultiRules<TRuleProps, Styles>(
