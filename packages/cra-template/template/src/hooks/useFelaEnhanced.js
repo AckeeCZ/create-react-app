@@ -46,7 +46,7 @@ export default function useFelaEnhanced(rules, { extend, ...otherProps } = {}) {
         return ruleMap;
     }, {});
 
-    const foo = React.useMemo(
+    return React.useMemo(
         () => ({
             styles,
             rules: boundRules,
@@ -54,5 +54,4 @@ export default function useFelaEnhanced(rules, { extend, ...otherProps } = {}) {
         }),
         [styles, theme, boundRules],
     );
-    return foo;
 }
