@@ -57,9 +57,9 @@
     "scripts": {
       "start": "yarn localize && react-scripts start",
       "build": "yarn build:development",
-      "build:development": "export REACT_APP_BUILD_ENV=development && react-scripts build --target=production",
-      "build:stage": "export REACT_APP_BUILD_ENV=stage && react-scripts build --target=production",
-      "build:production": "export REACT_APP_BUILD_ENV=production && react-scripts build --target=production",
+      "build:development": "export REACT_APP_BUILD_ENV=development && react-scripts build",
+      "build:stage": "export REACT_APP_BUILD_ENV=stage && react-scripts build",
+      "build:production": "export REACT_APP_BUILD_ENV=production && react-scripts build",
       "build:master": "yarn build:production",
       "test:watch": "react-scripts test",
       "cypress:open": "cypress open",

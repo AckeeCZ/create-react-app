@@ -6,53 +6,25 @@ const Target = {
   PRODUCTION: 'production',
 };
 
-const getTargetValue = (args = []) => {
-  const argKey = '--target=';
-  const targetArg = args.find(val => val.startsWith(argKey));
-
-  return targetArg ? targetArg.replace(argKey, '') : targetArg;
-};
-
-const invalidTargetValueError = value =>
+const invalidEnvValueError = value =>
   new Error(
-    `Received invalid --target value: '${value}', choose one of: ${Object.values(
+    `Received invalid REACT_APP_BUILD_ENV value: '${value}', choose one of: ${Object.values(
       Target
     ).join(', ')}`
   );
 
-const getNodeEnv = targetValue => {
-  switch (targetValue) {
-    case Target.DEVELOPMENT:
-      return 'development';
+const getBuildEnv = () => {
+  const env = process.env.REACT_APP_BUILD_ENV;
 
-    case Target.STAGE:
-    case Target.PRODUCTION:
-      return 'production';
-
-    default:
-      throw invalidTargetValueError(targetValue);
-  }
-};
-
-const getBuildEnv = targetValue => {
-  switch (targetValue) {
+  switch (env) {
     case Target.DEVELOPMENT:
     case Target.STAGE:
     case Target.PRODUCTION:
-      return targetValue;
+      return env;
 
     default:
-      throw invalidTargetValueError(targetValue);
+      throw invalidEnvValueError(env);
   }
 };
 
-function getCustomEnvVariables() {
-  const target = getTargetValue(process.argv.slice(2)) || Target.DEVELOPMENT;
-
-  return {
-    BUILD_ENV: getBuildEnv(target),
-    NODE_ENV: getNodeEnv(target),
-  };
-}
-
-module.exports = getCustomEnvVariables;
+module.exports = getBuildEnv;

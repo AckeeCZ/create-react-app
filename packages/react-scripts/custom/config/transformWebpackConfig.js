@@ -4,7 +4,7 @@ const webpack = require('webpack');
 const WorkerPlugin = require('worker-plugin');
 
 const paths = require('../config/paths');
-const getCustomEnvVariables = require('./env');
+const getBuildEnv = require('./env');
 const insertPreloaders = require('./utils/insertPreloaders');
 const appendBabelPlugins = require('./utils/appendBabelPlugins');
 const removeMiniCSSExtractLoader = require('./utils/removeMiniCSSExtractLoader');
@@ -94,8 +94,8 @@ const transformPlugins = plugins => {
     plugin => plugin instanceof webpack.DefinePlugin
   );
 
-  const { BUILD_ENV } = getCustomEnvVariables();
-  const configNameRegex = new RegExp(`config.${BUILD_ENV}.js`);
+  const env = getBuildEnv();
+  const configNameRegex = new RegExp(`config.${env}.js`);
 
   plugins.push(
     new WorkerPlugin({
