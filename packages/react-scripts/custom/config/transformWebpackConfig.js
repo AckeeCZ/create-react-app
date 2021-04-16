@@ -95,7 +95,7 @@ const transformPlugins = plugins => {
   );
 
   const env = getBuildEnv();
-  const configNameRegex = new RegExp(`config.${env}.js`);
+  const configNameRegex = new RegExp(`config.${env}.(js|ts)`);
 
   plugins.push(
     new WorkerPlugin({
