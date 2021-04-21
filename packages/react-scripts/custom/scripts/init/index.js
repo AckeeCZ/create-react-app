@@ -1,7 +1,5 @@
 'use strict';
 
-const sortByKey = require('../utils/sortByKey');
-
 const authModulePrompt = require('./useAuthModule');
 const mergeObjects = require('./mergeObjects');
 
@@ -10,7 +8,7 @@ exports.renameEslintConfig = require('./renameEslintConfig');
 exports.modifyAppPackageJson = async ({
   appPackage,
   templatePackage,
-  templatePath,
+  templatePath
 }) => {
   appPackage.devDependencies = mergeObjects(
     appPackage.devDependencies,
