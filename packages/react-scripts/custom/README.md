@@ -12,15 +12,17 @@
 
 ## Upgrade guide
 
-Upgrade to the latest `react-scripts` version:
+Upgrade `create-react-app` to the latest version:
 
 1. Set a new `remote` to the original repository
+
    ```sh
-   $ git remote add upstream https://github.com/facebook/create-react-app.git`
+   $ git remote add original-origin https://github.com/facebook/create-react-app.git`
    ```
+
 2. Get the latest original repo changes by calling
    ```sh
-   $ git fetch upstream
+   $ git fetch original-origin
    ```
 3. Check out to [the latest tag](https://github.com/facebook/create-react-app/releases), e.g. `v3.2.0`
    ```sh
