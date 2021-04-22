@@ -1,1 +1,1 @@
-export { default as colors } from './colors.less';
+export { default as colors } from './colors.module.less';
