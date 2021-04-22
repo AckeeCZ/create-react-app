@@ -11,9 +11,6 @@
 const fs = require('fs');
 const path = require('path');
 const paths = require('./paths');
-// @ackee/react-scripts - beginning
-const getCustomEnvVariables = require('../custom/config/env');
-// @ackee/react-scripts - end
 
 // Make sure that including paths.js after env.js will read .env variables.
 delete require.cache[require.resolve('./paths')];
@@ -100,11 +97,7 @@ function getClientEnvironment(publicUrl) {
         // react-refresh is not 100% stable at this time,
         // which is why it's disabled by default.
         // It is defined here so it is available in the webpackHotDevClient.
-        FAST_REFRESH: process.env.FAST_REFRESH !== 'false',
-
-        // @ackee/react-scripts - beginning
-        ...getCustomEnvVariables()
-        // @ackee/react-scripts - end
+        FAST_REFRESH: process.env.FAST_REFRESH !== 'false'
       }
     );
   // Stringify all values so we can feed into webpack DefinePlugin
