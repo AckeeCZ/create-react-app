@@ -78,7 +78,6 @@ const sassRegex = /\.(scss|sass)$/;
 const sassModuleRegex = /\.module\.(scss|sass)$/;
 // @ackee/react-scripts - beginning
 const lessRegex = /\.less$/;
-const lessModuleRegex = /\.module.less$/;
 // @ackee/react-scripts - end
 
 const hasJsxRuntime = (() => {
@@ -586,24 +585,6 @@ function createWebpackConfig(webpackEnv) {
               )
             },
             // @ackee/react-scripts - beginning
-            {
-              test: lessModuleRegex,
-              use: getStyleLoaders(
-                {
-                  importLoaders: 2,
-                  sourceMap: isEnvProduction && shouldUseSourceMap,
-                  modules: {
-                    exportOnlyLocals: true
-                  }
-                },
-                'less-loader',
-                {
-                  lessOptions: {
-                    javascriptEnabled: true
-                  }
-                }
-              )
-            },
             {
               test: lessRegex,
               use: getStyleLoaders(
