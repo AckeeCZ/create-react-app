@@ -16,7 +16,7 @@
         "eslint-config-prettier": "^8.2.0",
         "eslint-plugin-cypress": "2.10.3",
         "less": "^4.1.1",
-        "less-loader": "^8.1.1",
+        "less-loader": "^7.3.0",
         "madge": "^3.8.0",
         "prettier": "^2.2.1",
         "prettier-config-ackee": "0.0.15",
