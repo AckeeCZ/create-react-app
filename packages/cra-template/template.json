@@ -68,7 +68,7 @@
       "check-circular-modules": "ackee-react-scripts check-circular-modules",
       "localize": "source .env.local; lokse update",
       "localizations": "lokse open",
-      "analyze-bundle": "yarn build:prod --stats && webpack-bundle-analyzer build/bundle-stats.json",
+      "analyze-bundle": "yarn build:production --stats && webpack-bundle-analyzer build/bundle-stats.json",
       "ci-test": "cross-env CI=true react-scripts test --env=jsdom",
       "ci-check-circular-modules": "yarn check-circular-modules",
       "ci-lighthouse": "./node_modules/@lhci/cli/src/cli.js autorun",
