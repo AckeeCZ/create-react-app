@@ -51,8 +51,7 @@
       "fela-plugin-validator": "11.x",
       "husky": "3.x",
       "imagemin-lint-staged": "0.x",
-      "lint-staged": "9.x",
-      "eslint-plugin-compat": "3.9.0"
+      "lint-staged": "9.x"
     },
     "scripts": {
       "start": "export REACT_APP_BUILD_ENV=development; yarn localize && react-scripts start",

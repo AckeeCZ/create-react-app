@@ -44,8 +44,7 @@
       "gitmoji-changelog": "2.x",
       "husky": "4.x",
       "imagemin-lint-staged": "0.x",
-      "lint-staged": "10.x",
-      "eslint-plugin-compat": "3.9.0"
+      "lint-staged": "10.x"
     },
     "resolutions": {
       "dot-prop": "^6.0.1",
