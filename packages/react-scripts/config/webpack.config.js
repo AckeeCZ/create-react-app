@@ -590,7 +590,10 @@ function createWebpackConfig(webpackEnv) {
               use: getStyleLoaders(
                 {
                   importLoaders: 2,
-                  sourceMap: isEnvProduction && shouldUseSourceMap
+                  sourceMap: isEnvProduction && shouldUseSourceMap,
+                  modules: {
+                    exportOnlyLocals: true
+                  }
                 },
                 'less-loader',
                 {
