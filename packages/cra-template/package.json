@@ -25,5 +25,8 @@
   ],
   "publishConfig": {
     "access": "public"
+  },
+  "scripts": {
+    "postversion": "node custom/scripts/postversion"
   }
 }
