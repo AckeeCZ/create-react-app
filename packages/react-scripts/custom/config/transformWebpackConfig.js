@@ -4,7 +4,6 @@ const webpack = require('webpack');
 const WorkerPlugin = require('worker-plugin');
 
 const paths = require('../config/paths');
-const getBuildEnv = require('./env');
 const insertPreloaders = require('./utils/insertPreloaders');
 const appendBabelPlugins = require('./utils/appendBabelPlugins');
 const removeMiniCSSExtractLoader = require('./utils/removeMiniCSSExtractLoader');
@@ -18,7 +17,7 @@ if (shouldApplyAntIconLoader()) {
   preloaders.push({
     loader: require.resolve('webpack-ant-icon-loader'),
     enforce: 'pre',
-    include: [require.resolve('@ant-design/icons/lib/dist')],
+    include: [require.resolve('@ant-design/icons/lib/dist')]
   });
 }
 
@@ -32,27 +31,27 @@ const getBabelPlugins = webpackEnv => {
       {
         lodash: {
           transform: 'lodash/${member}',
-          preventFullImport: true,
+          preventFullImport: true
         },
         antd: {
           transform(importName) {
             return `antd/es/${importName.toLowerCase()}`;
           },
-          preventFullImport: true,
+          preventFullImport: true
         },
         recompose: {
           transform: 'recompose/${member}',
-          preventFullImport: true,
-        },
-      },
+          preventFullImport: true
+        }
+      }
     ],
 
     isEnvProduction && [
       require.resolve('babel-plugin-custom-import-path-transform'),
       {
-        transformImportPath: paths.customTransformImportPath,
-      },
-    ],
+        transformImportPath: paths.customTransformImportPath
+      }
+    ]
   ].filter(Boolean);
 };
 
@@ -64,9 +63,9 @@ const getNodeModulesBabelPlugins = webpackEnv => {
     isEnvProduction && [
       require.resolve('babel-plugin-custom-import-path-transform'),
       {
-        transformImportPath: paths.customTransformImportPath,
-      },
-    ],
+        transformImportPath: paths.customTransformImportPath
+      }
+    ]
   ].filter(Boolean);
 };
 
@@ -94,12 +93,13 @@ const transformPlugins = plugins => {
     plugin => plugin instanceof webpack.DefinePlugin
   );
 
-  const env = getBuildEnv();
-  const configNameRegex = new RegExp(`config.${env}.(js|ts)`);
+  const configNameRegex = new RegExp(
+    `config.${process.env.REACT_APP_BUILD_ENV}.(js|ts)`
+  );
 
   plugins.push(
     new WorkerPlugin({
-      plugins: [definePlugin],
+      plugins: [definePlugin]
     }),
     new webpack.ContextReplacementPlugin(/src\/config/, configNameRegex)
   );
