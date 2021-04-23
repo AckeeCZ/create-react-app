@@ -18,7 +18,7 @@
         "prettier-config-ackee": "0.0.15",
         "webpack-ant-icon-loader": "^1.0.8",
         "webpack-bundle-analyzer": "^3.7.0",
-        "worker-plugin": "4.0.3",
+        "worker-plugin": "5.0.0",
         "eslint-plugin-compat": "3.9.0",
         "inquirer": "8.0.0",
         "less": "^3.11.1",
