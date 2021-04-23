@@ -74,6 +74,9 @@
         "pre-commit": "lint-staged",
         "pre-push": "yarn check-circular-modules"
       }
-    }
+    },
+    "browserslist": [
+      "extends @ackee/browserslist-config"
+    ]
   }
 }

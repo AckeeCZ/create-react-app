@@ -65,7 +65,7 @@
       "cypress:open": "cypress open",
       "eject": "react-scripts eject",
       "check-circular-modules": "ackee-react-scripts check-circular-modules",
-      "localize": "source .env.local; lokse update",
+      "localize": "source .env.local || lokse update",
       "localizations": "lokse open",
       "analyze-bundle": "yarn build:production --stats && webpack-bundle-analyzer build/bundle-stats.json",
       "ci-test": "cross-env CI=true react-scripts test --env=jsdom",
@@ -95,18 +95,8 @@
         "<rootDir>/src/config/config.test.js"
       ]
     },
-    "browserslist": {
-      "production": [
-        ">0.2%",
-        "not dead",
-        "not ie <= 11",
-        "not op_mini all"
-      ],
-      "development": [
-        "last 1 chrome version",
-        "last 1 firefox version",
-        "last 1 safari version"
-      ]
-    }
+    "browserslist": [
+      "extends @ackee/browserslist-config"
+    ]
   }
 }
