@@ -7,6 +7,5 @@
                 "extensions": [".js", ".jsx"]
             }
         }
-    },
-    "plugins": ["cypress"]
+    }
 }
