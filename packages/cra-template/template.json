@@ -62,7 +62,6 @@
       "build:production": "export REACT_APP_BUILD_ENV=production; react-scripts build",
       "build:master": "yarn build:production",
       "test:watch": "react-scripts test",
-      "cypress:open": "cypress open",
       "eject": "react-scripts eject",
       "check-circular-modules": "ackee-react-scripts check-circular-modules",
       "localize": "source .env.local || lokse update",
