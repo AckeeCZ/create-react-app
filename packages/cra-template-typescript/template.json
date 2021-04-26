@@ -54,19 +54,18 @@
       "lint-staged": "9.x"
     },
     "scripts": {
-      "start": "yarn localize && react-scripts start",
-      "build": "yarn build:dev",
-      "build:dev": "react-scripts build --target=development",
-      "build:stage": "react-scripts build --target=stage",
-      "build:prod": "react-scripts build --target=production",
-      "test:watch": "react-scripts test",
-      "cypress:open": "cypress open",
+      "start": "export REACT_APP_BUILD_ENV=development; yarn localize && react-scripts start",
+      "build": "yarn build:development",
+      "build:development": "export REACT_APP_BUILD_ENV=development; react-scripts build",
+      "build:stage": "export REACT_APP_BUILD_ENV=stage; react-scripts build",
+      "build:production": "export REACT_APP_BUILD_ENV=production; react-scripts build",
+      "test:watch": "export REACT_APP_BUILD_ENV=test; react-scripts test",
       "eject": "react-scripts eject",
       "check-circular-modules": "ackee-react-scripts check-circular-modules",
-      "localize": "lokse update",
+      "localize": "source .env.local; lokse update",
       "localizations": "lokse open",
-      "analyze-bundle": "yarn build:prod --stats && webpack-bundle-analyzer build/bundle-stats.json",
-      "ci-test": "cross-env CI=true react-scripts test --env=jsdom",
+      "analyze-bundle": "yarn build:production --stats && webpack-bundle-analyzer build/bundle-stats.json",
+      "ci-test": "export REACT_APP_BUILD_ENV=test; export CI=true; react-scripts test --env=jsdom",
       "ci-check-circular-modules": "check-circular-modules"
     },
     "husky": {
@@ -74,6 +73,9 @@
         "pre-commit": "lint-staged",
         "pre-push": "yarn check-circular-modules"
       }
-    }
+    },
+    "browserslist": [
+      "extends @ackee/browserslist-config"
+    ]
   }
 }

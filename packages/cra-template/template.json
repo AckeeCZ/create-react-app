@@ -5,12 +5,12 @@
       "@testing-library/react": "^11.1.0",
       "@testing-library/user-event": "^12.1.10",
       "web-vitals": "^1.0.1",
-      "@ackee/antonio": "3.0.0-beta.9",
-      "@ackee/chris": "2.x",
-      "@ackee/jerome": "4.x",
-      "@ackee/lucas": "0.x",
-      "@ackee/mateus": "1.x",
-      "@ackee/petrus": "5.x",
+      "@ackee/antonio": "3.0.6",
+      "@ackee/chris": "2.0.0",
+      "@ackee/jerome": "4.1",
+      "@ackee/lucas": "0.4.0",
+      "@ackee/mateus": "1.0.0",
+      "@ackee/petrus": "5.2.0",
       "@ackee/redux-utils": "2.x",
       "@sentry/browser": "5.x",
       "antd": "3.x",
@@ -34,11 +34,11 @@
       "reselect": "4.x"
     },
     "devDependencies": {
-      "@lhci/cli": "^0.3.14",
+      "@lhci/cli": "0.6.0",
       "@testing-library/react": "10.x",
       "@testing-library/jest-dom": "5.x",
       "@testing-library/user-event": "10.x",
-      "lokse": "^1.3.1",
+      "lokse": "1.4.0",
       "fela-plugin-validator": "11.x",
       "fela-plugin-prefixer": "11.x",
       "gitmoji-changelog": "2.x",
@@ -55,20 +55,19 @@
       "object-path": "^0.11.5"
     },
     "scripts": {
-      "start": "yarn localize && react-scripts start",
+      "start": "export REACT_APP_BUILD_ENV=development; yarn localize && react-scripts start",
       "build": "yarn build:development",
-      "build:development": "export REACT_APP_BUILD_ENV=development && react-scripts build",
-      "build:stage": "export REACT_APP_BUILD_ENV=stage && react-scripts build",
-      "build:production": "export REACT_APP_BUILD_ENV=production && react-scripts build",
+      "build:development": "export REACT_APP_BUILD_ENV=development; react-scripts build",
+      "build:stage": "export REACT_APP_BUILD_ENV=stage; react-scripts build",
+      "build:production": "export REACT_APP_BUILD_ENV=production; react-scripts build",
       "build:master": "yarn build:production",
-      "test:watch": "react-scripts test",
-      "cypress:open": "cypress open",
+      "test:watch": "export REACT_APP_BUILD_ENV=test; react-scripts test",
       "eject": "react-scripts eject",
       "check-circular-modules": "ackee-react-scripts check-circular-modules",
-      "localize": "lokse update",
+      "localize": "source .env.local; lokse update",
       "localizations": "lokse open",
-      "analyze-bundle": "yarn build:prod --stats && webpack-bundle-analyzer build/bundle-stats.json",
-      "ci-test": "cross-env CI=true react-scripts test --env=jsdom",
+      "analyze-bundle": "yarn build:production --stats && webpack-bundle-analyzer build/bundle-stats.json",
+      "ci-test": "export REACT_APP_BUILD_ENV=test; export CI=true; react-scripts test --env=jsdom",
       "ci-check-circular-modules": "yarn check-circular-modules",
       "ci-lighthouse": "./node_modules/@lhci/cli/src/cli.js autorun",
       "release": "yarn version",
@@ -85,7 +84,9 @@
       "*.{js,jsx,json,scss,less,css,md}": [
         "prettier --config ./prettier.config.js --write"
       ],
-      "**/*.{png,jpeg,jpg,gif,svg,webp}": ["imagemin-lint-staged"]
+      "**/*.{png,jpeg,jpg,gif,svg,webp}": [
+        "imagemin-lint-staged"
+      ]
     },
     "jest": {
       "testPathIgnorePatterns": [
@@ -93,13 +94,8 @@
         "<rootDir>/src/config/config.test.js"
       ]
     },
-    "browserslist": {
-      "production": [">0.2%", "not dead", "not ie <= 11", "not op_mini all"],
-      "development": [
-        "last 1 chrome version",
-        "last 1 firefox version",
-        "last 1 safari version"
-      ]
-    }
+    "browserslist": [
+      "extends @ackee/browserslist-config"
+    ]
   }
 }

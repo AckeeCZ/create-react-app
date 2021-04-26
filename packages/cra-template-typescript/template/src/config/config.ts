@@ -1,14 +1,11 @@
 import { merge } from 'lodash';
-import { isEnvDevelopment } from 'constants/index';
 
-const { BUILD_ENV, REACT_APP_NAME } = process.env;
 // eslint-disable-next-line
-const envConfig = require(`./config.${BUILD_ENV}.ts`).default;
+const envConfig = require(`./config.${process.env.REACT_APP_BUILD_ENV}.ts`).default;
 
 const defaults = {
     // default configuration goes here
-    appName: REACT_APP_NAME,
-    devTools: isEnvDevelopment,
+    appName: process.env.REACT_APP_NAME,
     sentry: {
         // TODO: add PUBLIC 'dsn' of your project here:
         dsn: '',

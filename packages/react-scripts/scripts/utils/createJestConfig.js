@@ -11,10 +11,12 @@ const fs = require('fs');
 const chalk = require('react-dev-utils/chalk');
 const paths = require('../../config/paths');
 const modules = require('../../config/modules');
+// @ackee/react-scripts - beginning
 const {
   transformConfig,
   transformSupportedKeys
 } = require('../../custom/scripts/utils/createJestConfig');
+// @ackee/react-scripts - end
 
 module.exports = (resolve, rootDir, isEjecting) => {
   // Use this instead of `paths.testsSetup` to avoid putting

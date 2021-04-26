@@ -1,12 +1,10 @@
 import { merge } from 'lodash';
-import { isEnvDevelopment } from 'constants/index';
 
-const envConfig = require(`./config.${process.env.REACT_APP_BUILD_ENV || process.env.NODE_ENV}.js`).default;
+const envConfig = require(`./config.${process.env.REACT_APP_BUILD_ENV}.js`).default;
 
 const defaults = {
     // default configuration goes here
     appName: process.env.REACT_APP_NAME,
-    devTools: isEnvDevelopment,
     sentry: {
         // TODO: add PUBLIC 'dsn' of your project here:
         dsn: '',
